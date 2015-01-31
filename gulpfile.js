@@ -108,7 +108,8 @@ gulp.task('serve', ['connect', 'sass'], function () {
         'app/*.html',
         '.tmp/styles/**/*.css',
         'app/scripts/**/*.js',
-        'app/images/**/*'
+        'app/images/**/*',
+        'scss/**/*.scss'
     ]).on('change', livereload.changed);
 
     gulp.watch('scss/**/*.scss', ['sass']);

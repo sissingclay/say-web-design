@@ -1,0 +1,46 @@
+@import "variables";
+
+.swd-container {
+    max-width: 1220px;
+    max-width: 76.25rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    @include box-sizing();
+}
+
+.swd-text-align-right {
+    text-align: right;
+}
+
+.swd-text-align-center {
+    text-align: center;
+}
+
+.swd-display-inline-block {
+    display: inline-block;
+}
+
+.swd-dark-teal {
+    background-color: $color-dark-teal-background;
+}
+.swd-teal {
+    background-color: $color-teal-background;
+}
+
+.swd-purple {
+    background-color: $color-purple-background;
+}
+
+.swd-yellow {
+    background-color: $color-yellow-background;
+    color: $color-text-black;
+}
+
+.swd-light-grey {
+    background-color: $color-yellow-background;
+    color: $color-text-black;
+}
+
+.swd-social-padding {
+    padding: 10px 20px 6px;
+}

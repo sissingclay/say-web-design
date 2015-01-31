@@ -1,0 +1,39 @@
+.swd-container {
+  max-width: 1220px;
+  max-width: 76.25rem;
+  margin: 0 auto;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.swd-text-align-right {
+  text-align: right; }
+
+.swd-text-align-center {
+  text-align: center; }
+
+.swd-display-inline-block {
+  display: inline-block; }
+
+.swd-dark-teal {
+  background-color: #1578a7; }
+
+.swd-teal {
+  background-color: #1aa6ae; }
+
+.swd-purple {
+  background-color: #672b86; }
+
+.swd-yellow {
+  background-color: #fbd053;
+  color: #333333; }
+
+.swd-light-grey {
+  background-color: #fbd053;
+  color: #333333; }
+
+.swd-social-padding {
+  padding: 10px 20px 6px; }

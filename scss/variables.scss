@@ -1,0 +1,23 @@
+$color-dark-teal-background: #1578a7;
+$color-teal-background: #1aa6ae;
+$color-purple-background: #672b86;
+$color-yellow-background: #fbd053;
+$color-black-background: #1f1d1d;
+$color-light-grey-background: #f1f2f2;
+
+$color-white-links: #ffffff;
+
+$color-text-black: #333333;
+
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+@mixin box-sizing( $type: border-box ) {
+    -webkit-box-sizing: $type;
+       -moz-box-sizing: $type;
+         -o-box-sizing: $type;
+        -ms-box-sizing: $type;
+            box-sizing: $type;
+}
