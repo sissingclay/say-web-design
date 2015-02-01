@@ -3,11 +3,17 @@ $color-teal-background: #1aa6ae;
 $color-purple-background: #672b86;
 $color-yellow-background: #fbd053;
 $color-black-background: #1f1d1d;
+$color-dark-grey-background: #333336;
 $color-light-grey-background: #f1f2f2;
+$color-white-background: #ffffff;
+
+$color-border-bottom-teal: #149198;
 
 $color-white-links: #ffffff;
 
+
 $color-text-black: #333333;
+$color-text-white: #ffffff;
 
 @mixin font-size($sizeValue: 1.6) {
   font-size: ($sizeValue * 10) + px;
@@ -20,4 +26,16 @@ $color-text-black: #333333;
          -o-box-sizing: $type;
         -ms-box-sizing: $type;
             box-sizing: $type;
+}
+
+@mixin vertical-align {
+           position: relative;
+                top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+@mixin button-radius($border-color: $color-border-bottom-teal ) {
+    border-bottom: 3px solid $border-color;
 }

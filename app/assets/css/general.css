@@ -31,9 +31,69 @@
   background-color: #fbd053;
   color: #333333; }
 
+.swd-dark-grey {
+  background-color: #333336;
+  color: #ffffff; }
+
 .swd-light-grey {
-  background-color: #fbd053;
+  background-color: #f1f2f2;
   color: #333333; }
+
+.swd-black {
+  background-color: #1f1d1d; }
+
+.swd-get-in-touch {
+  font-size: 14px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  padding: 12px 25px;
+  border-bottom: 3px solid #149198;
+  color: #ffffff; }
 
 .swd-social-padding {
   padding: 10px 20px 6px; }
+
+.swd-section {
+  padding: 125px 0; }
+
+.swd-section-extra {
+  padding: 245px 125px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.swd-fixed-height {
+  height: 315px; }
+
+.swd-fixed-height-margin-bottom {
+  margin-bottom: 25px; }
+
+.swd-process-container {
+  padding: 40px 25px;
+  background-color: #ffffff;
+  width: 80%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.swd-postion-relative {
+  position: relative; }
+
+.swd-postion-absolute {
+  position: absolute; }
+
+.swd-align-vertical-center {
+  bottom: 0;
+  left: 50%;
+  margin-left: -40%; }
+
+.swd-h3-style {
+  font-size: 12.5px;
+  font-size: 1.25rem; }
