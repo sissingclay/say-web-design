@@ -23,6 +23,15 @@ h2 {
   letter-spacing: -0.5px;
   margin: 0 0 36px; }
 
+p {
+  font-size: 12.5px;
+  font-size: 1.25rem;
+  margin: 0 0 45px;
+  line-height: 35px; }
+
+p:last-child {
+  margin: 0 0 0; }
+
 ul {
   margin: 0 0 0 0;
   padding: 0 0 0 0;

@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:700,300,600);
-.open-sans-light, html, html body, .pure-g [class*="pure-u"], h2, .swd-main-content-header h1 {
+.open-sans-light, html, html body, .pure-g [class*="pure-u"], h2, p, .swd-main-content-header h1 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300; }
 
@@ -136,6 +136,15 @@ h2 {
   letter-spacing: -0.5px;
   margin: 0 0 36px; }
 
+p {
+  font-size: 12.5px;
+  font-size: 1.25rem;
+  margin: 0 0 45px;
+  line-height: 35px; }
+
+p:last-child {
+  margin: 0 0 0; }
+
 ul {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
@@ -221,6 +230,9 @@ ul {
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box; }
+
+.swd-who-we-are img {
+  margin-bottom: 45px; }
 
 .owl-carousel .owl-item img.swd-img-auto-width {
   width: auto;

@@ -37,6 +37,17 @@ h2 {
     margin: 0 0 36px;
 }
 
+p {
+    @include font-size(1.25);
+    @extend .open-sans-light;
+    margin: 0 0 45px;
+    line-height: 35px;
+}
+
+p:last-child {
+    margin: 0 0 0;
+}
+
 ul {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
