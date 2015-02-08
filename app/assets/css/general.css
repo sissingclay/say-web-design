@@ -49,11 +49,27 @@
   font-weight: bold;
   letter-spacing: -0.5px;
   padding: 12px 25px;
-  border-bottom: 3px solid #149198;
-  color: #ffffff; }
+  -webkit-box-shadow: 0 2px 0 #1578a7;
+  -moz-box-shadow: 0 2px 0 #1578a7;
+  box-shadow: 0 2px 0 #1578a7;
+  color: #ffffff;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -moz-transition: background-color 0.5s ease-in-out;
+  -ms-transition: background-color 0.5s ease-in-out;
+  -o-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out; }
+  .swd-get-in-touch:active {
+    box-shadow: 0 0 0 #1578a7;
+    -moz-transform: translateY(2px);
+    -o-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px); }
+  .swd-get-in-touch:hover {
+    background-color: #333336; }
 
 .swd-social-padding {
-  padding: 10px 20px 6px; }
+  padding: 7px 18px 6px; }
 
 .swd-section {
   padding: 125px 0; }

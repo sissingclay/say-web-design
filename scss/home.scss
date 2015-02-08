@@ -31,6 +31,10 @@
             color: $color-dark-grey-background;
         }
     }
+    
+    img {
+        margin: 0 auto;
+    }
 }
 
 .swd-section-what-we-promise-right {
@@ -38,6 +42,7 @@
     @include box-sizing();
     
     ul {
+        max-width: 660px;
         
         li {
             @include font-size(1.563);
@@ -91,6 +96,25 @@
 .swd-who-we-are {
     
     img {
-        margin-bottom: 45px;
+        margin: 0 auto 45px;
+    }
+    
+    a {
+        position: relative;
+        
+        i {
+            position: absolute;
+            top: -20px;
+            right: 36%;
+            color: $color-text-teal;
+            line-height: 20px;
+        }
+        
+        &:hover {
+            
+            i {
+                color: $color-dark-grey-background;
+            }
+        }
     }
 }

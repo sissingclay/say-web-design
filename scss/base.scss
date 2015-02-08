@@ -19,6 +19,7 @@ html {
 
 a {
     text-decoration: none;
+    color: $color-text-white;
 }
 
 h1 {
@@ -52,4 +53,22 @@ ul {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
     list-style-type: none;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    @include box-sizing;
+    margin-bottom: 20px;
+    @extend .open-sans-light;
+    @include font-size(1.25);
+    
+    &:focus {
+        outline: none;
+    }
+}
+
+button {
+    border: none;
+    background-color: $color-teal-background;
 }

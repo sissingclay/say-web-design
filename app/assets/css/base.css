@@ -7,7 +7,8 @@ html {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004); }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #ffffff; }
 
 h1 {
   font-size: 34.38px;
@@ -36,3 +37,21 @@ ul {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   list-style-type: none; }
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 12.5px;
+  font-size: 1.25rem; }
+  input:focus, textarea:focus {
+    outline: none; }
+
+button {
+  border: none;
+  background-color: #1aa6ae; }

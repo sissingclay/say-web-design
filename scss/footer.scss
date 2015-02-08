@@ -1,0 +1,108 @@
+@import "variables";
+
+.swd-footer {
+    position: relative;
+    
+    .swd-footer-title-section {
+        
+        h1 {
+            line-height: 50px;
+        }
+        
+        p {
+            @include font-size(1.563);
+        }
+        
+        h1, p {
+            margin-bottom: 0px;
+        }
+    }
+    
+    .swd-footer-icon-section {
+        border-bottom: 1px solid $color-border-bottom-white;
+        margin-bottom: 50px;
+        
+        i {
+            margin-left: 20px;
+            line-height: 54px;
+        }
+    }
+    
+    form {
+        margin-bottom: 65px;
+    }
+    
+    input {
+        height: 55px;
+    }
+    
+    textarea {
+        height: 280px;
+        border: none;
+    }
+    
+    input, textarea {
+       border: 3px solid $color-border-bottom-white;
+        @include transition(all, 0.5s, ease-in-out);
+
+        &:focus {
+            color: $color-text-grey;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border: 3px solid $color-border-bottom-teal;
+        }
+    }
+    
+    
+    .swd-footer-spacing {
+        padding-right: 40px;
+        @include box-sizing();
+    }
+    
+    .swd-footer-form-button {
+        margin-bottom: 28px;
+    }
+    
+    .swd-footer-form-cancel {
+        display: block;
+        color: $color-text-grey;
+        @include font-size(1.25);
+        text-decoration: underline;
+        margin-bottom: 65px;
+    }
+    
+    .swd-footer-form-required {
+        color: $color-text-teal;
+        @include font-size(1.25);
+    }
+    
+    .swd-footer-copyright {
+        
+        p {
+            @include font-size(1.563);
+            margin-bottom: 35px;
+            
+            &.swd-less-margin {
+                margin-bottom: 5px;
+            }
+        }
+        
+        .swd-footer-icons {
+            background-color: $color-purple-background;
+            display: inline-block;
+            width: 30px;
+            @extend .open-sans-bold;
+        }
+    }
+    
+    .swd-social-buttons {
+        position: absolute;
+        right: 0;
+        top: 125px;
+        
+        a {
+            padding: 0 3px;
+            @include font-size(1.8);
+        }
+    }
+}

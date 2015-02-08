@@ -7,13 +7,16 @@ $color-dark-grey-background: #333336;
 $color-light-grey-background: #f1f2f2;
 $color-white-background: #ffffff;
 
-$color-border-bottom-teal: #149198;
+$color-border-bottom-teal: #1578a7;
+$color-border-bottom-white: #ffffff;
 
 $color-white-links: #ffffff;
 
-
 $color-text-black: #333333;
 $color-text-white: #ffffff;
+$color-text-grey: #999999;
+$color-text-teal: #1aa6ae;
+$color-tetx-light-grey: #f1f2f2;
 
 @mixin font-size($sizeValue: 1.6) {
   font-size: ($sizeValue * 10) + px;
@@ -36,6 +39,24 @@ $color-text-white: #ffffff;
           transform: translateY(-50%);
 }
 
-@mixin button-radius($border-color: $color-border-bottom-teal ) {
-    border-bottom: 3px solid $border-color;
+@mixin button($border-color: $color-border-bottom-teal ) {
+    -webkit-box-shadow: 0 2px 0 $border-color;
+       -moz-box-shadow: 0 2px 0 $border-color;
+            box-shadow: 0 2px 0 $border-color;
+}
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+      -o-transform: $transforms;
+     -ms-transform: $transforms;
+ -webkit-transform: $transforms;
+         transform: $transforms;
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+       -moz-transition: $transition-property $transition-time $method;
+        -ms-transition: $transition-property $transition-time $method;
+         -o-transition: $transition-property $transition-time $method;
+            transition: $transition-property $transition-time $method;
 }

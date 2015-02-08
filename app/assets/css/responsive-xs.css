@@ -1,0 +1,52 @@
+@media screen and (max-width: 35.49em) {
+  .swd-header {
+    padding: 20px 0 20px 20px; }
+    .swd-header .swd-social-buttons a {
+      font-size: 12px;
+      font-size: 1.2rem;
+      padding: 0 5px; }
+  .swd-process-container {
+    width: 100%;
+    padding: 40px 20px; }
+  .swd-align-vertical-center {
+    left: 0;
+    margin-left: 0; }
+  .swd-fixed-height-margin-bottom {
+    padding: 0 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box; }
+    .swd-fixed-height-margin-bottom .swd-postion-absolute {
+      position: relative; }
+  .swd-main-content-header h1 {
+    font-size: 18px;
+    font-size: 1.8rem; }
+  h1 {
+    font-size: 18px;
+    font-size: 1.8rem; }
+  h2 {
+    font-size: 15px;
+    font-size: 1.5rem; }
+  .swd-section-extra {
+    padding: 245px 0; }
+  .swd-section-what-we-promise-right {
+    padding: 80px 0; }
+    .swd-section-what-we-promise-right ul li {
+      padding-left: 20px;
+      padding-right: 20px; }
+  .swd-social-padding {
+    padding: 7px 10px 6px; }
+  .swd-get-in-touch {
+    font-size: 8.5px;
+    font-size: 0.85rem;
+    padding: 12px 15px; }
+  .swd-footer .swd-footer-form-cancel {
+    font-size: 10px;
+    font-size: 1rem; }
+  .swd-footer .swd-footer-copyright p {
+    font-size: 10px;
+    font-size: 1rem; }
+  .swd-footer .swd-social-buttons {
+    display: none; } }

@@ -22,6 +22,8 @@
     z-index: 1; }
     .swd-section-what-we-promise .swd-right-arrow i {
       color: #333336; }
+  .swd-section-what-we-promise img {
+    margin: 0 auto; }
 
 .swd-section-what-we-promise-right {
   padding: 80px 175px;
@@ -30,23 +32,25 @@
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box; }
-  .swd-section-what-we-promise-right ul li {
-    font-size: 15.63px;
-    font-size: 1.563rem;
-    margin-bottom: 45px;
-    position: relative;
-    padding-left: 40px; }
-    .swd-section-what-we-promise-right ul li:before {
-      content: '\f00c';
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      position: absolute;
-      left: -45px;
-      font-size: 27.63px;
-      font-size: 2.763rem; }
-    .swd-section-what-we-promise-right ul li:last-child {
-      margin-bottom: 0; }
+  .swd-section-what-we-promise-right ul {
+    max-width: 660px; }
+    .swd-section-what-we-promise-right ul li {
+      font-size: 15.63px;
+      font-size: 1.563rem;
+      margin-bottom: 45px;
+      position: relative;
+      padding-left: 40px; }
+      .swd-section-what-we-promise-right ul li:before {
+        content: '\f00c';
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        position: absolute;
+        left: -45px;
+        font-size: 27.63px;
+        font-size: 2.763rem; }
+      .swd-section-what-we-promise-right ul li:last-child {
+        margin-bottom: 0; }
   .swd-section-what-we-promise-right .swd-down-arrow {
     bottom: -47px;
     left: 50%;
@@ -70,4 +74,14 @@
   box-sizing: border-box; }
 
 .swd-who-we-are img {
-  margin-bottom: 45px; }
+  margin: 0 auto 45px; }
+.swd-who-we-are a {
+  position: relative; }
+  .swd-who-we-are a i {
+    position: absolute;
+    top: -20px;
+    right: 36%;
+    color: #1aa6ae;
+    line-height: 20px; }
+  .swd-who-we-are a:hover i {
+    color: #333336; }
