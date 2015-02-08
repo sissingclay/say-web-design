@@ -127,6 +127,9 @@
   font-size: 12.5px;
   font-size: 1.25rem; }
 
+.swd-hidden {
+  display: none; }
+
 html {
   font-size: 16px; }
   html body {

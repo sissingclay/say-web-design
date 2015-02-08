@@ -117,3 +117,7 @@
 .swd-h3-style {
     @include font-size(1.25);
 }
+
+.swd-hidden {
+    display: none;
+}
