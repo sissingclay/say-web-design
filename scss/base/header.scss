@@ -1,0 +1,27 @@
+@import "variables";
+
+.swd-header {
+    padding: 30px 0 20px 25px;
+    position: fixed;
+    @include box-sizing();
+    width: 100%;
+    background-color: $color-white-background;
+    margin-top: -$body-padding-top;
+    z-index: 100;
+    
+    a {
+        
+        &:visited {
+            color: $color-white-links;
+            text-decoration: none;
+        }
+    }
+    
+    .swd-social-buttons {
+        
+        a {
+            padding: 0 3px;
+            @include font-size(1.8);
+        }
+    }
+}

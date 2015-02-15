@@ -1,0 +1,23 @@
+@media screen and (min-width: 64em) and (max-width: 90em) {
+    //64em => 1024px
+    .swd-section-what-we-promise-right {
+        padding: 80px 55px;
+        
+        ul {
+            
+            li {
+                
+                &:before {
+                    left: -16px;
+                }
+            }
+        }
+    }
+    
+    .swd-footer {
+        
+        .swd-social-buttons {
+            top: 57px;
+        }
+    }
+}

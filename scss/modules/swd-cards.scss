@@ -1,0 +1,76 @@
+@mixin swd-cardsFace ($background: $color-white-background) {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 25px;
+    background-color: $background;
+    width: 100%;
+    @include swd-cardsHeight();
+}
+
+@mixin swd-cardsHeight () {
+    height: 315px;
+}
+
+.swd-cards {
+    perspective: 1000;
+    margin: 0 20px;
+    @include swd-cardsHeight();
+    @include box-sizing();
+    
+    &:hover {
+        
+        .swd-cardsFlip {
+            transform: rotateY(180deg);
+        }
+    }
+    
+    &.hover {
+        
+        .swd-cardsFlip {
+            transform: rotateY(180deg);
+        }
+    }
+}
+
+.swd-cards_large {
+    margin-bottom: 20px;
+}
+
+/* flip speed goes here */
+.swd-cardsFlip {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.swd-cardsFront {
+    @include swd-cardsFace();
+    @include box-sizing();
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+.swd-cardsFront > i {
+    font-size: 100px;
+    @include vertical-align;
+    left: 25%;
+    color: $color-text-purple;
+}
+
+.swd-cardsFront_large > i {
+    font-size: 100px;
+    @include vertical-align;
+    left: 0;
+}
+
+/* back, initially hidden pane */
+.swd-cardsBack {
+    @include swd-cardsFace($color-purple-background);
+    @include box-sizing();
+    transform: rotateY(180deg);
+    color: $color-text-white;
+}

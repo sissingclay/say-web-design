@@ -17,6 +17,9 @@ $color-text-white: #ffffff;
 $color-text-grey: #999999;
 $color-text-teal: #1aa6ae;
 $color-tetx-light-grey: #f1f2f2;
+$color-text-purple: #672b86;
+
+$body-padding-top: 175px;
 
 @mixin font-size($sizeValue: 1.6) {
   font-size: ($sizeValue * 10) + px;
