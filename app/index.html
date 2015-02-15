@@ -38,7 +38,7 @@
                     <div>
                         <div class="swd-social-buttons swd-display-inline-block swd-dark-teal swd-social-padding">
                             <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-twitter"></i></a>
+                            <a href="" class="twitter"><i class="fa fa-twitter"></i></a>
                             <a href=""><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
@@ -406,7 +406,7 @@
             
             <section class="swd-yellow swd-section swd-text-align-center">
                 
-                <div class="swd-container swd-who-we-are">
+                <div class="swd-container swd-whoWeAre">
                 
                     <h1>Who We Are</h1>
                     <p>We’re a London based web design and web development agency. 
@@ -434,8 +434,9 @@
                     </div>
                     
                     <div>
-                        <a href="" data-swd-speed="1500" data-swd-element="#swd-readMore" id="swd-readBtn" class="swd-display-inline-block swd-teal swd-get-in-touch swd-scroll">
-                            <i class="fa fa-caret-up fa-3x"></i> Read Less
+                        <a href="" id="swd-readBtn" class="swd-display-inline-block swd-teal swd-get-in-touch swd-readBtn">
+                            <span class="swd-readBtn_more"><i class="fa fa-caret-down fa-3x"></i> Read More</span>
+                            <span class="swd-readBtn_less"><i class="fa fa-caret-up fa-3x"></i> Read Less</span>
                         </a>
                     </div>
                     
@@ -449,7 +450,7 @@
                 
                     <div class="swd-container">
                         
-                        <div class="swd-hidden" id="swd-contactForm-js">
+                        <div class="swd-hidden swd-contactForm" id="swd-contactForm-js">
                         
                             <section class="pure-g swd-footer-title-section">
 
@@ -491,7 +492,7 @@
 
                                 <div class="pure-u-1-1 pure-u-md-1-5">
                                     <button type="submit" class="swd-get-in-touch swd-footer-form-button">Send</button>
-                                    <a href="" data-swd-speed="1500" data-swd-element="#swd-contactForm-js" class="swd-footer-form-cancel swd-scroll">Cancel</a>
+                                    <a href="" id="swd-cancelForm-js" class="swd-footer-form-cancel">Cancel</a>
                                     <p class="swd-footer-form-required">All fields required.</p>
                                 </div>
 
@@ -516,7 +517,7 @@
                     
                     <div class="swd-social-buttons swd-display-inline-block swd-dark-teal swd-social-padding">
                         <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-twitter"></i></a>
+                        <a href="" class="twitter"><i class="fa fa-twitter"></i></a>
                         <a href=""><i class="fa fa-linkedin"></i></a>
                     </div>
                     
@@ -530,138 +531,235 @@
         <script src="/components/owl2/dist/owl.carousel.min.js"></script>
         <script src="/components/wow/dist/wow.min.js"></script>
         
-        <script>
+<script>
 
-            var swdModule = (function() {
+    var swdModule = (function () {
 
-                'use strict';
-                
-                // Feature Test
-                if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
+        'use strict';
 
-                    // Function to animate the scroll
-                    var smoothScroll = function (anchor, duration) {
+        // Feature Test
+        if ( 'querySelector' in document && 'addEventListener' in window && Array.prototype.forEach ) {
 
-                        // Calculate how far and how fast to scroll
-                        var startLocation = window.pageYOffset;
-                        var endLocation = anchor.offsetTop;
-                        var distance = endLocation - startLocation;
-                        var increments = distance/(duration/16);
-                        var stopAnimation;
+            var $$ = function (selector) {
 
-                        // Scroll the page by an increment, and check if it's time to stop
-                        var animateScroll = function () {
-                            window.scrollBy(0, increments);
-                            stopAnimation();
-                        };
+                var firstCharacter = selector.charAt(0);
 
-                        // If scrolling down
-                        if ( increments >= 0 ) {
-                            // Stop animation when you reach the anchor OR the bottom of the page
-                            stopAnimation = function () {
-                                var travelled = window.pageYOffset;
-                                if ( (travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight) ) {
-                                    clearInterval(runAnimation);
-                                }
-                            };
-                        }
-                        // If scrolling up
-                        else {
-                            // Stop animation when you reach the anchor OR the top of the page
-                            stopAnimation = function () {
-                                var travelled = window.pageYOffset;
-                                if ( travelled <= (endLocation || 0) ) {
-                                    clearInterval(runAnimation);
-                                }
-                            };
-                        }
+                if (firstCharacter === '.') {
+                    return loopElements(document.querySelectorAll(selector));
+                }
 
-                        // Loop the animation function
-                        var runAnimation = setInterval(animateScroll, 16);
+                return document.querySelector(selector);
+            };
+            
+            /**
+             * swdModule.clickedClass('.twitter', {
+             *      toggleClass: 'swd-hidden',
+             *      toToggle: '#swd-contactForm-js'
+             * });
+             */
+            var init = function (selector, data) {
 
-                    };
-                    
-                    var toggleContainer = function (element, cls) {
+                var data            = data || {},
+                    toggleElement   = $$(selector),
+                    toggleClass     = data.toggleClass,
+                    toToggle        = $$(data.toToggle);
 
-                        // This checks if element has class
-                        var hasClass = function () {
-                            return element.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
-                        };
-                        
-                        // This adds class to element
-                        var addClass = function () {
-                            if (!hasClass()) element.className += " " + cls;
-                        };
-                        
-                        // This removes class from element
-                        var removeClass = function () {
-                            if (hasClass()) {
-                                var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-                                element.className = element.className.replace(reg, ' ');
-                            }
-                        };
-                        
-                        if (hasClass()) {
-                            removeClass();
-                        } else {
-                            addClass();
-                        }
-                    };
-                    
-                    
-                    // Define smooth scroll links
-                    var scrollToggle = document.querySelectorAll('.swd-scroll');
-
-                    // For each smooth scroll link
-                    [].forEach.call(scrollToggle, function (toggle) {
-
-                        // When the smooth scroll link is clicked
-                        toggle.addEventListener('click', function(e) {
-
-                            // Prevent the default link behavior
-                            e.preventDefault();
-
-                            // Get anchor link and calculate distance from the top
-                            var dataID = toggle.getAttribute('href');
-                            var dataSpeed = toggle.getAttribute('data-swd-speed');
-                            var dataElement = toggle.getAttribute('data-swd-element');
-                            var elementTarget = document.querySelector(dataElement);
-                            
-                            if (dataID) {
-                                var dataTarget = document.querySelector(dataID);
-                            }
-                            
-                            // If the anchor exists
-                            if (dataTarget) {
-                                // Scroll to the anchor
-                                smoothScroll(dataTarget, dataSpeed || 700);
-                                
-                                // Check if element has class
-                                toggleContainer(elementTarget, 'swd-hidden');
-                            } else {
-                                // Check if element has class
-                                toggleContainer(elementTarget, 'swd-hidden');
-                            }
-
-                        }, false);
+                if (toggleElement) {
+  
+                    toggleElement.addEventListener('click', function(element) {
+                        element.preventDefault();
+                        toggle(toToggle, toggleClass);
                     });
                 }
-             }(swdModule || {}));
-             
-            document.addEventListener("DOMContentLoaded", function() {
-                $('.owl-carousel').owlCarousel({
-                    items: 1,
-                    center: true
-                });
-                
-                wow = new WOW({
-                    mobile: false
-                });
+            };
 
-                wow.init();
-            });
+
+            var loopClasses = function (selector, data) {
+
+                [].forEach.call(document.querySelectorAll(selector), function (elements) {
+
+                    elements.addEventListener('click', function(element) {
+
+                        element.preventDefault();
+                        toggleClass     = data.toggleClass;
+                        toToggle        = $$(data.toToggle);
+                        toggle(toToggle, toggleClass);
+                    });
+                });
+            };
             
-        </script>
+            var smoothScroll = function (anchor, duration) {
+
+                // Calculate how far and how fast to scroll
+                var startLocation = window.pageYOffset;
+                var endLocation = anchor.offsetTop;
+                var distance = endLocation - startLocation;
+                var increments = distance/(duration/16);
+                var stopAnimation;
+
+                // Scroll the page by an increment, and check if it's time to stop
+                var animateScroll = function () {
+                    window.scrollBy(0, increments);
+                    stopAnimation();
+                };
+
+                // If scrolling down
+                if ( increments >= 0 ) {
+                    // Stop animation when you reach the anchor OR the bottom of the page
+                    stopAnimation = function () {
+                        var travelled = window.pageYOffset;
+                        if ( (travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight) ) {
+                            clearInterval(runAnimation);
+                        }
+                    };
+                }
+                // If scrolling up
+                else {
+                    // Stop animation when you reach the anchor OR the top of the page
+                    stopAnimation = function () {
+                        var travelled = window.pageYOffset;
+                        if ( travelled <= (endLocation || 0) ) {
+                            clearInterval(runAnimation);
+                        }
+                    };
+                }
+
+                // Loop the animation function
+                var runAnimation = setInterval(animateScroll, 12);
+
+            };
+            
+            var scroll = function (data) {
+                
+                var scrollToggle    = document.querySelectorAll('.swd-scroll'),
+                    toToggle        = $$(data.toToggle),
+                    toggleClass     = data.toggleClass;
+                
+                // For each smooth scroll link
+                [].forEach.call(scrollToggle, function (toggle) {
+
+                    // When the smooth scroll link is clicked
+                    toggle.addEventListener('click', function(e) {
+
+                        // Prevent the default link behavior
+                        e.preventDefault();
+
+                        // Get anchor link and calculate distance from the top
+                        var dataID = toggle.getAttribute('href');
+                        var dataSpeed = toggle.getAttribute('data-swd-speed');
+                        var dataElement = toggle.getAttribute('data-swd-element');
+                        var elementTarget = document.querySelector(dataElement);
+
+                        if (dataID) {
+                            var dataTarget = document.querySelector(dataID);
+                        }
+
+                        // If the anchor exists
+                        if (dataTarget) {
+                            // Scroll to the anchor
+                            smoothScroll(dataTarget, dataSpeed || 700);
+
+                            // Check if element has class
+                            unsetClass(toToggle, toggleClass);
+                        } else {
+                            // Check if element has class
+                            unsetClass(toToggle, toggleClass);
+                        }
+
+                    }, false);
+                });
+            };
+            
+            var toggle = function (toToggle, toggleClass) {
+
+                if (hasClass(toToggle, toggleClass)) {
+                    removeClass(toToggle, toggleClass);
+                } else {
+                    addClass(toToggle, toggleClass);
+                }
+            };
+            
+            var unsetClass = function (toToggle, toggleClass) {
+                
+                if (hasClass(toToggle, toggleClass)) {
+                    removeClass(toToggle, toggleClass);
+                }
+            };
+            
+            // This checks if element has class
+            var hasClass = function (toToggle, toggleClass) {
+                return toToggle.className.match(new RegExp('(\\s|^)' + toggleClass + '(\\s|$)'));
+            };
+
+
+            // This adds class to element
+            var addClass = function (toToggle, toggleClass) {
+                if (!hasClass(toToggle, toggleClass)) toToggle.className += " " + toggleClass;
+            };
+
+
+            // This removes class from element
+            var removeClass = function (toToggle, toggleClass) {
+                if (hasClass(toToggle, toggleClass)) {
+                    var reg = new RegExp('(\\s|^)' + toggleClass + '(\\s|$)');
+                    toToggle.className = toToggle.className.replace(reg, ' ');
+                }
+            };
+
+
+            return {
+                clickedId: init,
+                clickedClass: loopClasses,
+                scroll: scroll,
+                hasClass: hasClass,
+                addClass: addClass,
+                removeClass: removeClass
+            };
+        }
+    }());
+
+    document.addEventListener('DOMContentLoaded', function() {
+         $('.owl-carousel').owlCarousel({
+             items: 1,
+             center: true
+         });
+
+         wow = new WOW({
+             mobile: false
+         });
+
+         wow.init();
+
+        swdModule.clickedId('#swd-readBtn', {
+            toggleClass: 'swd-hidden',
+            toToggle: '#swd-readMore'
+        });
+        
+        document.querySelector('#swd-readBtn').addEventListener('click', function (ele) {
+            
+            ele.preventDefault();
+            if (swdModule.hasClass(document.querySelector('#swd-readBtn'), 'swd-activeBtn')) {
+                swdModule.removeClass(document.querySelector('#swd-readBtn'), 'swd-activeBtn');
+            } else {
+                swdModule.addClass(document.querySelector('#swd-readBtn'), 'swd-activeBtn');
+            }
+        }, false);
+        
+        swdModule.clickedId('#swd-cancelForm-js', {
+            toggleClass: 'swd-hidden',
+            toToggle: '#swd-contactForm-js'
+        });
+
+        swdModule.scroll({
+            toggleClass: 'swd-hidden',
+            toToggle: '#swd-contactForm-js'
+        });
+
+    });
+             
+             
+            
+</script>
         
     </body>
 </html>

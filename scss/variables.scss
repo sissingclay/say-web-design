@@ -63,3 +63,11 @@ $body-padding-top: 175px;
          -o-transition: $transition-property $transition-time $method;
             transition: $transition-property $transition-time $method;
 }
+
+@mixin heightAnimation() {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}

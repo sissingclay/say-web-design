@@ -364,18 +364,73 @@ button {
   -ms-box-sizing: border-box;
   box-sizing: border-box; }
 
-.swd-who-we-are img {
+.swd-whoWeAre img {
   margin: 0 auto 45px; }
-.swd-who-we-are a {
+
+#swd-readMore {
+  -webkit-transition: all 1.25s ease-in-out;
+  -moz-transition: all 1.25s ease-in-out;
+  -ms-transition: all 1.25s ease-in-out;
+  -o-transition: all 1.25s ease-in-out;
+  transition: all 1.25s ease-in-out;
+  max-height: 999px;
+  margin-bottom: 45px;
+  opacity: 1; }
+  #swd-readMore.swd-hidden {
+    -webkit-transition: all 1.25s ease-in-out;
+    -moz-transition: all 1.25s ease-in-out;
+    -ms-transition: all 1.25s ease-in-out;
+    -o-transition: all 1.25s ease-in-out;
+    transition: all 1.25s ease-in-out;
+    margin-bottom: 0;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden; }
+
+.swd-readBtn {
   position: relative; }
-  .swd-who-we-are a i {
+  .swd-readBtn i {
     position: absolute;
-    top: -20px;
+    bottom: -18px;
     right: 36%;
     color: #1aa6ae;
     line-height: 20px; }
-  .swd-who-we-are a:hover i {
+  .swd-readBtn:hover i {
     color: #333336; }
+
+.swd-readBtn > .swd-readBtn_less > i {
+  top: -20px; }
+
+.swd-readBtn_less {
+  display: none; }
+
+.swd-activeBtn > .swd-readBtn_more {
+  display: none; }
+
+.swd-activeBtn > .swd-readBtn_less {
+  display: block; }
+
+.swd-contactForm {
+  max-height: 999px;
+  -webkit-transition: all 1.25s ease-in-out;
+  -moz-transition: all 1.25s ease-in-out;
+  -ms-transition: all 1.25s ease-in-out;
+  -o-transition: all 1.25s ease-in-out;
+  transition: all 1.25s ease-in-out;
+  opacity: 1; }
+  .swd-contactForm.swd-hidden {
+    -webkit-transition: all 1.25s ease-in-out;
+    -moz-transition: all 1.25s ease-in-out;
+    -ms-transition: all 1.25s ease-in-out;
+    -o-transition: all 1.25s ease-in-out;
+    transition: all 1.25s ease-in-out;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden; }
 
 .swd-cards {
   perspective: 1000;
