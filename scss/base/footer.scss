@@ -21,10 +21,15 @@
     .swd-footer-icon-section {
         border-bottom: 1px solid $color-border-bottom-white;
         margin-bottom: 50px;
+        position: relative;
+        height: 116px;
         
         i {
             margin-left: 20px;
             line-height: 54px;
+            position: absolute;
+            top: 38px;
+            font-size: 6em;
         }
     }
     
@@ -42,7 +47,7 @@
     }
     
     input, textarea {
-       border: 3px solid $color-border-bottom-white;
+        border: 3px solid $color-border-bottom-white;
         @include transition(all, 0.5s, ease-in-out);
 
         &:focus {
@@ -51,8 +56,15 @@
             box-shadow: none;
             border: 3px solid $color-border-bottom-teal;
         }
+        
+        &.parsley-error {
+            border: 3px solid $color-border-bottom-red;
+        }
     }
     
+    .parsley-errors-list li {
+        margin-bottom: 20px;
+    }
     
     .swd-footer-spacing {
         padding-right: 40px;
@@ -95,10 +107,13 @@
         }
     }
     
-    .swd-social-buttons {
+    .swdSocial {
         position: absolute;
         right: 0;
         top: 125px;
+        display: inline-block;
+        background-color: $color-dark-teal-background;
+        padding: 7px 18px 6px;
         
         a {
             padding: 0 3px;

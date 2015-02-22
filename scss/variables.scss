@@ -9,6 +9,7 @@ $color-white-background: #ffffff;
 
 $color-border-bottom-teal: #1578a7;
 $color-border-bottom-white: #ffffff;
+$color-border-bottom-red: #c54545;
 
 $color-white-links: #ffffff;
 
@@ -16,7 +17,7 @@ $color-text-black: #333333;
 $color-text-white: #ffffff;
 $color-text-grey: #999999;
 $color-text-teal: #1aa6ae;
-$color-tetx-light-grey: #f1f2f2;
+$color-text-light-grey: #f1f2f2;
 $color-text-purple: #672b86;
 
 $body-padding-top: 175px;
@@ -35,11 +36,9 @@ $body-padding-top: 175px;
 }
 
 @mixin vertical-align {
-           position: relative;
-                top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+    position: relative;
+         top: 50%;
+     @include transform(translate3d(-50%, 0, 0) translateY(-50%) translateX(50%));
 }
 
 @mixin button($border-color: $color-border-bottom-teal ) {

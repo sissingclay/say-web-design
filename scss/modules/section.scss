@@ -1,0 +1,39 @@
+.swdSection {
+    padding: 125px 0;
+}
+
+.swdSection-yellow {
+    background-color: $color-yellow-background;
+    color: $color-text-black;
+}
+
+.swdSection-purple {
+    background-color: $color-purple-background;
+}
+
+.swdSection-darkGrey {
+    background-color: $color-dark-grey-background;
+    color: $color-text-white;
+}
+
+.swdSection-lightGrey {
+    background-color: $color-light-grey-background;
+    color: $color-text-black;
+}
+
+.swdSection-black {
+    background-color: $color-black-background;
+}
+
+.swdSection-extra {
+    padding: 245px 125px;
+    @include box-sizing();
+}
+
+
+//pixels 767px
+@media screen and (max-width: 47.99em) {
+    .swdSection-extra {
+        padding: 245px 15px;
+    }
+}

@@ -1,16 +1,15 @@
 {
-    "name": "Say Web Design",
-    "version": "1.0.0",
-    "main": "path/to/main.css",
-    "ignore": [
-        ".jshintrc",
-        "**/*.txt"
-    ],
-    "dependencies": {
-        "owl2": "git@github.com:smashingboxes/OwlCarousel2.git",
-        "wow": "https://github.com/matthieua/WOW.git"
-    },
-    "devDependencies" : {
-        
-    }
+  "name": "Say Web Design",
+  "version": "1.0.0",
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "owl2": "git@github.com:smashingboxes/OwlCarousel2.git",
+    "wow": "https://github.com/matthieua/WOW.git",
+    "parsleyjs": "~2.0.7"
+  },
+  "devDependencies": {}
 }

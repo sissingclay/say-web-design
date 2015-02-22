@@ -118,6 +118,29 @@ gulp.task('serve', ['connect', 'sass'], function () {
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'misc']);
 
+/*gulp.task('iconfont', function() {
+    
+    var iconfont    = require('gulp-iconfont');
+    var iconfontCss = require('gulp-iconfont-css');
+    var fontName    = 'swdIcons';
+    
+    gulp.src(['assets/icons/*.svg'])
+        .pipe(iconfontCss({
+            fontName: fontName,
+            path: 'assets/css/templates/_icons.css',
+            targetPath: '../../app/assets/css/_icons.css',
+            fontPath: '../fonts/',
+            className: 'ccFontIcon',
+            normalize: true
+        }))
+        .pipe(iconfont({
+            fontName: fontName,
+            appendCodepoints: true // recommended option
+        }))
+
+        .pipe(gulp.dest('app/assets/fonts/'));
+});*/
+
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
 });

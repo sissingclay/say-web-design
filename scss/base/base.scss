@@ -1,15 +1,15 @@
 html {
     font-size:16px;
     @extend .open-sans-light;
-    
-    body {
-        font-size: 16px;
-        color: #ffffff;
-        @extend .open-sans-light;
-        -webkit-font-smoothing: antialiased;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-        padding-top: $body-padding-top;
-    }
+}
+
+body {
+    font-size: 16px;
+    color: #ffffff;
+    @extend .open-sans-light;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    padding-top: $body-padding-top;
 }
 
 .pure-g [class*="pure-u"] {
@@ -78,4 +78,12 @@ input, textarea {
 button {
     border: none;
     background-color: $color-teal-background;
+}
+
+//pixels 767px
+@media screen and (max-width: 47.99em) {
+    
+    body {
+        padding-top: 0;
+    }
 }

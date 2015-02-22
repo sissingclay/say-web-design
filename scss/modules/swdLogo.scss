@@ -1,0 +1,29 @@
+.swdBoxSlider {
+    @include transform(translate3d(50vw, 0, 0) translateX(-50%) scale(1));
+    @include transition(transform, 400ms, ease);
+    display: inline-block;
+}
+
+.swdBoxSlider_main {
+    display: inline-block;
+}
+
+.swdBoxSlider_img {
+    width: 230px;
+}
+
+.swdBoxSlider-active {
+    @include transform(translate3d(0vw, 0, 0) translateX(0) scale(1));
+}
+
+//pixels 767px
+@media screen and (max-width: 47.99em) {
+    
+    .swdBoxSlider {
+        @include transform(translate3d(0vw, 0, 0) translateX(0) scale(1));
+    }
+    
+    .swdBoxSlider_img {
+        width: 130px;
+    }
+}

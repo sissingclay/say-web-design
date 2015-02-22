@@ -5,11 +5,10 @@
 @import "variables";
 @import "base/header";
 @import "base/footer";
+@import "modules/swdLogo";
+@import "modules/section";
 @import "pages/home";
 @import "modules/swd-cards";
 @import "modules/owl-slider";
+@import "modules/responsive";
 @import "modules/responsive-general";
-@import "modules/responsive-xs";
-@import "modules/responsive-sm";
-@import "modules/responsive-md";
-@import "modules/responsive-lg";

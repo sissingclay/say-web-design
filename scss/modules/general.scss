@@ -1,6 +1,6 @@
 @import "variables";
 
-.swd-container {
+.swdContainer {
     max-width: 1220px;
     max-width: 76.25rem;
     margin: 0 auto;
@@ -8,49 +8,24 @@
     @include box-sizing();
 }
 
-.swd-text-align-right {
+.swdContainer-large {
+    max-width: 1700px;
+    max-width: 106.3rem;
+}
+
+.swdAlignRight {
     text-align: right;
 }
 
-.swd-text-align-center {
+.swdAlignCenter {
     text-align: center;
 }
 
-.swd-display-inline-block {
+.swdInlineBlock {
     display: inline-block;
 }
 
-.swd-dark-teal {
-    background-color: $color-dark-teal-background;
-}
-.swd-teal {
-    background-color: $color-teal-background;
-}
-
-.swd-purple {
-    background-color: $color-purple-background;
-}
-
-.swd-yellow {
-    background-color: $color-yellow-background;
-    color: $color-text-black;
-}
-
-.swd-dark-grey {
-    background-color: $color-dark-grey-background;
-    color: $color-text-white;
-}
-
-.swd-light-grey {
-    background-color: $color-light-grey-background;
-    color: $color-text-black;
-}
-
-.swd-black {
-    background-color: $color-black-background;
-}
-
-.swd-get-in-touch {
+.swdButton {
     @include font-size(1.4);
     text-transform: uppercase;
     @extend .open-sans-semi-bold;
@@ -60,6 +35,8 @@
     @include button();
     color: $color-white-links;
     @include transition(background-color, 0.5s, ease-in-out);
+    display: inline-block;
+    background-color: $color-teal-background;
     
     &:active {
         box-shadow: 0 0 0 $color-border-bottom-teal;
@@ -69,19 +46,6 @@
     &:hover {
         background-color: $color-dark-grey-background;
     }
-}
-
-.swd-social-padding {
-    padding: 7px 18px 6px;
-}
-
-.swd-section {
-    padding: 125px 0;
-}
-
-.swd-section-extra {
-    padding: 245px 125px;
-    @include box-sizing();
 }
 
 .swd-fixed-height {
