@@ -1,13 +1,14 @@
 @import "variables";
 
 .swdHero {
-    background: #672b86 url('../img/background-img.gif') no-repeat center center;
+    background: #672b86 url('../img/background-img.gif') no-repeat center 315px;
     background-attachment: fixed;
     
     h1 {
         @extend .open-sans-light;
         @include font-size(3.125);
         margin-bottom: 60px;
+        text-transform: none;
     }
 }
 

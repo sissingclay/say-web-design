@@ -17,6 +17,17 @@
         }
     }
     
+    .social-container {
+        visibility:hidden;
+        opacity:0;
+        @include transition(all, 400ms, ease-in-out);
+        
+        &._show {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    
     .swdSocial {
         display: inline-block;
         background-color: $color-dark-teal-background;

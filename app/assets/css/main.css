@@ -197,6 +197,17 @@ button {
   .swd-header a:visited {
     color: #ffffff;
     text-decoration: none; }
+  .swd-header .social-container {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -ms-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out; }
+    .swd-header .social-container._show {
+      visibility: visible;
+      opacity: 1; }
   .swd-header .swdSocial {
     display: inline-block;
     background-color: #1578a7;
@@ -322,7 +333,12 @@ button {
   display: inline-block; }
 
 .swdBoxSlider_img {
-  width: 230px; }
+  width: 320px;
+  -webkit-transition: all 400ms ease;
+  -moz-transition: all 400ms ease;
+  -ms-transition: all 400ms ease;
+  -o-transition: all 400ms ease;
+  transition: all 400ms ease; }
 
 .swdBoxSlider-active {
   -moz-transform: translate3d(0vw, 0, 0) translateX(0) scale(1);
@@ -330,6 +346,8 @@ button {
   -ms-transform: translate3d(0vw, 0, 0) translateX(0) scale(1);
   -webkit-transform: translate3d(0vw, 0, 0) translateX(0) scale(1);
   transform: translate3d(0vw, 0, 0) translateX(0) scale(1); }
+  .swdBoxSlider-active .swdBoxSlider_img {
+    width: 230px; }
 
 @media screen and (max-width: 47.99em) {
   .swdBoxSlider {
@@ -375,12 +393,13 @@ button {
     padding: 245px 15px; } }
 
 .swdHero {
-  background: #672b86 url('../img/background-img.gif') no-repeat center center;
+  background: #672b86 url('../img/background-img.gif') no-repeat center 315px;
   background-attachment: fixed; }
   .swdHero h1 {
     font-size: 31.25px;
     font-size: 3.125rem;
-    margin-bottom: 60px; }
+    margin-bottom: 60px;
+    text-transform: none; }
 
 .swd-process-container i {
   font-size: 100px;
@@ -626,9 +645,10 @@ button {
   .swdCard {
     margin-bottom: 50px; } }
 
-.owl-carousel .owl-item img.swdAutoWidth {
+.swdAutoWidth {
   width: auto;
-  margin: 0 auto 50px; }
+  margin: 0 auto 50px;
+  display: block; }
 
 @media screen and (max-width: 47.99em) {
   h1 {

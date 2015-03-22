@@ -1,13 +1,5 @@
-.owl-carousel {
-    
-    .owl-item {
-        
-        img {
-            
-            &.swdAutoWidth {
-                width: auto;
-                margin: 0 auto 50px;
-            }
-        }
-    }
+.swdAutoWidth {
+    width: auto;
+    margin: 0 auto 50px;
+    display: block;
 }
