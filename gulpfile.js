@@ -24,18 +24,6 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('app/assets/css'));
 });
 
-gulp.task('images', function () {
-    var cache = require('gulp-cache'),
-        imagemin = require('gulp-imagemin');
-
-    return gulp.src('app/images/**/*')
-        .pipe(cache(imagemin({
-            progressive: true,
-            interlaced: true
-        })))
-        .pipe(gulp.dest('dist/images'));
-});
-
 gulp.task('fonts', function () {
     return gulp.src('app/styles/fonts/*')
         .pipe(gulp.dest('dist/styles/fonts'));
@@ -90,18 +78,13 @@ gulp.task('connect', function () {
         .use(serveIndex('app'));
 
     require('http').createServer(app)
-        .listen(9000)
+        .listen(8000)
         .on('listening', function () {
             console.log('Started connect web server on http://localhost:9000');
         });
 });
 
-gulp.task('serve', ['connect', 'sass'], function () {
-    var livereload = require('gulp-livereload');
-
-    livereload.listen();
-
-    require('opn')('http://localhost:9000');
+gulp.task('serve', ['sass'], function () {
 
     // watch for changes
     gulp.watch([
@@ -110,13 +93,13 @@ gulp.task('serve', ['connect', 'sass'], function () {
         'app/scripts/**/*.js',
         'app/images/**/*',
         'scss/**/*.scss'
-    ]).on('change', livereload.changed);
+    ]);
 
     gulp.watch('scss/**/*.scss', ['sass']);
     gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'misc']);
+gulp.task('build', ['lint', 'html', 'fonts', 'misc']);
 
 /*gulp.task('iconfont', function() {
     

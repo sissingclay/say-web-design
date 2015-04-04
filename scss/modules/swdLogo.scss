@@ -10,7 +10,6 @@
 
 .swdBoxSlider_img {
     width: 320px;
-    @include transition(all, 400ms, ease);
 }
 
 .swdBoxSlider-active {

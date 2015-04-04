@@ -224,13 +224,13 @@ var swdModule = (function () {
         [].forEach.call(touchElements, function (toggle) {
 
             // When the smooth scroll link is clicked
-            toggle.addEventListener('touchstart', function(element) {
+            toggle.addEventListener('touchstart touchend', function(element) {
                 if (swdModule.hasClass(element, 'swdTouchHover')) {
                     swdModule.removeClass(element, 'swdTouchHover');
                 } else {
                     swdModule.addClass(element, 'swdTouchHover');
                 }
-            }, true);
+            }, false);
         });
         
         swdModule.clickedId('#swd-cancelForm-js', {

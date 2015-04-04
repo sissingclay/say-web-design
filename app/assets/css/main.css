@@ -333,12 +333,7 @@ button {
   display: inline-block; }
 
 .swdBoxSlider_img {
-  width: 320px;
-  -webkit-transition: all 400ms ease;
-  -moz-transition: all 400ms ease;
-  -ms-transition: all 400ms ease;
-  -o-transition: all 400ms ease;
-  transition: all 400ms ease; }
+  width: 320px; }
 
 .swdBoxSlider-active {
   -moz-transform: translate3d(0vw, 0, 0) translateX(0) scale(1);
@@ -551,6 +546,9 @@ button {
     display: none; } }
 
 .swd-cards {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
   perspective: 1000;
   margin: 0 20px;
   height: 315px;
@@ -575,15 +573,19 @@ button {
 
 /* hide back of pane during swap */
 .swd-cardsFront {
-  backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 20px 25px;
+  padding: 20px 15px;
   background-color: #ffffff;
   width: 100%;
   height: 315px;
   text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -618,15 +620,19 @@ button {
 
 /* back, initially hidden pane */
 .swd-cardsBack {
-  backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 20px 25px;
+  padding: 20px 15px;
   background-color: #672b86;
   width: 100%;
   height: 315px;
   text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -644,6 +650,124 @@ button {
 @media screen and (min-width: 48em) and (max-width: 63.938em) {
   .swdCard {
     margin-bottom: 50px; } }
+
+.flip-container {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -ms-transform: perspective(1000px);
+  -moz-transform: perspective(1000px);
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 315px;
+  margin: 0 20px; }
+  .flip-container.flip-container__bottom {
+    margin: 0 20px 20px; }
+
+/* START: Accommodating for IE */
+.flip-container:hover .back, .flip-container.hover .back {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg); }
+
+.flip-container:hover .front, .flip-container.hover .front {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+/* END: Accommodating for IE */
+.front, .back {
+  height: 315px; }
+
+.flipper {
+  position: relative; }
+
+.front, .back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateY(0deg);
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+  -moz-transform: rotateY(0deg);
+  -o-transition: 0.6s;
+  -o-transform-style: preserve-3d;
+  -o-transform: rotateY(0deg);
+  -ms-transition: 0.6s;
+  -ms-transform-style: preserve-3d;
+  -ms-transform: rotateY(0deg);
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.front {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  background-color: #ffffff;
+  width: 100%;
+  height: 315px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+  .front i {
+    font-size: 100px;
+    position: relative;
+    top: 50%;
+    -moz-transform: translate3d(-50%, 0, 0) translateY(-50%) translateX(50%);
+    -o-transform: translate3d(-50%, 0, 0) translateY(-50%) translateX(50%);
+    -ms-transform: translate3d(-50%, 0, 0) translateY(-50%) translateX(50%);
+    -webkit-transform: translate3d(-50%, 0, 0) translateY(-50%) translateX(50%);
+    transform: translate3d(-50%, 0, 0) translateY(-50%) translateX(50%);
+    left: 0;
+    color: #672b86; }
+
+.back {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 15px;
+  background-color: #672b86;
+  width: 100%;
+  height: 315px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #ffffff; }
+  .back h3 {
+    margin-bottom: 5px; }
 
 .swdAutoWidth {
   width: auto;

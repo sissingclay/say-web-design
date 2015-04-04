@@ -1,13 +1,13 @@
-@mixin swd-cardsFace ($background: $color-white-background) {
-    backface-visibility: hidden;
+@mixin swd-cardsFace ($background: $color-white-background, $padding: 20px 15px) {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 20px 25px;
+    padding: $padding;
     background-color: $background;
     width: 100%;
     @include swd-cardsHeight();
     text-align: center;
+    @include box-sizing();
 }
 
 @mixin swd-cardsHeight () {
@@ -15,6 +15,9 @@
 }
 
 .swd-cards {
+     -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
     perspective: 1000;
     margin: 0 20px;
     @include swd-cardsHeight();
@@ -90,5 +93,118 @@
 @media screen and (min-width: 48.000em) and (max-width: 63.938em) {
     .swdCard {
         margin-bottom: 50px;
+    }
+}
+
+
+.flip-container {
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    -ms-transform: perspective(1000px);
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d; 
+    -ms-transform-style: preserve-3d;
+
+    @include box-sizing();
+    @include swd-cardsHeight();
+    
+    margin: 0 20px;
+    
+    &.flip-container__bottom {
+        margin: 0 20px 20px;
+    }
+}
+
+
+
+/* START: Accommodating for IE */
+.flip-container:hover .back, .flip-container.hover .back {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+.flip-container:hover .front, .flip-container.hover .front {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+/* END: Accommodating for IE */
+
+.front, .back {
+    @include swd-cardsHeight();
+}
+
+.flipper {
+
+
+    position: relative;
+}
+
+.front, .back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateY(0deg);
+
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+    -moz-transform: rotateY(0deg);
+
+    -o-transition: 0.6s;
+    -o-transform-style: preserve-3d;
+    -o-transform: rotateY(0deg);
+
+    -ms-transition: 0.6s;
+    -ms-transform-style: preserve-3d;
+    -ms-transform: rotateY(0deg);
+
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    @include swd-cardsFace($padding: 20px 0);
+    
+    i {
+        font-size: 100px;
+        @include vertical-align;
+        left: 0;
+        color: $color-text-purple;
+    }
+}
+
+.back {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    @include swd-cardsFace($color-purple-background);
+    color: $color-text-white;
+    
+    h3 {
+        margin-bottom: 5px;
     }
 }
