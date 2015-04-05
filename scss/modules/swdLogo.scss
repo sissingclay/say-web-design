@@ -27,7 +27,7 @@
         @include transform(translate3d(0vw, 0, 0) translateX(0) scale(1));
     }
     
-    .swdBoxSlider_img {
+    .swdBoxSlider_img, .swdBoxSlider-active .swdBoxSlider_img {
         width: 130px;
     }
 }

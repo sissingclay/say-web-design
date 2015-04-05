@@ -1,5 +1,27 @@
 @import "variables";
 
+@mixin arrows($position: top) {
+    position: relative; 
+    @include transition(border-top-color, 1.25s, ease-in-out);
+    
+    &:after, 
+    &:before { 
+        left: 50%; 
+        border: solid transparent; 
+        content: " "; 
+        height: 0; 
+        width: 0; 
+        position: absolute; 
+        pointer-events: none; 
+    }
+    
+    &:after {
+        border-color: rgba(136, 183, 213, 0); 
+        border-width: 20px; 
+        margin-left: -20px;
+    }
+}
+
 .swdHero {
     background: #672b86 url('../img/background-img.gif') no-repeat center 315px;
     background-attachment: fixed;
@@ -31,6 +53,10 @@
         i {
             color: $color-dark-grey-background;
         }
+        
+        .fa-caret-down {
+            display: none;
+        }
     }
     
     img {
@@ -39,7 +65,7 @@
 }
 
 .swd-section-what-we-promise-right {
-    padding: 80px 175px;
+    padding: 80px 20px 80px 100px;
     @include box-sizing();
     
     ul {
@@ -114,21 +140,53 @@
     }
 }
 
+.arrow-box_down {
+    @include arrows();
+    
+    &:after, 
+    &:before {
+        top: 100%;
+        border-top-color: $color-text-teal;
+    }
+    
+    &:hover:after {
+        border-top-color: $color-dark-grey-background;
+    }
+}
+
+.arrow-box_up {
+    @include arrows();
+    
+    &:after, 
+    &:before {
+        bottom: 100%;
+        border-bottom-color: $color-text-teal;
+    }
+    
+    &:hover:after {
+        border-bottom-color: $color-dark-grey-background;
+    }
+}
+
 .swd-readBtn {
     position: relative;
-
-    i {
+    
+    .arrow-down {
         position: absolute;
         bottom: -18px;
         right: 36%;
         color: $color-text-teal;
         line-height: 20px;
-    }
+        
+        width: 0; 
+        height: 0; 
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
 
-    &:hover {
-
-        i {
-            color: $color-dark-grey-background;
+        border-top: 20px solid $color-text-teal;
+        
+        &:hover {
+            border-top: 20px solid #333336;
         }
     }
 }
@@ -150,7 +208,7 @@
 }
 
 .swd-contactForm {
-    max-height: 999px;
+    max-height: 1500px;
     @include transition(all, 1.25s, ease-in-out);
     opacity: 1;
     
@@ -163,6 +221,7 @@
 //pixels 767px
 @media screen and (max-width: 47.99em) {
     .swdHero {
+        background: #672b86 url('../img/background-img.gif') no-repeat center top;
         
         h1 {
             font-size: 170%;

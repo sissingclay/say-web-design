@@ -66,7 +66,7 @@ var swdModule = (function () {
 
                 // Calculate how far and how fast to scroll
                 var startLocation = window.pageYOffset;
-                var endLocation = anchor.offsetTop;
+                var endLocation = anchor.offsetTop - 80;
                 var distance = endLocation - startLocation;
                 var increments = distance/(duration/18);
                 var stopAnimation;
@@ -212,10 +212,12 @@ var swdModule = (function () {
         document.querySelector('#swd-readBtn').addEventListener('click', function (ele) {
             
             ele.preventDefault();
-            if (swdModule.hasClass(document.querySelector('#swd-readBtn'), 'swd-activeBtn')) {
-                swdModule.removeClass(document.querySelector('#swd-readBtn'), 'swd-activeBtn');
+            if (swdModule.hasClass(document.querySelector('#swd-readBtn'), 'arrow-box_down')) {
+                swdModule.removeClass(document.querySelector('#swd-readBtn'), 'arrow-box_down');
+                swdModule.addClass(document.querySelector('#swd-readBtn'), 'arrow-box_up');
             } else {
-                swdModule.addClass(document.querySelector('#swd-readBtn'), 'swd-activeBtn');
+                swdModule.removeClass(document.querySelector('#swd-readBtn'), 'arrow-box_up');
+                swdModule.addClass(document.querySelector('#swd-readBtn'), 'arrow-box_down');
             }
         }, false);
         

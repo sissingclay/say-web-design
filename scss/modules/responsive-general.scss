@@ -1,13 +1,37 @@
+@mixin arrowPosition {
+    right: auto;
+    top: auto;
+    bottom: -48px;
+    left: 45%;
+}
+
 @media screen and (max-width: 90em) {
-    .swd-section-what-we-promise {
+    
+    .swd-section-what-we-promise-right {
         
-        .swd-right-arrow {
-            display: none;
+        .swd-down-arrow {
+            @include arrowPosition;
         }
     }
 }
 
 @media screen and (max-width: 63.99em) {
+    
+    .swd-section-what-we-promise {
+        
+        .swd-right-arrow {
+            
+            .fa-caret-right {
+                display: none;
+            }
+            
+            .fa-caret-down {
+                display: block;
+            }
+            
+            @include arrowPosition;
+        }
+    }
     
     .swd-fixed-height {
         margin-bottom: 50px;
