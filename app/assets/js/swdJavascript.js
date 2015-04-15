@@ -70,7 +70,7 @@ var swdModule = (function () {
                 var distance = endLocation - startLocation;
                 var increments = distance/(duration/18);
                 var stopAnimation;
-
+                
                 // Scroll the page by an increment, and check if it's time to stop
                 var animateScroll = function () {
                     window.scrollBy(0, increments);
@@ -82,6 +82,7 @@ var swdModule = (function () {
                     // Stop animation when you reach the anchor OR the bottom of the page
                     stopAnimation = function () {
                         var travelled = window.pageYOffset;
+                        console.log('travelled', travelled);
                         if ( (travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight) ) {
                             clearInterval(runAnimation);
                         }
@@ -202,7 +203,7 @@ var swdModule = (function () {
 
          wow.init();
          
-         $('#contactForm').parsley();
+         //$('#contactForm').parsley();
 
         swdModule.clickedId('#swd-readBtn', {
             toggleClass: 'swd-hidden',
@@ -253,7 +254,7 @@ var swdModule = (function () {
             // called when the window is scrolled.
             var scrollTop   = document.documentElement.scrollTop || document.body.scrollTop;
             
-            if (scrollTop > 1) {
+            if (scrollTop > 150) {
                 // object is offset more
                 // than 10 pixels from its parent
                 if (!swdModule.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
