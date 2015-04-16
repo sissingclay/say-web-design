@@ -1,5 +1,6 @@
-@font-face{font-family:swdIcons;src:url(./app/assets/css/swdIcons.eot);src:url(./app/assets/css/swdIcons.eot?#iefix)format('eot'),url(./app/assets/css/swdIcons.woff)format('woff'),url(./app/assets/css/swdIcons.ttf)format('truetype'),url(./app/assets/css/swdIcons.svg#swdIcons)format('svg')}
+@font-face{font-family:swdIcons;src:url(../fonts/swdIcons.eot);src:url(../fonts/swdIcons.eot?#iefix)format('eot'),url(../fonts/swdIcons.woff)format('woff'),url(../fonts/swdIcons.ttf)format('truetype'),url(../fonts/swdIcons.svg#swdIcons)format('svg')}
 .cc-icon:before{font-family:swdIcons;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-style:normal;font-variant:normal;font-weight:400;text-decoration:none;text-transform:none;font-size:14px}
+.cc-icon-1:before{font-size:22px}
 .cc-icon-2:before{font-size:2em}
 .cc-icon-3:before{font-size:4em}
 .cc-icon-4:before{font-size:7em}

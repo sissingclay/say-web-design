@@ -8,8 +8,7 @@
   ],
   "dependencies": {
     "owl2": "git@github.com:smashingboxes/OwlCarousel2.git",
-    "wow": "https://github.com/matthieua/WOW.git",
-    "parsleyjs": "~2.0.7"
+    "wow": "https://github.com/matthieua/WOW.git"
   },
   "devDependencies": {}
 }

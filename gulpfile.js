@@ -7,7 +7,8 @@ var gulp        = require('gulp'),
     minifyCSS   = require('gulp-minify-css'),
     iconfont    = require('gulp-iconfont');
     iconfontCss = require('gulp-iconfont-css'),
-    htmlmin     = require('gulp-html-minifier');
+    htmlmin     = require('gulp-html-minifier'),
+    es          = require('event-stream');
  
 gulp.task('minify', function() {
   gulp.src('./app/html/*.html')
@@ -22,6 +23,7 @@ gulp.task('minify-css', function() {
 });
  
 gulp.task('compress', function() {
+    
   return gulp.src('app/assets/js/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('app/dist/js/'));
@@ -36,10 +38,22 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('app/assets/css'));
 });
 
+gulp.task('jsConcat', function() {
+    var vendorFiles = gulp.src('/app/components/owl2/dist/*.min.js'),
+        appFiles    = gulp.src('app/assets/js/*.js');
+    
+  return es.concat(vendorFiles, appFiles)
+        concat('all.js')
+        .pipe(gulp.dest('./app/assets/js'));
+});
+
 gulp.task('cssConcat', function() {
-  return gulp.src('./app/assets/css/*.css')
-    .pipe(concat('all.css'))
-    .pipe(gulp.dest('./app/assets/css'));
+    var vendorFiles = gulp.src('/app/components/owl2/dist/owl.carousel.min.css'),
+        appFiles    = gulp.src('app/assets/css/*.css');
+    
+    return es.concat(vendorFiles, appFiles)
+      .pipe(concat('all.css'))
+      .pipe(gulp.dest('./app/assets/css'));
 });
  
 gulp.task('watch', function () {
@@ -60,9 +74,29 @@ gulp.task('iconfont', function() {
     gulp.src(['assets/other/*.svg'])
         .pipe(iconfontCss({
             fontName: fontName,
+            path: 'assets/css/templates/_icons_1.css',
+            targetPath: '../css/_icons_other.css',
+            fontPath: '../fonts/',
+            className: 'ccFontIcon',
+            normalize: true
+        }))
+        .pipe(iconfont({
+            fontName: fontName,
+            appendCodepoints: true // recommended option
+        }))
+        .pipe(gulp.dest('app/assets/fonts/'));
+});
+
+gulp.task('iconFontCustom', function() {
+    
+    var fontName    = 'swdIcons';
+    
+    gulp.src(['assets/icons/*.svg'])
+        .pipe(iconfontCss({
+            fontName: fontName,
             path: 'assets/css/templates/_icons.css',
-            targetPath: '_icons_other.css',
-            fontPath: './app/assets/css/',
+            targetPath: '../css/_icons.css',
+            fontPath: '../fonts/',
             className: 'ccFontIcon',
             normalize: true
         }))

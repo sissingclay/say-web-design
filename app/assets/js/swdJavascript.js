@@ -1,4 +1,6 @@
-var swdModule = (function () {
+var swdModule = swdModule || {};
+
+swdModule.init = (function () {
 
         'use strict';
 
@@ -82,7 +84,6 @@ var swdModule = (function () {
                     // Stop animation when you reach the anchor OR the bottom of the page
                     stopAnimation = function () {
                         var travelled = window.pageYOffset;
-                        console.log('travelled', travelled);
                         if ( (travelled >= (endLocation - increments)) || ((window.innerHeight + travelled) >= document.body.offsetHeight) ) {
                             clearInterval(runAnimation);
                         }
@@ -205,7 +206,7 @@ var swdModule = (function () {
          
          //$('#contactForm').parsley();
 
-        swdModule.clickedId('#swd-readBtn', {
+        swdModule.init.clickedId('#swd-readBtn', {
             toggleClass: 'swd-hidden',
             toToggle: '#swd-readMore'
         });
@@ -213,12 +214,12 @@ var swdModule = (function () {
         document.querySelector('#swd-readBtn').addEventListener('click', function (ele) {
             
             ele.preventDefault();
-            if (swdModule.hasClass(document.querySelector('#swd-readBtn'), 'arrow-box_down')) {
-                swdModule.removeClass(document.querySelector('#swd-readBtn'), 'arrow-box_down');
-                swdModule.addClass(document.querySelector('#swd-readBtn'), 'arrow-box_up');
+            if (swdModule.init.hasClass(document.querySelector('#swd-readBtn'), 'arrow-box_down')) {
+                swdModule.init.removeClass(document.querySelector('#swd-readBtn'), 'arrow-box_down');
+                swdModule.init.addClass(document.querySelector('#swd-readBtn'), 'arrow-box_up');
             } else {
-                swdModule.removeClass(document.querySelector('#swd-readBtn'), 'arrow-box_up');
-                swdModule.addClass(document.querySelector('#swd-readBtn'), 'arrow-box_down');
+                swdModule.init.removeClass(document.querySelector('#swd-readBtn'), 'arrow-box_up');
+                swdModule.init.addClass(document.querySelector('#swd-readBtn'), 'arrow-box_down');
             }
         }, false);
         
@@ -228,27 +229,67 @@ var swdModule = (function () {
 
             // When the smooth scroll link is clicked
             toggle.addEventListener('touchstart touchend', function(element) {
-                if (swdModule.hasClass(element, 'swdTouchHover')) {
-                    swdModule.removeClass(element, 'swdTouchHover');
+                if (swdModule.init.hasClass(element, 'swdTouchHover')) {
+                    swdModule.init.removeClass(element, 'swdTouchHover');
                 } else {
-                    swdModule.addClass(element, 'swdTouchHover');
+                    swdModule.init.addClass(element, 'swdTouchHover');
                 }
             }, false);
         });
         
-        swdModule.clickedId('#swd-cancelForm-js', {
+        swdModule.init.clickedId('#swd-cancelForm-js', {
             toggleClass: 'swd-hidden',
             toToggle: '#swd-contactForm-js',
             secondToggleClass: 'swd-hidden',
             secondToToggle: '#swd-talkToUs-js'
         });
 
-        swdModule.scroll({
+        swdModule.init.scroll({
             toggleClass: 'swd-hidden',
             toToggle: '#swd-contactForm-js'
         });
         
+        var validations = document.querySelectorAll('[data-parsley-trigger]');
         
+        [].forEach.call(validations, function(element) {
+            
+            element.addEventListener('keyup', function(e) {
+                
+                var validation = element.getAttribute('data-parsley-trigger'),
+                    isEmailValid;
+                    
+                if(!this.value) {
+                    $(this).addClass('parsley-error');
+                    
+                } else {
+                    
+                    $(this).removeClass('parsley-error');
+
+                    if (validation === 'email') {
+                        
+                        isEmailValid = swdModule.validation.validateEmail(this.value);
+                        
+                        if (!isEmailValid) {
+                            $(this).addClass('parsley-error');
+                        } else {
+                            $(this).removeClass('parsley-error');
+                        }
+                    }
+                }
+            });
+        });
+        
+        document.getElementById('swd-contactBtn_js').addEventListener('click', function (e) {
+            
+            e.preventDefault();
+            var data = $( '#contantForm' ).serialize();
+            console.log('document.forms["myform"]', document.forms['contantForm']);
+            
+            swdModule.ajax.post('http://www.saywebdesign.co.uk/web/process.php', data).success(function(data) {
+                var element             = document.getElementById('contantForm');
+                    element.innerHTML   = "<div class='pure-u-1-1 swd-footer-title-section'><p>Thanks you for getting in touch. We will get back to you ASAP!</p></div>";
+            });
+        });
         
         window.onscroll = function () {
             // called when the window is scrolled.
@@ -257,17 +298,80 @@ var swdModule = (function () {
             if (scrollTop > 150) {
                 // object is offset more
                 // than 10 pixels from its parent
-                if (!swdModule.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
-                    swdModule.addClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active');
-                    swdModule.addClass(document.querySelector('#swd-header-social-js'), '_show');
+                if (!swdModule.init.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
+                    swdModule.init.addClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active');
+                    swdModule.init.addClass(document.querySelector('#swd-header-social-js'), '_show');
                 }
             } else {
-                if (swdModule.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
-                    swdModule.removeClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active');
-                    swdModule.removeClass(document.querySelector('#swd-header-social-js'), '_show');
+                if (swdModule.init.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
+                    swdModule.init.removeClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active');
+                    swdModule.init.removeClass(document.querySelector('#swd-header-social-js'), '_show');
                 }
             }
         };
  
         
     });
+    
+swdModule.ajax = (function() {
+
+    var parse = function(req) {
+        var result;
+        try {
+            result = JSON.parse(req.responseText);
+        } catch (e) {
+            result = req.responseText;
+        }
+        return [result, req];
+    };
+
+    var xhr = function(type, url, data) {
+        var methods = {
+            success: function(callback) {
+                this.success = callback;
+                return this;
+            },
+            error: function(callback) {
+                this.error = callback;
+                return this;
+            }
+        };
+        var XHR = XMLHttpRequest || ActiveXObject;
+        var request = new XHR('MSXML2.XMLHTTP.3.0');
+        request.open(type, url, true);
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        request.onreadystatechange = function() {
+            if (request.readyState === 4) {
+                if (request.status === 200) {
+                    methods.success.apply(methods, parse(request));
+                } else {
+                    methods.error.apply(methods, parse(request));
+                }
+            }
+        };
+        request.send(data);
+        return methods;
+    };
+
+    return {
+        get: function(url) {
+            return xhr('GET', url);
+        },
+        post: function(url, data) {
+            return xhr('POST', url, data);
+        }
+    };
+
+})();
+
+swdModule.validation = (function () {
+    
+    function validateEmail(email) {
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email);
+    }
+    
+    return {
+        validateEmail: validateEmail
+    };
+})();
