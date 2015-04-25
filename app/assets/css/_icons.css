@@ -1,20 +1,102 @@
-@font-face{font-family:swdIcons;src:url(../fonts/swdIcons.eot);src:url(../fonts/swdIcons.eot?#iefix)format('eot'),url(../fonts/swdIcons.woff)format('woff'),url(../fonts/swdIcons.ttf)format('truetype'),url(../fonts/swdIcons.svg#swdIcons)format('svg')}
-.cc-icon:before{font-family:swdIcons;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-style:normal;font-variant:normal;font-weight:400;text-decoration:none;text-transform:none;font-size:14px}
-.cc-icon-1:before{font-size:22px}
-.cc-icon-2:before{font-size:2em}
-.cc-icon-3:before{font-size:4em}
-.cc-icon-4:before{font-size:7em}
-.cc-icon-5:before{font-size:12em}
-.cc-icon-6:before{font-size:20em}
-.cc-icon-icon_cms:before{content:"\E001"}
-.cc-icon-icon_design-03:before{content:"\E002"}
-.cc-icon-icon_design-10:before{content:"\E003"}
-.cc-icon-icon_develop:before{content:"\E004"}
-.cc-icon-icon_development:before{content:"\E005"}
-.cc-icon-icon_grow:before{content:"\E006"}
-.cc-icon-icon_market:before{content:"\E007"}
-.cc-icon-icon_plan:before{content:"\E008"}
-.cc-icon-icon_promise:before{content:"\E009"}
-.cc-icon-icon_seo:before{content:"\E00A"}
-.cc-icon-icon_talk to us:before{content:"\E00B"}
-.cc-icon-icon_web:before{content:"\E00C"}
+@font-face {
+    font-family: "swdIcons";
+    src: url('../fonts/swdIcons.eot');
+    src: url('../fonts/swdIcons.eot?#iefix') format('eot'),
+    url('../fonts/swdIcons.woff') format('woff'),
+    url('../fonts/swdIcons.ttf') format('truetype'),
+    url('../fonts/swdIcons.svg#swdIcons') format('svg');
+}
+
+.cc-icon {
+    font-family: "swdIcons";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+    text-decoration: none;
+    text-transform: none;
+    font-size: 14px;
+}
+
+.cc-icon-1 {
+    font-size: 1em;
+}
+
+.cc-icon-2 {
+    font-size: 2em;
+}
+
+.cc-icon-3 {
+    font-size: 3em;
+}
+
+.cc-icon-4 {
+    font-size: 4em;
+}
+
+.cc-icon-5 {
+    font-size: 5em;
+}
+
+.cc-icon-6 {
+    font-size: 6em;
+}
+
+.cc-icon-9 {
+    font-size: 9em;
+}
+
+.cc-icon-12 {
+    font-size: 12em;
+}
+
+
+.cc-icon-icon_cms:before {
+    content: "\E001";
+}
+
+.cc-icon-icon_design-03:before {
+    content: "\E002";
+}
+
+.cc-icon-icon_design-10:before {
+    content: "\E003";
+}
+
+.cc-icon-icon_develop:before {
+    content: "\E004";
+}
+
+.cc-icon-icon_development:before {
+    content: "\E005";
+}
+
+.cc-icon-icon_grow:before {
+    content: "\E006";
+}
+
+.cc-icon-icon_market:before {
+    content: "\E007";
+}
+
+.cc-icon-icon_plan:before {
+    content: "\E008";
+}
+
+.cc-icon-icon_promise:before {
+    content: "\E009";
+}
+
+.cc-icon-icon_seo:before {
+    content: "\E00A";
+}
+
+.cc-icon-icon_talk_to_us:before {
+    content: "\E00B";
+}
+
+.cc-icon-icon_web:before {
+    content: "\E00C";
+}

@@ -7,7 +7,7 @@
     url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
 }
 
-.cc-icon:before {
+.cc-icon {
     font-family: "<%= fontName %>";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -20,28 +20,36 @@
     font-size: 14px;
 }
 
-.cc-icon-1:before {
-    font-size: 22px;
+.cc-icon-1 {
+    font-size: 1em;
 }
 
-.cc-icon-2:before {
+.cc-icon-2 {
     font-size: 2em;
 }
 
-.cc-icon-3:before {
+.cc-icon-3 {
+    font-size: 3em;
+}
+
+.cc-icon-4 {
     font-size: 4em;
 }
 
-.cc-icon-4:before {
-    font-size: 7em;
+.cc-icon-5 {
+    font-size: 5em;
 }
 
-.cc-icon-5:before {
+.cc-icon-6 {
+    font-size: 6em;
+}
+
+.cc-icon-9 {
+    font-size: 9em;
+}
+
+.cc-icon-12 {
     font-size: 12em;
-}
-
-.cc-icon-6:before {
-    font-size: 20em;
 }
 
 <% _.each(glyphs, function(glyph) { %>

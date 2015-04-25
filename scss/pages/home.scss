@@ -23,7 +23,7 @@
 }
 
 .swdHero {
-    background: #672b86 url('../img/background-img.gif') no-repeat center 315px;
+    background: #672b86 url('../img/background-img.gif') no-repeat center 300px;
     background-attachment: fixed;
     
     h1 {
@@ -54,7 +54,7 @@
             color: $color-dark-grey-background;
         }
         
-        .fa-caret-down {
+        .cc-fa-06-down-dir {
             display: none;
         }
     }
@@ -78,8 +78,8 @@
             padding-left: 40px;
             
             &:before {
-                content: '\f00c';
-                font-family: FontAwesome;
+                content: '\E004';
+                font-family: swdfa;
                 font-style: normal;
                 font-weight: normal;
                 position: absolute;
@@ -94,7 +94,7 @@
     }
     
     .swd-down-arrow {
-        bottom: -47px;
+        bottom: -53px;
         left: 50%;
         z-index: 1;
         

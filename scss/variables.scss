@@ -37,8 +37,8 @@ $body-padding-top: 175px;
 
 @mixin vertical-align {
     position: relative;
-         top: 50%;
-     @include transform(translate3d(-50%, 0, 0) translateY(-50%) translateX(50%));
+         top: 25%;
+     //@include transform(translate3d(-50%, 0, 0) translateY(-50%) translateX(50%));
 }
 
 @mixin button($border-color: $color-border-bottom-teal ) {

@@ -1,7 +1,7 @@
 @mixin arrowPosition {
     right: auto;
     top: auto;
-    bottom: -48px;
+    bottom: -53px;
     left: 45%;
 }
 
@@ -21,11 +21,11 @@
         
         .swd-right-arrow {
             
-            .fa-caret-right {
+            .cc-fa-09-right-dir {
                 display: none;
             }
             
-            .fa-caret-down {
+            .cc-fa-06-down-dir {
                 display: block;
             }
             

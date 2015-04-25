@@ -1,7 +1,5 @@
 <?php
 
-$_POST = json_decode(file_get_contents('php://input'), true);
-
 $errors         = array();  	// array to hold validation errors
 $data           = array(); 		// array to pass back data
 
@@ -17,28 +15,24 @@ $message = '
         <body>
             <table>
                 <tr>
-                  <th style="text-align: left;">Contact Name</th>
-                  <td>'.$_POST['name'].'</td>
+                  <th style="text-align: left;">First name</th>
+                  <td>'.$_POST['firstName'].'</td>
                 </tr>
                 <tr>
-                  <th style="text-align: left;">Position</th>
-                  <td>'.$_POST['position'].'</td>
+                  <th style="text-align: left;">Last name</th>
+                  <td>'.$_POST['lastName'].'</td>
                 </tr>
                 <tr>
-                  <th style="text-align: left;">Company</th>
-                  <td>'.$_POST['company'].'</td>
-                </tr>
-                <tr>
-                  <th style="text-align: left;">Email</th>
+                  <th style="text-align: left;">Email address</th>
                   <td>'.$_POST['email'].'</td>
                 </tr>
                 <tr>
                   <th style="text-align: left;">Contact Number</th>
-                  <td>'.$_POST['tel'].'</td>
+                  <td>'.$_POST['phone'].'</td>
                 </tr>
                 <tr>
                   <th style="text-align: left;">Enquiry</th>
-                  <td>'.$_POST['enquiry'].'</td>
+                  <td>'.$_POST['project'].'</td>
                 </tr>
             </table>
         </body>
@@ -60,12 +54,12 @@ $message2 = '
         </body>
     </html>
 ';
-$to 	  = 'claysissing@gmail.com';
+$to 	  = 'hello@saywebdesign.co.uk';
 $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 // Additional headers
-$headers .= 'To: Info <claysissing@gmail.com>' . "\r\n";
+//$headers .= 'To: Info <claysissing@gmail.com>' . "\r\n";
 $headers .= 'From: Say Web Design <hello@saywebdesign.co.uk>' . "\r\n";
 
 if($_POST) {

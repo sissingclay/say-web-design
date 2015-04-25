@@ -192,10 +192,24 @@ swdModule.init = (function () {
         }
     }());
 
-    document.addEventListener('DOMContentLoaded', function() {
+    $(document).ready(function() {
+        
+        if( $(".swd-header").size() > 0) {
+            if (document.createStyleSheet){
+                document.createStyleSheet('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css');
+                document.createStyleSheet('dist/css/defer.min.css');
+            } else {
+                $("head").append($("<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css'>"));
+                $("head").append($("<link rel='stylesheet' href='dist/css/defer.min.css'>"));
+            }
+        }
+        
          $('.owl-carousel').owlCarousel({
              items: 1,
-             center: true
+             nav:true,
+             center: true,
+             navText: ['',''],
+             loop: true
          });
 
          wow = new WOW({
@@ -217,9 +231,13 @@ swdModule.init = (function () {
             if (swdModule.init.hasClass(document.querySelector('#swd-readBtn'), 'arrow-box_down')) {
                 swdModule.init.removeClass(document.querySelector('#swd-readBtn'), 'arrow-box_down');
                 swdModule.init.addClass(document.querySelector('#swd-readBtn'), 'arrow-box_up');
+                $('.swd-readBtn_more').hide();
+                $('.swd-readBtn_less').fadeIn();
             } else {
                 swdModule.init.removeClass(document.querySelector('#swd-readBtn'), 'arrow-box_up');
                 swdModule.init.addClass(document.querySelector('#swd-readBtn'), 'arrow-box_down');
+                $('.swd-readBtn_less').hide();
+                $('.swd-readBtn_more').fadeIn();
             }
         }, false);
         
@@ -253,7 +271,7 @@ swdModule.init = (function () {
         
         [].forEach.call(validations, function(element) {
             
-            element.addEventListener('keyup', function(e) {
+            element.addEventListener('keypress', function(e) {
                 
                 var validation = element.getAttribute('data-parsley-trigger'),
                     isEmailValid;
@@ -283,12 +301,19 @@ swdModule.init = (function () {
             
             e.preventDefault();
             var data = $( '#contantForm' ).serialize();
-            console.log('document.forms["myform"]', document.forms['contantForm']);
             
-            swdModule.ajax.post('http://www.saywebdesign.co.uk/web/process.php', data).success(function(data) {
-                var element             = document.getElementById('contantForm');
-                    element.innerHTML   = "<div class='pure-u-1-1 swd-footer-title-section'><p>Thanks you for getting in touch. We will get back to you ASAP!</p></div>";
-            });
+            var isValid = swdModule.validateForm('#contantForm');
+            
+            if(isValid) {
+                swdModule.ajax.post('http://www.saywebdesign.co.uk/process.php', data).success(function(data) {
+                    $('#contantForm').fadeOut(function () {
+                        var element             = document.getElementById('contantForm');
+                        element.innerHTML   = "<div class='pure-u-1-1 swd-footer-title-section'><p>Thanks you for getting in touch. We will get back to you ASAP!</p></div>";
+                        $(this).fadeIn();
+                    });
+
+                });
+            }
         });
         
         window.onscroll = function () {
@@ -312,7 +337,51 @@ swdModule.init = (function () {
  
         
     });
+
+swdModule.validateForm = (function () {
     
+   validateForm = function (element) {
+        //Validates that form elements are not empty
+        var ele         = document.querySelector(element),
+            eleElements = ele.elements,
+            eleLength   = ele.elements.length,
+            i,
+            isVaild     = true,
+            validation,
+            isEmailValid;
+        
+        for(i=0; i < eleLength; i++) {
+            
+            validation = eleElements[i].getAttribute('data-parsley-trigger');
+            
+            if (validation === 'email') {
+                        
+                isEmailValid = swdModule.validation.validateEmail(eleElements[i].value);
+
+                if (!isEmailValid) {
+                    $(eleElements[i]).addClass('parsley-error');
+                    isVaild = false;
+                }
+            } else {
+                
+                if(eleElements[i].value === null ||
+                    eleElements[i].value === "") {
+
+                     if(!eleElements[i].value) {
+                         $(eleElements[i]).addClass('parsley-error');
+                     }
+
+                     isVaild = false;
+                 }
+            }
+        }
+        
+        return isVaild;
+    };
+    
+    return validateForm;
+})();
+
 swdModule.ajax = (function() {
 
     var parse = function(req) {
