@@ -209,7 +209,10 @@ swdModule.init = (function () {
              nav:true,
              center: true,
              navText: ['',''],
-             loop: true
+             loop: true,
+             autoplay:true,
+             autoplayTimeout:3300,
+             autoplayHoverPause:true
          });
 
          wow = new WOW({

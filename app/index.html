@@ -15,16 +15,26 @@
             <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
         <![endif]-->
         
-        <link rel="stylesheet" href="dist/css/main.min.css">
+        <link rel="stylesheet" href="dist/css/main.min.v1.css">
         <link rel="stylesheet" href="components/owl2/dist/assets/owl.carousel.min.css">
         <link rel="icon" type="image/png" href="dist/img/icon.png">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:700">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:600">
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-56975041-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
         
     </head>
     <body>
-        
-        <!--[if lt IE 9]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         
         <header class="swd-header">
             
@@ -70,7 +80,7 @@
                     
                     <div class="swdContainer swdAlignCenter">
                         
-                        <img src="assets/img/slider-1.png" class="pure-img swdAutoWidth swdImage" alt="Say Web Design">
+                        <img src="assets/img/slider.png" class="pure-img swdAutoWidth swdImage" alt="Say Web Design">
                         
                         <div class="owl-carousel">
                             
@@ -83,21 +93,21 @@
                             </div>
                             
                             <div>
-                                <h2>
+                                <h1>
                                     We make things simple. We don't bombard our clients with jargon and always go the <strong>extra mile</strong> to help our clients with all their <strong>digital needs</strong>.
-                                </h2>
+                                </h1>
                             </div>
                             
                             <div>
-                                <h2>
+                                <h1>
                                     We're <strong>good people</strong>! We're behind our clients a 100%. We want you to succeed. If you're doing well then we look good! Its <strong>win/win</strong>!
-                                </h2>
+                                </h1>
                             </div>
                             
                             <div>
-                                <h2>
+                                <h1>
                                     We’re <strong>passionate</strong> about digital. We're a web design company and web development <strong>agency</strong> all rolled into a one stop shop.
-                                </h2>
+                                </h1>
                             </div>
                             
                         </div>
@@ -410,7 +420,7 @@
 
                                     <div class="back">
                                         <!-- back content -->
-                                        <p>We add google analytics to all of our websites so you can see how many people are viewing your site. We will help analyse that data so you can see where improvements could be made.</p>
+                                        <p>We add Google analytics to all of our websites so you can see how many people are viewing your site. We will help analyse that data so you can see where improvements could be made.</p>
                                     </div>
 
                                 </div>
@@ -632,14 +642,45 @@
             
         </main>
         
-        <script src="components/LABjs-2.0.3/LAB.min.js"></script>
-        <script>
-            $LAB
-            .script("//code.jquery.com/jquery-2.1.3.min.js")
-            .script("components/wow/dist/wow.min.js")
-            .script("components/owl2/dist/owl.carousel.min.js")
-            .script("dist/js/swdJavascript.js").wait();
-        </script>
+    <script>
+        
+        var swdModule = swdModule || {};
+        
+        swdModule.allScriptsLoaded = function () {
+            console.log('done');
+        };
+        
+        swdModule.lazyLoad = function (source, done) {
+            
+            var addScript   = document.createElement('script');
+            addScript.src   = source;
+            addScript.async = false;
+            document.head.appendChild(addScript);
+            
+            if (done) {
+                addScript.onload                = done;
+                addScript.onreadystatechange    = function () {
+                    if (addScript.readyState === 'loaded' || addScript.readyState === 'complete') {
+                        done();
+                    }
+                };
+            }
+        };
+    </script>
+    
+
+    <script>
+        
+        swdModule.lazyLoad('components/jquery/dist/jquery.min.js');
+        swdModule.lazyLoad('components/wow/dist/wow.min.js');
+        swdModule.lazyLoad('components/owl2/dist/owl.carousel.min.js');
+        swdModule.lazyLoad('dist/js/swdJavascript.js', swdModule.allScriptsLoaded);
+        
+    </script>
+    
+        <!--[if lte IE 9]>
+            <p class="browsehappy" style="background-color: #000000; position: fixed; bottom: -30px; padding: 20px;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" style="color: #672b86; font-weight: bold;">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
         
     </body>
 </html>
