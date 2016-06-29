@@ -1,40 +1,59 @@
-var gulp        = require('gulp'),
-    connect     = require('gulp-connect'),
-    sass        = require('gulp-sass'),
-    watch       = require('gulp-watch'),
-    concat      = require('gulp-concat'),
-    uglify      = require('gulp-uglify'),
-    minifyCSS   = require('gulp-minify-css'),
-    iconfont    = require('gulp-iconfont');
-    iconfontCss = require('gulp-iconfont-css'),
-    htmlmin     = require('gulp-html-minifier'),
-    es          = require('event-stream'),
+var gulp            = require('gulp'),
+    connect         = require('gulp-connect'),
+    sass            = require('gulp-sass'),
+    watch           = require('gulp-watch'),
+    concat          = require('gulp-concat'),
+    uglify          = require('gulp-uglify'),
+    minifyCSS       = require('gulp-minify-css'),
+    iconfont        = require('gulp-iconfont');
+    iconfontCss     = require('gulp-iconfont-css'),
+    htmlmin         = require('gulp-html-minifier'),
+    es              = require('event-stream'),
+    nunjucksRender  = require('gulp-nunjucks-render'),
     
     filesToMove = [
-        './app/assets/fonts/**/*.*',
-        './app/assets/img/**/*.*'
+        './src/img/**/*.*',
+        './src/index.html',
+        './src/.htaccess',
+        './src/humans.txt',
+        './src/process.php',
+        './src/js/**/*.js',
+        './src/svg/**/*.svg',
+        './src/swd.png'
     ];
+
+gulp.task('nunjucks', function () {
+    return gulp.src('./src/templates/*.html')
+        .pipe(nunjucksRender({
+            data: {
+                base_url: 'http://localhost:8080/'
+            },
+            path: ['./src/templates/'] // String or Array
+        }))
+        .pipe(gulp.dest('./app'));
+});
 
 gulp.task('move', function(){
   // the base option sets the relative root for the set of files,
   // preserving the folder structure
-  gulp.src(filesToMove, { base: './app/assets' })
-  .pipe(gulp.dest('./app/dist'));
+  gulp.src(filesToMove, { base: './src/' })
+  .pipe(gulp.dest('./app/'));
 });
  
 gulp.task('sass', function () {
 
-    return gulp.src('scss/*.scss')
+    return gulp.src('src/scss/*.scss')
     .pipe(sass({
         precision: 10
     }))
-    .pipe(gulp.dest('app/assets/css'));
+    .pipe(gulp.dest('app/css'));
 });
  
 gulp.task('watch', function () {
-    gulp.watch('scss/**/*.scss', ['sass']);
-}); 
- 
+    gulp.watch('src/scss/**/*.scss', ['sass']);
+    gulp.watch('src/**/*.html', ['move']);
+});
+
 gulp.task('connect', function() {
     connect.server({
         root: 'app',
@@ -46,10 +65,10 @@ gulp.task('iconFont', function() {
     
     var fontName    = 'swdIcons';
     
-    gulp.src(['assets/icons/*.svg'])
+    gulp.src(['src/assets/icons/*.svg'])
         .pipe(iconfontCss({
             fontName: fontName,
-            path: 'assets/css/templates/_icons.css',
+            path: 'src/assets/css/templates/_icons.css',
             targetPath: '../css/_icons.css',
             fontPath: '../fonts/',
             className: 'ccFontIcon',
@@ -59,17 +78,17 @@ gulp.task('iconFont', function() {
             fontName: fontName,
             appendCodepoints: true // recommended option
         }))
-        .pipe(gulp.dest('app/assets/fonts/'));
+        .pipe(gulp.dest('app/fonts/'));
 });
 
 gulp.task('iconfa', function() {
     
     var fontName    = 'swdfa';
     
-    gulp.src(['assets/fa/*.svg'])
+    gulp.src(['src/assets/fa/*.svg'])
         .pipe(iconfontCss({
             fontName: fontName,
-            path: 'assets/css/templates/_icons_other.css',
+            path: 'src/assets/css/templates/_icons_other.css',
             targetPath: '../css/_iconsfa.css',
             fontPath: '../fonts/',
             className: 'fa',
@@ -79,45 +98,39 @@ gulp.task('iconfa', function() {
             fontName: fontName,
             appendCodepoints: true // recommended option
         }))
-        .pipe(gulp.dest('app/assets/fonts/'));
+        .pipe(gulp.dest('app/fonts/'));
 });
 
 //Prod Build
 gulp.task('minify', function() {
   gulp.src('./app/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./app/dist/'))
-});
-
-gulp.task('minify-css', function() {
-  return gulp.src('./app/dist/css/*.css')
-    .pipe(minifyCSS({keepBreaks:false}))
-    .pipe(gulp.dest('prod/dist/css'))
+    .pipe(gulp.dest('./app/'))
 });
 
 gulp.task('compress', function() {
     
-  return gulp.src('app/assets/js/*.js')
+  return gulp.src('src/js/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest('app/dist/js/'));
+    .pipe(gulp.dest('app/js/'));
 });
 
 gulp.task('cssConcat', function() {
     
-    return gulp.src(['./app/assets/css/_icons.css', './app/assets/css/_iconsfa.css'])
+    return gulp.src(['./app/css/_icons.css', './app/css/_iconsfa.css'])
       .pipe(concat('defer.min.css'))
       .pipe(minifyCSS())
-      .pipe(gulp.dest('./app/dist/css'));
+      .pipe(gulp.dest('./app/css'));
 });
 
 gulp.task('minifyCss', function() {
     
-    return gulp.src(['./app/assets/css/main.css'])
-      .pipe(minifyCSS('main.min.css'))
-      .pipe(gulp.dest('./app/dist/css'));
+    return gulp.src(['./app/css/main.css'])
+      .pipe(minifyCSS())
+      .pipe(gulp.dest('./app/css/'));
 });
 
 
-gulp.task('prodBuild', ['cssConcat', 'minifyCss', 'compress', 'minify', 'move']);
+gulp.task('prodBuild', ['cssConcat', 'minifyCss', 'compress', 'minify']);
  
-gulp.task('default', ['connect']);
+gulp.task('default', ['connect', 'sass', 'iconFont', 'iconfa', 'move', 'cssConcat', 'nunjucks']);

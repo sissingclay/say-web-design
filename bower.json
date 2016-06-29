@@ -1,14 +1,17 @@
 {
-  "name": "Say Web Design",
+  "name": "say-web-design",
   "version": "1.0.0",
-  "main": "path/to/main.css",
   "ignore": [
     ".jshintrc",
     "**/*.txt"
   ],
   "dependencies": {
     "owl2": "git@github.com:smashingboxes/OwlCarousel2.git",
-    "wow": "https://github.com/matthieua/WOW.git"
+    "wow": "https://github.com/matthieua/WOW.git",
+    "jquery": "~2.1.3"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "resolutions": {
+    "jquery": "~2.1.3"
+  }
 }
