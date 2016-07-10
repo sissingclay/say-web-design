@@ -194,8 +194,26 @@ swdModule.init = (function () {
             };
 
 
+            var animate = function (oldContent, newContent) {
+
+                oldContent.style.position = 'absolute';
+
+                var fadeOut = oldContent.animate({
+                    opacity: [1, 0]
+                }, 100);
+
+                var fadeIn = newContent.animate({
+                    opacity: [0, 1]
+                }, 100);
+
+                fadeIn.onfinish = function() {
+                    oldContent.parentNode.removeChild(oldContent);
+                };
+            }
+
             return {
                 owl: owl,
+                animate: animate,
                 clickedId: init,
                 clickedClass: loopClasses,
                 scroll: scroll,

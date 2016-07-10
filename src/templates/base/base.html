@@ -88,9 +88,13 @@
 
         <main>
 
-            {% block main %}
+            <div class="cc">
 
-            {% endblock %}
+                {% block main %}
+
+                {% endblock %}
+
+            </div>
 
         </main>
 
@@ -207,17 +211,18 @@
 
                             e.preventDefault();
 
-                            if (this.pathname === '/') {
-                                getTemplate('index.html');
+                            if (this.pathname !== window.location.pathname) {
+                                if (this.pathname === '/') {
+                                    getTemplate('index.html');
+                                }
+
+                                if (this.pathname !== '/') {
+                                    template = this.pathname.replace('/', '');
+                                    getTemplate(template);
+                                }
+
+                                history.pushState({}, '', this.href);
                             }
-
-                            if (this.pathname !== '/') {
-                                template = this.pathname.replace('/', '');
-                                getTemplate(template);
-                            }
-
-                            history.pushState({}, '', this.href);
-
                         });
                     }
                 });
@@ -225,7 +230,15 @@
                 function getTemplate(templateName) {
                     nunjucks.render(templateName, function(err, res) {
                         window.scrollTo(0, 0);
-                        document.querySelector('main').innerHTML = res;
+
+                        var wrapper = document.createElement('div');
+                        wrapper.innerHTML = res;
+
+                        var oldContent = document.querySelector('.cc');
+                        var newContent = wrapper.querySelector('.cc');
+
+                        document.querySelector('main').appendChild(newContent);
+                        swdModule.init.animate(oldContent, newContent);
                         swdModule.init.owl();
                     });
                 }
