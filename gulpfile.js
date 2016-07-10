@@ -13,7 +13,6 @@ var gulp            = require('gulp'),
     
     filesToMove = [
         './src/img/**/*.*',
-        './src/index.html',
         './src/.htaccess',
         './src/humans.txt',
         './src/process.php',
@@ -51,7 +50,8 @@ gulp.task('sass', function () {
  
 gulp.task('watch', function () {
     gulp.watch('src/scss/**/*.scss', ['sass']);
-    gulp.watch('src/**/*.html', ['move']);
+    gulp.watch('src/js/**/*.js', ['move']);
+    gulp.watch('src/templates/**/*.*', ['nunjucks']);
 });
 
 gulp.task('connect', function() {
@@ -133,4 +133,4 @@ gulp.task('minifyCss', function() {
 
 gulp.task('prodBuild', ['cssConcat', 'minifyCss', 'compress', 'minify']);
  
-gulp.task('default', ['connect', 'sass', 'iconFont', 'iconfa', 'move', 'cssConcat', 'nunjucks']);
+gulp.task('default', ['connect', 'sass', 'iconFont', 'iconfa', 'move', 'cssConcat', 'nunjucks', 'watch']);
