@@ -195,16 +195,12 @@ swdModule.init = (function () {
 
 
             var animate = function (oldContent, newContent) {
-
-                oldContent.style.position = 'absolute';
-
-                var fadeOut = oldContent.animate({
-                    opacity: [1, 0]
-                }, 100);
+    
+                oldContent.className = oldContent.className + ' cc__removing';
 
                 var fadeIn = newContent.animate({
-                    opacity: [0, 1]
-                }, 100);
+                    opacity: [1, 1]
+                }, 300);
 
                 fadeIn.onfinish = function() {
                     oldContent.parentNode.removeChild(oldContent);
