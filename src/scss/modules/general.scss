@@ -48,6 +48,10 @@
     }
 }
 
+.swdButton--sm {
+    @include font-size(1);
+}
+
 .swd-fixed-height {
     height: 315px;
 }

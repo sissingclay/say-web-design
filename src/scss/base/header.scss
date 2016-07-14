@@ -9,14 +9,6 @@
     margin-top: -$body-padding-top;
     z-index: 100;
     
-    a {
-        
-        &:visited {
-            color: $color-white-links;
-            text-decoration: none;
-        }
-    }
-    
     .social-container {
         visibility:hidden;
         opacity:0;
@@ -35,7 +27,7 @@
         
         a {
             padding: 0 3px;
-            @include font-size(1.8);
+            @include font-size(1.5);
         }
     }
 }

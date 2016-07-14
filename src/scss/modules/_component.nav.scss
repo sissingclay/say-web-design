@@ -1,0 +1,82 @@
+.c-nav {
+    margin-top: 20px;
+
+    @include desktop {
+        margin-top: 33px;
+        float: right;
+        padding-right: 20px;
+        text-align: right;
+    }
+
+    @include l-desktop {
+        padding-right: 80px;
+    }
+}
+
+.c-hide-sm {
+    display: none;
+
+    @include desktop {
+        display: block;
+    }
+}
+
+.c-show-sm {
+    display: block;
+
+    @include desktop {
+        display: none;
+    }
+}
+
+.c-nav__mobile {
+    color: $color-dark-grey-background;
+    padding: 10px;
+    text-transform: uppercase;
+    @include font-size(1.5);
+    @extend .open-sans-bold;
+}
+
+.c-nav__link {
+    color: $color-dark-grey-background;
+    text-transform: uppercase;
+    display: block;
+    @include font-size(1.2);
+    @extend .open-sans-bold;
+    padding: 5px 0 5px 0;
+    transform: translate(0, 0);
+    transition: transform 300ms ease, color 300ms ease;
+
+    &:visited {
+        color: $color-dark-grey-background;
+    }
+
+    &:hover {
+        color: $color-text-grey;
+    }
+
+    @include desktop {
+
+        @include font-size(1.2);
+        display: inline-block;
+        padding: 0 20px 0 0;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: $color-dark-grey-background;
+            transition: width 300ms ease, background 300ms ease;
+        }
+
+        &:hover:after {
+            width: 100%;
+            background: $color-text-grey;
+        }
+
+        &:hover {
+            transform: translate(0, -5px);
+        }
+    }
+}

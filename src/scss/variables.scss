@@ -70,3 +70,18 @@ $body-padding-top: 175px;
     max-height: 0;
     overflow: hidden;
 }
+
+$desktop: "screen and (min-width: 64em)";
+$l-desktop: "screen and (min-width: 90em)";
+
+@mixin desktop {
+    @media #{$desktop} {
+        @content;
+    }
+}
+
+@mixin l-desktop {
+    @media #{$l-desktop} {
+        @content;
+    }
+}

@@ -1,4 +1,4 @@
 # say-web-design
  ```
-./node_modules/nunjucks/bin/precompile ./src/templates/main/another.html > ./app/js/another.js
+./node_modules/nunjucks/bin/precompile ./src/templates/main > ./app/js/index.js
  ```
