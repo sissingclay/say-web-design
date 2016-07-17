@@ -5,7 +5,6 @@
 .cc__removing {
     position: absolute;
     opacity: 0;
-    transform: scale(0.001);
 }
 
 .swdSection {
@@ -23,6 +22,11 @@
 
 .swdSection-darkGrey {
     background-color: $color-dark-grey-background;
+    color: $color-text-white;
+}
+
+.swdSection-black {
+    background-color: #282727;
     color: $color-text-white;
 }
 

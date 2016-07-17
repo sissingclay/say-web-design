@@ -9,7 +9,7 @@
 }
 
 .swdBoxSlider_img {
-    width: 320px;
+    width: 240px;
 }
 
 .swdBoxSlider-active {
@@ -24,6 +24,7 @@
 @media screen and (max-width: 47.99em) {
     
     .swdBoxSlider {
+        margin-top: 30px;
         @include transform(translate3d(0vw, 0, 0) translateX(0) scale(1));
     }
     

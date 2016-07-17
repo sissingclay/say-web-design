@@ -360,6 +360,29 @@ swdModule.init = (function () {
                 }
             }
         };
+
+        document.querySelector('.c-nav__mobile').addEventListener('click', function(e) {
+
+            var menu = document.querySelector('.js-nav-toBeToggled'),
+                menuLink = document.querySelectorAll('.js-nav-toBeToggled a'),
+                toogleClass = 'c-nav__showMobile',
+                constains = menu.classList.contains(toogleClass);
+            e.preventDefault();
+
+            if(constains) {
+                menu.classList.remove(toogleClass);
+                [].forEach.call(menuLink, function (val) {
+                    val.classList.remove('c-nav__link--animate');
+                });
+            }
+
+            if(!constains) {
+                menu.classList.add(toogleClass);
+                [].forEach.call(menuLink, function (val) {
+                    val.classList.add('c-nav__link--animate');
+                });
+            }
+        });
  
         
     });

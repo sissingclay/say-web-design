@@ -51,6 +51,7 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
     gulp.watch('src/scss/**/*.scss', ['sass']);
     gulp.watch('src/js/**/*.js', ['move']);
+    gulp.watch('src/img/**/*.*', ['move']);
     gulp.watch('src/templates/**/*.*', ['nunjucks']);
 });
 

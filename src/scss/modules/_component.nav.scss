@@ -1,7 +1,12 @@
 .c-nav {
     margin-top: 20px;
+    visibility: hidden;
+    max-height: 0;
+    transition: visibility 300ms ease, max-height 300ms ease;
 
     @include desktop {
+        visibility: visible;
+        max-height: 80px;
         margin-top: 33px;
         float: right;
         padding-right: 20px;
@@ -37,15 +42,21 @@
     @extend .open-sans-bold;
 }
 
+.c-nav__showMobile {
+    visibility: visible;
+    max-height: 200px;
+}
+
 .c-nav__link {
     color: $color-dark-grey-background;
     text-transform: uppercase;
     display: block;
     @include font-size(1.2);
     @extend .open-sans-bold;
+    opacity: 0;
     padding: 5px 0 5px 0;
     transform: translate(0, 0);
-    transition: transform 300ms ease, color 300ms ease;
+    transition: transform 300ms ease, color 300ms ease, opacity 300ms ease;
 
     &:visited {
         color: $color-dark-grey-background;
@@ -60,6 +71,7 @@
         @include font-size(1.2);
         display: inline-block;
         padding: 0 20px 0 0;
+        opacity: 1;
 
         &:after {
             content: '';
@@ -79,4 +91,9 @@
             transform: translate(0, -5px);
         }
     }
+}
+
+.c-nav__link--animate {
+    opacity: 1;
+    transition-delay: 100ms;
 }
