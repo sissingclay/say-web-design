@@ -101,6 +101,8 @@
 
         </header>
 
+        <div class="slidersss"></div>
+
         <main>
 
             {% block main %}
@@ -211,7 +213,8 @@
 
             swdModule.allScriptsLoaded = function () {
 
-                var allLinks = document.getElementsByTagName('A'),
+                var transitionEvent = whichTransitionEvent(),
+                    allLinks = document.getElementsByTagName('A'),
                     template;
 
                 [].forEach.call(allLinks, function(val) {
@@ -240,19 +243,55 @@
 
                 function getTemplate(templateName) {
                     nunjucks.render(templateName, function(err, res) {
-                        window.scrollTo(0, 0);
+
+                        $('html, body').animate({ scrollTop: 0 }, 250,
+                        function() {
+                            document.querySelector('.slidersss').classList.add('slidersss-animation');
+                        });
 
                         var wrapper = document.createElement('div');
                         wrapper.innerHTML = res;
 
-                        var oldContent = document.querySelector('.cc');
-                        var newContent = wrapper.querySelector('.cc');
+                        /* Listen for a transition! */
+                        transitionEvent && document.querySelector('.slidersss').addEventListener(transitionEvent, function() {
 
-                        document.querySelector('main').appendChild(newContent);
-                        swdModule.init.animate(oldContent, newContent);
-                        swdModule.init.owl();
+                            if(document.querySelector('.slidersss').classList.contains('slidersss-animation-sec')) {
+                                document.querySelector('.slidersss').classList.remove('slidersss-animation', 'slidersss-animation-sec');
+                                document.querySelector('.slidersss').classList.remove('slidersss-animation');
+                            } else {
+                                var oldContent = document.querySelector('.cc');
+                                var newContent = wrapper.querySelector('.cc');
+
+                                document.querySelector('main').appendChild(newContent);
+                                swdModule.init.animate(oldContent, newContent);
+                                swdModule.init.owl();
+                                document.querySelector('.slidersss').classList.add('slidersss-animation-sec');
+                            }
+                        });
                     });
                 }
+
+                /* From Modernizr */
+                function whichTransitionEvent(){
+                    var t;
+                    var el = document.createElement('fakeelement');
+                    var transitions = {
+                        'transition':'animationend',
+                        'OTransition':'oAnimationEnd',
+                        'MozTransition':'animationend',
+                        'WebkitTransition':'webkitAnimationEnd'
+                    }
+
+                    for(t in transitions){
+                        if( el.style[t] !== undefined ){
+                            return transitions[t];
+                        }
+                    }
+                }
+
+                /*
+                 The "whichTransitionEvent" can be swapped for "animation" instead of "transition" texts, as can the usage :)
+                 */
 
             };
 
