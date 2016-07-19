@@ -8,3 +8,37 @@
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+.slidersss {
+    background-color: $color-dark-grey-background;
+    position: fixed;
+    width: 0;
+    height: 100vh;
+    z-index: 9999;
+    right: 0;
+}
+
+.slidersss-animation {
+    animation-name: example;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    right: auto;
+    left: 0;
+    width: 100%;
+}
+
+.slidersss-animation-sec {
+    animation-name: example-sec;
+    animation-duration: 200ms;
+    animation-iteration-count: 1;
+}
+
+@keyframes example {
+    0%   {width: 0;}
+    100% {width: 100%;}
+}
+
+@keyframes example-sec {
+    0%   {width: 100%;}
+    100% {width: 0;}
+}
