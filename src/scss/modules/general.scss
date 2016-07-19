@@ -94,10 +94,13 @@
 .swd-img {
     width: 100%;
     display: block;
+}
+
+.swd-zoom {
     transition: all 0.5s ease;
 }
 
-.swd-img:hover {
+.swd-zoom:hover {
     transform: scale(1.1, 1.1);
     transition-duration: 4s;
 }
