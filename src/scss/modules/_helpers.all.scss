@@ -3,10 +3,19 @@
 }
 
 .h-position-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+
+    @include sm-range {
+        text-align: center;
+        display: block;
+        padding: 20px 10px;
+    }
+
+    @include md-endless-range {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
 }
 
 .slidersss {

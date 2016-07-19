@@ -263,7 +263,8 @@
                                 var newContent = wrapper.querySelector('.cc');
 
                                 document.querySelector('main').appendChild(newContent);
-                                swdModule.init.animate(oldContent, newContent);
+                                oldContent.remove();
+                                //swdModule.init.animate(oldContent, newContent);
                                 swdModule.init.owl();
                                 document.querySelector('.slidersss').classList.add('slidersss-animation-sec');
                             }

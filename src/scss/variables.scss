@@ -71,8 +71,43 @@ $body-padding-top: 175px;
     overflow: hidden;
 }
 
+$small-medium-range: "screen and (max-width: 63.99em)";
+$small-large-range: "screen and (max-width: 89.99em)";
+$small-range: "screen and (max-width: 47.99em)";
+$medium-range: "screen and (min-width: 48em) and (max-width: 63.99em)";
+$medium-endless-range: "screen and (min-width: 48em)";
 $desktop: "screen and (min-width: 64em)";
 $l-desktop: "screen and (min-width: 90em)";
+
+@mixin sm-range {
+    @media #{$small-range} {
+        @content;
+    }
+}
+
+@mixin ms-lg-range {
+    @media #{$small-large-range} {
+        @content;
+    }
+}
+
+@mixin ms-md-range {
+    @media #{$small-medium-range} {
+        @content;
+    }
+}
+
+@mixin md-range {
+    @media #{$medium-range} {
+        @content;
+    }
+}
+
+@mixin md-endless-range {
+    @media #{$medium-endless-range} {
+        @content;
+    }
+}
 
 @mixin desktop {
     @media #{$desktop} {
