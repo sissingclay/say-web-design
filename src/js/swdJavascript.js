@@ -181,7 +181,7 @@ swdModule.init = (function () {
             };
 
             var owl = function () {
-                $('.owl-carousel').owlCarousel({
+                $('.owl-carousel-org').owlCarousel({
                     items: 1,
                     nav:true,
                     center: true,
@@ -192,6 +192,36 @@ swdModule.init = (function () {
                     autoplayHoverPause:true
                 });
             };
+
+            var owlLogos = function () {
+                $(".owl-example-logos").owlCarousel({
+
+                    navText: ['', ''],
+                    autoplay: true,
+                    autoplayTimeout:2500,
+                    autoplayHoverPause: true,
+                    loop: true,
+                    margin: 10,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 2,
+                            nav: true
+                        },
+                        600: {
+                            items: 3,
+                            nav: true,
+                        },
+                        1000: {
+                            items: 6,
+                            nav: true,
+                            loop: false,
+                            margin: 20
+                        }
+                    }
+
+                });
+            }
 
 
             var animate = function (oldContent, newContent) {
@@ -209,6 +239,7 @@ swdModule.init = (function () {
 
             return {
                 owl: owl,
+                owlLogos: owlLogos,
                 animate: animate,
                 clickedId: init,
                 clickedClass: loopClasses,
@@ -233,6 +264,10 @@ swdModule.init = (function () {
         }
 
         swdModule.init.owl();
+
+        if($(".owl-example-logos")) {
+            swdModule.init.owlLogos();
+        }
 
          wow = new WOW({
              mobile: false

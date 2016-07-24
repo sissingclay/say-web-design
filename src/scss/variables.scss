@@ -77,6 +77,7 @@ $small-range: "screen and (max-width: 47.99em)";
 $medium-range: "screen and (min-width: 48em) and (max-width: 63.99em)";
 $medium-endless-range: "screen and (min-width: 48em)";
 $desktop: "screen and (min-width: 64em)";
+$desktop-range: "screen and (min-width: 64em) and (max-width: 89.99em)";
 $l-desktop: "screen and (min-width: 90em)";
 
 @mixin sm-range {
@@ -111,6 +112,12 @@ $l-desktop: "screen and (min-width: 90em)";
 
 @mixin desktop {
     @media #{$desktop} {
+        @content;
+    }
+}
+
+@mixin desktop-range {
+    @media #{$desktop-range} {
         @content;
     }
 }

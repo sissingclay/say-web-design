@@ -17,36 +17,6 @@
     .owl-stage-outer {
         margin-bottom: 35px;
     }
-    
-    .owl-controls {
-        
-        /*.owl-prev:before, .owl-next:before {
-            font-family: swdfa;
-            font-style: normal;
-            font-weight: normal;
-            @include font-size(2.763);
-        }
-        
-        .owl-prev {
-            
-            &:before {
-                top: 25%;
-                content: '\E002';
-                left: -100px;
-                position: absolute;
-            }
-        }
-        
-        .owl-next {
-            
-            &:before {
-                top: 25%;
-                content: '\E005';
-                right: -100px;
-                position: absolute;
-            }
-        }*/
-    }
 }
 
 @media screen and (max-width: 85.000em) {

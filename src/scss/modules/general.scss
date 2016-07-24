@@ -96,24 +96,22 @@
     display: block;
 }
 
-.swd-zoom {
-    transition: all 0.5s ease-in;
-}
-
-.swd-zoom:hover {
-    transform: scale(1.1, 1.1);
-    transition-duration: 4s;
-}
-
 .lead {
-    @include font-size(2.2);
+
+    @include ms-lg-range {
+        @include font-size(1.5);
+    }
+
+    @include l-desktop {
+        @include font-size(2.2);
+    }
     line-height: 1.4;
 }
 
 .swd-position-centered {
 
     @include sm-range {
-
+        padding: 60px 20px;
     }
 
     @include md-endless-range {
@@ -122,6 +120,22 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: 65%;
+    }
+}
+
+.swd-position-centered--removeMd {
+
+    @include md-range {
+        padding: 125px 60px;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0%, 0%);
+        width: 88%;
+    }
+
+    @include desktop-range {
+        width: 90%;
     }
 }
 

@@ -18,7 +18,7 @@
         <![endif]-->
 
         <link rel="stylesheet" href="{{ base_url }}css/main.css">
-        <link rel="stylesheet" href="{{ base_url }}components/owl2/dist/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="{{ base_url }}components/owl.carousel/dist/assets/owl.carousel.min.css">
         <link rel="icon" type="image/png" href="{{ base_url }}img/icon.png">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700">
 
@@ -105,9 +105,11 @@
 
         <main>
 
-            {% block main %}
+            <div class="cc">
+                {% block main %}
 
-            {% endblock %}
+                {% endblock %}
+            </div>
 
         </main>
 
@@ -219,7 +221,7 @@
 
                 [].forEach.call(allLinks, function(val) {
 
-                    if (val.hostname === 'localhost') {
+                    if (val.hostname === '192.168.0.4') {
 
                         val.addEventListener('click', function(e) {
 
@@ -241,37 +243,41 @@
                     }
                 });
 
+
+
                 function getTemplate(templateName) {
+
                     nunjucks.render(templateName, function(err, res) {
 
                         $('html, body').animate({ scrollTop: 0 }, 250,
-                        function() {
-                            document.querySelector('.slidersss').classList.add('slidersss-animation');
-                        });
+                            function() {
+                                document.querySelector('.slidersss').classList.add('slidersss-animation');
+                            });
 
                         var wrapper = document.createElement('div');
                         wrapper.innerHTML = res;
-
                         /* Listen for a transition! */
                         transitionEvent && document.querySelector('.slidersss').addEventListener(transitionEvent, function() {
-
+                            
                             if(document.querySelector('.slidersss').classList.contains('slidersss-animation-sec')) {
                                 document.querySelector('.slidersss').classList.remove('slidersss-animation', 'slidersss-animation-sec');
                                 document.querySelector('.slidersss').classList.remove('slidersss-animation');
                             } else {
-                                var oldContent = document.querySelector('.cc');
-                                var newContent = wrapper.querySelector('.cc');
-
-                                document.querySelector('main').appendChild(newContent);
-                                oldContent.remove();
-                                //swdModule.init.animate(oldContent, newContent);
+                                document.querySelector('main').innerHTML = res;
                                 swdModule.init.owl();
+                                swdModule.init.scroll({
+                                    toggleClass: 'swd-hidden',
+                                    toToggle: '#swd-contactForm-js'
+                                });
+
+                                if($(".owl-example-logos")) {
+                                    swdModule.init.owlLogos();
+                                }
                                 document.querySelector('.slidersss').classList.add('slidersss-animation-sec');
                             }
                         });
                     });
                 }
-
                 /* From Modernizr */
                 function whichTransitionEvent(){
                     var t;
@@ -282,13 +288,64 @@
                         'MozTransition':'animationend',
                         'WebkitTransition':'webkitAnimationEnd'
                     }
-
                     for(t in transitions){
                         if( el.style[t] !== undefined ){
                             return transitions[t];
                         }
                     }
                 }
+
+
+
+//                function getTemplate(templateName) {
+//                    nunjucks.render(templateName, function(err, res) {
+//
+//                        document.querySelector('.preloader').classList.add('preloader-loading');
+//                        requestAnimationFrame(function() {
+//                            window.scrollTo(0, 0);
+//
+//                            /* Listen for a transition! */
+//                            transitionEvent && document.querySelector('.preloader').addEventListener(transitionEvent, function() {
+//
+//                                requestAnimationFrame(function() {
+//                                    document.querySelector('main').innerHTML = res;
+//                                    swdModule.init.owl();
+//                                    swdModule.init.scroll({
+//                                        toggleClass: 'swd-hidden',
+//                                        toToggle: '#swd-contactForm-js'
+//                                    });
+//
+//                                    if($(".owl-example-logos")) {
+//                                        swdModule.init.owlLogos();
+//                                    }
+//
+//                                    requestAnimationFrame(function() {
+//                                        document.querySelector('.preloader').classList.remove('preloader-loading');
+//                                    });
+//                                });
+//
+//                            });
+//                        });
+//                    });
+//                }
+//
+//                /* From Modernizr */
+//                function whichTransitionEvent(){
+//                    var t;
+//                    var el = document.createElement('fakeelement');
+//                    var transitions = {
+//                        'transition':'transitionend',
+//                        'OTransition':'oTransitionEnd',
+//                        'MozTransition':'transitionend',
+//                        'WebkitTransition':'webkitTransitionEnd'
+//                    }
+//
+//                    for(t in transitions){
+//                        if( el.style[t] !== undefined ){
+//                            return transitions[t];
+//                        }
+//                    }
+//                }
 
                 /*
                  The "whichTransitionEvent" can be swapped for "animation" instead of "transition" texts, as can the usage :)
@@ -320,7 +377,7 @@
             swdModule.lazyLoad('https://mozilla.github.io/nunjucks/files/nunjucks-slim.js');
             swdModule.lazyLoad('{{ base_url }}components/jquery/dist/jquery.min.js');
             swdModule.lazyLoad('{{ base_url }}components/wow/dist/wow.min.js');
-            swdModule.lazyLoad('{{ base_url }}components/owl2/dist/owl.carousel.min.js');
+            swdModule.lazyLoad('{{ base_url }}components/owl.carousel/dist/owl.carousel.min.js');
             swdModule.lazyLoad('{{ base_url }}js/index.js');
             swdModule.lazyLoad('{{ base_url }}js/swdJavascript.js', swdModule.allScriptsLoaded);
 

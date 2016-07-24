@@ -12,11 +12,13 @@
     .social-container {
         visibility:hidden;
         opacity:0;
-        @include transition(all, 400ms, ease-in-out);
+        height: 0;
+        @include transition(all, 250ms, ease-in-out);
         
         &._show {
             visibility: visible;
             opacity: 1;
+            height: auto;
         }
     }
     

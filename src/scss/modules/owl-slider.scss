@@ -4,9 +4,13 @@
     display: block;
 }
 
-.owl-dots {
+.owl-margin {
     margin-bottom: 30px;
-    
+}
+
+.owl-dots {
+    margin-bottom: 0;
+
     .owl-dot {
         display: inline-block;
         width: 12px;

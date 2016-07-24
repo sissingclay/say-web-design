@@ -25,7 +25,7 @@ gulp.task('nunjucks', function () {
     return gulp.src('./src/templates/*.html')
         .pipe(nunjucksRender({
             data: {
-                base_url: 'http://localhost:8080/'
+                base_url: 'http://192.168.0.4:8080/'
             },
             path: ['./src/templates/'] // String or Array
         }))
