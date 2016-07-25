@@ -46,38 +46,70 @@
     transition-delay: 300ms;
 }
 
-.slidersss {
-    background-color: $color-dark-grey-background;
-    position: fixed;
-    width: 0;
-    height: 100vh;
-    z-index: 9999;
-    right: 0;
-    top: 0;
-}
-
-
-.slidersss-animation {
-    animation-name: example;
-    animation-duration: 500ms;
-    animation-iteration-count: 1;
-    right: auto;
-    left: 0;
+.slidersss:after, .slidersss:before {
+    height: 51vh;
     width: 100%;
+    position: fixed;
+    left: 0;
+    background-color: $color-purple-background;
+    z-index: 9999;
+    content: '';
+    transition: transform 600ms ease;
 }
 
-.slidersss-animation-sec {
-    animation-name: example-sec;
-    animation-duration: 200ms;
-    animation-iteration-count: 1;
+.slidersss:before {
+    top: 0;
+    transform: translateY(-100%);
 }
 
-@keyframes example {
-    0%   {width: 0;}
-    100% {width: 100%;}
+.slidersss:after {
+    bottom: 0;
+    transform: translateY(100%);
 }
 
-@keyframes example-sec {
-    0%   {width: 100%;}
-    100% {width: 0;}
+.slidersss-test:before, .slidersss-test:after {
+    transform: translateY(0);
+    transition-duration: 250ms;
 }
+
+//.slidersss {
+//    background-color: $color-dark-grey-background;
+//    position: fixed;
+//    width: 1vw;
+//    height: 1vh;
+//    z-index: 9999;
+//    right: 0;
+//    top: 0;
+//    transform: scale(0, 0);
+//    visibility: hidden;
+//}
+//
+//
+//.slidersss-animation {
+//    animation-name: example;
+//    animation-duration: 500ms;
+//    animation-iteration-count: 1;
+//    visibility: visible;
+//}
+//
+//.slidersss-animation-sec {
+//    animation-name: example-sec;
+//    animation-duration: 200ms;
+//    animation-iteration-count: 1;
+//}
+//
+//@keyframes example {
+//    0%   {transform: scale(0, 1000)};
+//    20% {transform: scale(100, 1000)};
+//    40% {transform: scale(1000, 1000)};
+//    60% {transform: scale(5000, 1000)};
+//    80%, 100% {transform: scale(10000, 1000)};
+//}
+//
+//@keyframes example-sec {
+//    0%  {transform: scale(10000, 1000)};
+//    20% {transform: scale(1000, 1000)};
+//    50% {transform: scale(100, 1000)};
+//    80% {transform: scale(0, 1000)};
+//    100% {transform: scale(0, 0)};
+//}

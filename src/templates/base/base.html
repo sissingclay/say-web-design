@@ -101,15 +101,15 @@
 
         </header>
 
-        <div class="slidersss"></div>
+        <div class="slidersss">
+
+        </div>
 
         <main>
 
-            <div class="cc">
-                {% block main %}
+            {% block main %}
 
-                {% endblock %}
-            </div>
+            {% endblock %}
 
         </main>
 
@@ -221,7 +221,7 @@
 
                 [].forEach.call(allLinks, function(val) {
 
-                    if (val.hostname === '192.168.0.4') {
+                    if (val.hostname === 'localhost') {
 
                         val.addEventListener('click', function(e) {
 
@@ -251,18 +251,15 @@
 
                         $('html, body').animate({ scrollTop: 0 }, 250,
                             function() {
-                                document.querySelector('.slidersss').classList.add('slidersss-animation');
+                                requestAnimationFrame(function() {
+                                    document.querySelector('.slidersss').classList.add('slidersss-test');
+                                });
                             });
 
-                        var wrapper = document.createElement('div');
-                        wrapper.innerHTML = res;
                         /* Listen for a transition! */
                         transitionEvent && document.querySelector('.slidersss').addEventListener(transitionEvent, function() {
-                            
-                            if(document.querySelector('.slidersss').classList.contains('slidersss-animation-sec')) {
-                                document.querySelector('.slidersss').classList.remove('slidersss-animation', 'slidersss-animation-sec');
-                                document.querySelector('.slidersss').classList.remove('slidersss-animation');
-                            } else {
+
+                            requestAnimationFrame(function() {
                                 document.querySelector('main').innerHTML = res;
                                 swdModule.init.owl();
                                 swdModule.init.scroll({
@@ -273,7 +270,12 @@
                                 if($(".owl-example-logos")) {
                                     swdModule.init.owlLogos();
                                 }
-                                document.querySelector('.slidersss').classList.add('slidersss-animation-sec');
+                            });
+
+                            if(document.querySelector('.slidersss').classList.contains('slidersss-test')) {
+                                requestAnimationFrame(function() {
+                                    document.querySelector('.slidersss').classList.remove('slidersss-test');
+                                });
                             }
                         });
                     });
@@ -283,10 +285,10 @@
                     var t;
                     var el = document.createElement('fakeelement');
                     var transitions = {
-                        'transition':'animationend',
-                        'OTransition':'oAnimationEnd',
-                        'MozTransition':'animationend',
-                        'WebkitTransition':'webkitAnimationEnd'
+                        'transition':'transitionend',
+                        'OTransition':'oTransitionEnd',
+                        'MozTransition':'transitionend',
+                        'WebkitTransition':'webkitTransitionEnd'
                     }
                     for(t in transitions){
                         if( el.style[t] !== undefined ){
