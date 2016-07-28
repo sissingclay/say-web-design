@@ -221,7 +221,9 @@
 
                 [].forEach.call(allLinks, function(val) {
 
-                    if (val.hostname === 'www.saytest.saydev.co.uk') {
+                    console.log('val.hostname', val.hostname);
+
+                    if (val.hostname === 'localhost') {
 
                         val.addEventListener('click', function(e) {
 

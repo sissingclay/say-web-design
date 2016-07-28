@@ -63,7 +63,7 @@
     }
 
     &:hover {
-        color: $color-text-grey;
+        color: $color-text-purple;
     }
 
     @include desktop {
@@ -72,20 +72,6 @@
         display: inline-block;
         padding: 0 20px 0 0;
         opacity: 1;
-
-        &:after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: $color-dark-grey-background;
-            transition: width 300ms ease, background 300ms ease;
-        }
-
-        &:hover:after {
-            width: 100%;
-            background: $color-text-grey;
-        }
 
         &:hover {
             transform: translate(0, -5px);

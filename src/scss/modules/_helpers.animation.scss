@@ -7,12 +7,12 @@
 }
 
 .swd-zoom {
-    transition: transform 0.5s ease;
+    transition: transform 0.3s;
+    transform: scale(1.01, 1.01);
 }
 
 .swd-zoom:hover {
     transform: scale(1.1, 1.1);
-    transition-duration: 4s;
 }
 
 .preloader {
@@ -31,7 +31,7 @@
     opacity: 0;
     visibility: hidden;
     -webkit-transform: translate3d(0,0,0);
-    -mox-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
     -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
     will-change: contents;
