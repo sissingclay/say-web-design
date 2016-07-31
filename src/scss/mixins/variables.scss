@@ -63,12 +63,43 @@ $body-padding-top: 175px;
             transition: $transition-property $transition-time $method;
 }
 
+@mixin transition-duration($transition-time) {
+    -webkit-transition-duration: $transition-time;
+    -moz-transition-duration: $transition-time;
+    -ms-transition-duration: $transition-time;
+    -o-transition-duration: $transition-time;
+    transition-duration: $transition-time;
+}
+
 @mixin heightAnimation() {
     display: block;
     visibility: hidden;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+}
+
+@mixin arrowPosition {
+    right: auto;
+    top: auto;
+    bottom: -53px;
+    left: 45%;
+}
+
+@mixin swd-cardsFace ($background: $color-white-background, $padding: 20px 15px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: $padding;
+    background-color: $background;
+    width: 100%;
+    @include swd-cardsHeight();
+    text-align: center;
+    @include box-sizing();
+}
+
+@mixin swd-cardsHeight () {
+    height: 315px;
 }
 
 $small-medium-range: "screen and (max-width: 63.99em)";
