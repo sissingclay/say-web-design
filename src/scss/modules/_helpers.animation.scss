@@ -15,8 +15,8 @@
     @include transform(scale(1.1, 1.1));
 }
 
-.slider:after, .slider:before {
-    height: 51vh;
+.slider > .after, .slider > .before {
+    height: 51%;
     width: 100%;
     position: fixed;
     left: 0;
@@ -26,17 +26,17 @@
     @include transition(transform, 600ms, ease);
 }
 
-.slider:before {
+.slider > .before {
     top: 0;
     @include transform(translateY(-100%));
 }
 
-.slider:after {
+.slider > .after {
     bottom: 0;
     @include transform(translateY(100%));
 }
 
-.slider-overlay:before, .slider-overlay:after {
+.slider-overlay > .before, .slider-overlay > .after {
     @include transform(translateY(0));
     @include transition-duration(250ms);
 }

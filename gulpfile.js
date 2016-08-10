@@ -25,7 +25,7 @@ gulp.task('nunjucks', function () {
     return gulp.src('./src/templates/*.html')
         .pipe(nunjucksRender({
             data: {
-                base_url: 'http://localhost:8080/'
+                base_url: 'http://www.saywebdesign.co.uk/'
             },
             path: ['./src/templates/'] // String or Array
         }))
@@ -37,6 +37,20 @@ gulp.task('move', function(){
   // preserving the folder structure
   gulp.src(filesToMove, { base: './src/' })
   .pipe(gulp.dest('./app/'));
+});
+
+gulp.task('moveFonts', function(){
+    // the base option sets the relative root for the set of files,
+    // preserving the folder structure
+    gulp.src('./src/icons/generated_font/font/**.*', { base: './src/icons/generated_font/font/' })
+        .pipe(gulp.dest('./app/fonts'));
+});
+
+gulp.task('moveFontsCss', function(){
+    // the base option sets the relative root for the set of files,
+    // preserving the folder structure
+    gulp.src('./src/icons/generated_font/css/**.*', { base: './src/icons/generated_font/css/' })
+        .pipe(gulp.dest('./app/css'));
 });
  
 gulp.task('sass', function () {
@@ -62,34 +76,14 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('iconFont', function() {
-    
-    var fontName    = 'swdIcons';
-    
-    gulp.src(['src/assets/icons/*.svg'])
-        .pipe(iconfontCss({
-            fontName: fontName,
-            path: 'src/assets/css/templates/_icons.css',
-            targetPath: '../css/_icons.css',
-            fontPath: '../fonts/',
-            className: 'ccFontIcon',
-            normalize: true
-        }))
-        .pipe(iconfont({
-            fontName: fontName,
-            appendCodepoints: true // recommended option
-        }))
-        .pipe(gulp.dest('app/fonts/'));
-});
-
 gulp.task('iconfa', function() {
     
     var fontName    = 'swdfa';
     
-    gulp.src(['src/assets/fa/*.svg'])
+    gulp.src(['src/icons/fa/*.svg'])
         .pipe(iconfontCss({
             fontName: fontName,
-            path: 'src/assets/css/templates/_icons_other.css',
+            path: 'src/icons/css/templates/_icons_other.css',
             targetPath: '../css/_iconsfa.css',
             fontPath: '../fonts/',
             className: 'fa',
@@ -118,15 +112,15 @@ gulp.task('compress', function() {
 
 gulp.task('cssConcat', function() {
     
-    return gulp.src(['./app/css/_icons.css', './app/css/_iconsfa.css'])
-      .pipe(concat('defer.min.css'))
+    return gulp.src(['./app/css/style.css', './app/css/_iconsfa.css'])
+      .pipe(concat('defer.min.v2.css'))
       .pipe(minifyCSS())
       .pipe(gulp.dest('./app/css'));
 });
 
 gulp.task('minifyCss', function() {
     
-    return gulp.src(['./app/css/main.css'])
+    return gulp.src(['./app/css/main.v2.css'])
       .pipe(minifyCSS())
       .pipe(gulp.dest('./app/css/'));
 });
@@ -134,4 +128,4 @@ gulp.task('minifyCss', function() {
 
 gulp.task('prodBuild', ['cssConcat', 'minifyCss', 'compress', 'minify']);
  
-gulp.task('default', ['connect', 'sass', 'iconFont', 'iconfa', 'move', 'cssConcat', 'nunjucks', 'watch']);
+gulp.task('default', ['connect', 'sass', 'iconfa', 'moveFonts', 'moveFontsCss', 'move', 'cssConcat', 'nunjucks', 'watch']);
