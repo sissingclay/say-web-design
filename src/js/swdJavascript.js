@@ -173,7 +173,7 @@ swdModule.init = (function () {
                         items: 6,
                         nav: true,
                         loop: false,
-                        margin: 20
+                        margin: 40
                     }
                 }
 
@@ -182,9 +182,8 @@ swdModule.init = (function () {
 
         var allLoaded = function() {
 
-            var transitionEvent = whichTransitionEvent(),
-                allLinks = document.getElementsByTagName('A'),
-                template;
+            var allLinks = document.getElementsByTagName('A'),
+                template, menu;
 
             [].forEach.call(allLinks, function(val) {
 
@@ -210,6 +209,15 @@ swdModule.init = (function () {
                                 ga('set', 'page', this.pathname);
                                 ga('send', 'pageview');
                             }
+    
+                            menu = document.querySelectorAll('.c-nav a');
+                            
+                            [].forEach.call(menu, function(val) {
+                                val.classList.remove('c-nav__link--active');
+                                if (val.href === window.location.href) {
+                                    val.classList.add('c-nav__link--active');
+                                }
+                            });
                         }
                     });
                 }
@@ -282,43 +290,11 @@ swdModule.init = (function () {
                     });
                 });
             }
-
-            /* From Modernizr */
-            function whichTransitionEvent() {
-                var t;
-                var el = document.createElement('fakeelement');
-                var transitions = {
-                    'transition':'transitionend',
-                    'OTransition':'oTransitionEnd',
-                    'MozTransition':'transitionend',
-                    'WebkitTransition':'webkitTransitionEnd'
-                }
-                for(t in transitions){
-                    if( el.style[t] !== undefined ){
-                        return transitions[t];
-                    }
-                }
-            }
-        };
-
-
-        var animate = function (oldContent, newContent) {
-
-            oldContent.className = oldContent.className + ' cc__removing';
-
-            var fadeIn = newContent.animate({
-                opacity: [1, 1]
-            }, 300);
-
-            fadeIn.onfinish = function() {
-                oldContent.parentNode.removeChild(oldContent);
-            };
         };
 
         return {
             owl: owl,
             owlLogos: owlLogos,
-            animate: animate,
             clickedId: init,
             clickedClass: loopClasses,
             scroll: scroll,

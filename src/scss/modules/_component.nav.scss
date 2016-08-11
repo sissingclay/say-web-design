@@ -58,10 +58,6 @@
     transform: translate(0, 0);
     transition: transform 300ms ease, color 300ms ease, opacity 300ms ease;
 
-    &:visited {
-        color: $color-dark-grey-background;
-    }
-
     &:hover {
         color: $color-text-purple;
     }
@@ -76,6 +72,10 @@
         &:hover {
             transform: translate(0, -5px);
         }
+    }
+
+    &.c-nav__link--active {
+        color: $color-text-purple;
     }
 }
 

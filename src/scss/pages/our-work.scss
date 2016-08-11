@@ -1,7 +1,7 @@
 .our-work_header {
     background: url('/img/our-work/our-work-bg.jpg') no-repeat center center;
 
-    @include ms-lg-range {
+    @include md-endless-range {
         background-size: contain;
     }
 }

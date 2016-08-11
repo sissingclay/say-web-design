@@ -9,6 +9,7 @@
 .swd-zoom {
     @include transition(transform, 300ms, ease);
     @include transform(scale(1.01, 1.01));
+    -webkit-backface-visibility: hidden;
 }
 
 .swd-zoom:hover {
