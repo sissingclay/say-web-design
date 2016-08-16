@@ -1,7 +1,4 @@
 .our-work_header {
     background: url('/img/our-work/our-work-bg.jpg') no-repeat center center;
-
-    @include md-endless-range {
-        background-size: contain;
-    }
+    background-size: contain;
 }

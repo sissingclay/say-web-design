@@ -1,0 +1,27 @@
+.swdButton {
+    @include font-size(1.4);
+    text-transform: uppercase;
+    @extend .open-sans-semi-bold;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    padding: 12px 25px;
+    @include button();
+    color: $color-white-links;
+    @include transition(background-color, 0.5s, ease-in-out);
+    display: inline-block;
+    background-color: $color-teal-background;
+
+    &:active {
+        box-shadow: 0 0 0 $color-border-bottom-teal;
+        @include transform(translateY(2px));
+    }
+
+    &:hover {
+        background-color: $color-dark-grey-background;
+    }
+}
+
+.swdButton--sm {
+    @include font-size(1.2);
+    padding: 4px 25px;
+}

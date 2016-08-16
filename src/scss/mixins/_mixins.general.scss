@@ -1,27 +1,3 @@
-$color-dark-teal-background: #1578a7;
-$color-teal-background: #1aa6ae;
-$color-purple-background: #672b86;
-$color-yellow-background: #fbd053;
-$color-black-background: #1f1d1d;
-$color-dark-grey-background: #333336;
-$color-light-grey-background: #f1f2f2;
-$color-white-background: #ffffff;
-
-$color-border-bottom-teal: #1578a7;
-$color-border-bottom-white: #ffffff;
-$color-border-bottom-red: #c54545;
-
-$color-white-links: #ffffff;
-
-$color-text-black: #333333;
-$color-text-white: #ffffff;
-$color-text-grey: #999999;
-$color-text-teal: #1aa6ae;
-$color-text-light-grey: #f1f2f2;
-$color-text-purple: #672b86;
-
-$body-padding-top: 175px;
-
 @mixin font-size($sizeValue: 1.6) {
   font-size: ($sizeValue * 10) + px;
   font-size: $sizeValue + rem;
@@ -99,61 +75,4 @@ $body-padding-top: 175px;
 
 @mixin swd-cardsHeight () {
     height: 315px;
-}
-
-$small-medium-range: "screen and (max-width: 63.99em)";
-$small-large-range: "screen and (max-width: 89.99em)";
-$small-range: "screen and (max-width: 47.99em)";
-$medium-range: "screen and (min-width: 48em) and (max-width: 63.99em)";
-$medium-endless-range: "screen and (min-width: 48em)";
-$desktop: "screen and (min-width: 64em)";
-$desktop-range: "screen and (min-width: 64em) and (max-width: 89.99em)";
-$l-desktop: "screen and (min-width: 90em)";
-
-@mixin sm-range {
-    @media #{$small-range} {
-        @content;
-    }
-}
-
-@mixin ms-lg-range {
-    @media #{$small-large-range} {
-        @content;
-    }
-}
-
-@mixin ms-md-range {
-    @media #{$small-medium-range} {
-        @content;
-    }
-}
-
-@mixin md-range {
-    @media #{$medium-range} {
-        @content;
-    }
-}
-
-@mixin md-endless-range {
-    @media #{$medium-endless-range} {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media #{$desktop} {
-        @content;
-    }
-}
-
-@mixin desktop-range {
-    @media #{$desktop-range} {
-        @content;
-    }
-}
-
-@mixin l-desktop {
-    @media #{$l-desktop} {
-        @content;
-    }
 }

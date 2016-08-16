@@ -38,6 +38,10 @@ h1 {
     text-transform: uppercase;
     letter-spacing: -0.5px;
     margin: 0 0 70px;
+
+    @include sm-range {
+        font-size: 145%;
+    }
 }
 
 .h1-section {
@@ -79,6 +83,11 @@ h2 {
     text-transform: uppercase;
     letter-spacing: -0.5px;
     margin: 0 0 36px;
+
+    @include sm-range {
+        font-size: 135%;
+        margin-bottom: 15px;
+    }
 }
 
 h3 {
@@ -125,7 +134,7 @@ button {
 }
 
 //pixels 767px
-@media screen and (max-width: 47.99em) {
+@include sm-range {
     
     body {
         padding-top: 0;

@@ -1,6 +1,11 @@
 {
-  "name": "YO",
-  "version": "1.0.0",
+  "name": "test",
+  "version": "2.0.0",
+  "scripts": {
+    "pregulp": "npm install",
+    "gulp": "./node_modules/.bin/gulp",
+    "postgulp": "./node_modules/.bin/bower install"
+  },
   "devDependencies": {
     "bower": "^1.7.9",
     "event-stream": "^3.3.0",

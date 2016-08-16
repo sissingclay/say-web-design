@@ -1,0 +1,55 @@
+.swdContainer {
+    max-width: 1220px;
+    max-width: 76.25rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    @include box-sizing();
+}
+
+.swdContainer-large {
+    max-width: 1700px;
+    max-width: 106.3rem;
+}
+
+.swdInlineBlock {
+    display: inline-block;
+}
+
+.swd-fixed-height {
+    height: 315px;
+
+    @include ms-md-range {
+        margin-bottom: 50px;
+    }
+}
+
+.swd-fixed-height-margin-bottom {
+    margin-bottom: 25px;
+
+    @include xsm-range {
+        padding: 0 20px;
+        @include box-sizing();
+
+        .swd-postion-absolute {
+            position: relative;
+        }
+    }
+}
+
+.swd-process-container {
+    padding: 40px 25px;
+    background-color: $color-white-background;
+    width: 80%;
+    height: 100%;
+    @include box-sizing();
+
+    @include xsm-range {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    i {
+        font-size: 100px;
+        @include vertical-align;
+    }
+}

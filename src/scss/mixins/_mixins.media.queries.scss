@@ -1,0 +1,70 @@
+$xsmall-range: "screen and (max-width: 35.49em)";
+$xsmall-small-range: "screen and (min-width: 35.50em) and (max-width: 47.99em)";
+$small-medium-range: "screen and (max-width: 63.99em)";
+$small-large-range: "screen and (max-width: 89.99em)";
+$small-range: "screen and (max-width: 47.99em)";
+$medium-range: "screen and (min-width: 48em) and (max-width: 63.99em)";
+$medium-endless-range: "screen and (min-width: 48em)";
+$desktop: "screen and (min-width: 64em)";
+$desktop-range: "screen and (min-width: 64em) and (max-width: 89.99em)";
+$l-desktop: "screen and (min-width: 90em)";
+
+@mixin xsm-range {
+    @media #{$xsmall-range} {
+        @content;
+    }
+}
+
+@mixin xsm-sm-range {
+    @media #{$xsmall-small-range} {
+        @content;
+    }
+}
+
+@mixin sm-range {
+    @media #{$small-range} {
+        @content;
+    }
+}
+
+@mixin ms-lg-range {
+    @media #{$small-large-range} {
+        @content;
+    }
+}
+
+@mixin ms-md-range {
+    @media #{$small-medium-range} {
+        @content;
+    }
+}
+
+@mixin md-range {
+    @media #{$medium-range} {
+        @content;
+    }
+}
+
+@mixin md-endless-range {
+    @media #{$medium-endless-range} {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media #{$desktop} {
+        @content;
+    }
+}
+
+@mixin desktop-range {
+    @media #{$desktop-range} {
+        @content;
+    }
+}
+
+@mixin l-desktop {
+    @media #{$l-desktop} {
+        @content;
+    }
+}

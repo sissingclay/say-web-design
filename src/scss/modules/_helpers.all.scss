@@ -2,6 +2,14 @@
     position: relative;
 }
 
+.swd-postion-absolute {
+    position: absolute;
+}
+
+.swd-hidden {
+    display: none;
+}
+
 .h-icon-position-center {
 
     @include sm-range {
@@ -15,6 +23,13 @@
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+@include sm-range {
+
+    .swdMobileHidden {
+        display: none;
     }
 }
 
@@ -32,7 +47,7 @@
     visibility: hidden;
 }
 
-@include sm-range {
+@include ms-md-range {
     .h-fireFox-height-bug-fix {
         display: none;
     }

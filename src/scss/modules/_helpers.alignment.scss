@@ -1,0 +1,60 @@
+.swdAlignRight {
+    text-align: right;
+}
+
+.swdAlignCenter {
+    text-align: center;
+}
+
+.swd-align-vertical-center {
+    bottom: 0;
+    left: 50%;
+    margin-left: -40%;
+
+    @include xsm-range {
+        left: 0;
+        margin-left: 0;
+    }
+}
+
+.swd-position-centered {
+
+    @include sm-range {
+        padding: 60px 20px;
+    }
+
+    @include md-endless-range {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 65%;
+    }
+}
+
+.swd-position-centered--removeMd {
+
+    @include md-range {
+        padding: 125px 60px;
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0%, 0%);
+        width: 88%;
+    }
+
+    @include desktop-range {
+        width: 90%;
+    }
+}
+
+.swd-text-center {
+    text-align: center;
+}
+
+@include xsm-range {
+
+    .swd-section-extra {
+        padding: 245px 0;
+    }
+}

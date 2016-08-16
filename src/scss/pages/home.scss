@@ -1,25 +1,3 @@
-@mixin arrows($position: top) {
-    position: relative; 
-    @include transition(border-top-color, 1.25s, ease-in-out);
-    
-    &:after, 
-    &:before { 
-        left: 50%; 
-        border: solid transparent; 
-        content: " "; 
-        height: 0; 
-        width: 0; 
-        position: absolute; 
-        pointer-events: none; 
-    }
-    
-    &:after {
-        border-color: rgba(136, 183, 213, 0); 
-        border-width: 20px; 
-        margin-left: -20px;
-    }
-}
-
 .swdHero {
     background: #672b86 url('../img/background-img.gif') no-repeat center 300px;
     background-attachment: fixed;
@@ -30,13 +8,13 @@
         margin-bottom: 60px;
         text-transform: none;
     }
-}
 
-.swd-process-container {
-    
-    i {
-        font-size: 100px;
-        @include vertical-align;
+    @include sm-range {
+        background: #672b86 url('../img/background-img.gif') no-repeat center top;
+
+        h1 {
+            font-size: 170%;
+        }
     }
 }
 
@@ -55,6 +33,19 @@
         .cc-fa-06-down-dir {
             display: none;
         }
+
+        @include ms-md-range {
+
+            .cc-fa-09-right-dir {
+                display: none;
+            }
+
+            .cc-fa-06-down-dir {
+                display: block;
+            }
+
+            @include arrowPosition;
+        }
     }
     
     img {
@@ -65,6 +56,20 @@
 .swd-section-what-we-promise-right {
     padding: 80px 20px 80px 100px;
     @include box-sizing();
+
+    @include xsm-range {
+        ul {
+
+            li {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+
+    @include sm-range {
+        padding: 80px 0;
+    }
     
     ul {
         max-width: 660px;
@@ -108,6 +113,29 @@
         
         i {
             color: $color-purple-background;
+        }
+    }
+
+
+    @include desktop-range{
+
+        padding: 80px 55px;
+
+        ul {
+
+            li {
+
+                &:before {
+                    left: -16px;
+                }
+            }
+        }
+    }
+
+    @include l-desktop {
+
+        .swd-down-arrow {
+            @include arrowPosition;
         }
     }
 }
@@ -218,17 +246,6 @@
 
 //pixels 767px
 @media screen and (max-width: 47.99em) {
-    .swdHero {
-        background: #672b86 url('../img/background-img.gif') no-repeat center top;
-        
-        h1 {
-            font-size: 170%;
-        }
-    }
-    
-    .swd-section-what-we-promise-right {
-        padding: 80px 0;
-    }
     
     .swd-what-we-do-heading {
         margin-top: 15px;

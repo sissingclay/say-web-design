@@ -33,7 +33,7 @@
 }
 
 //pixels 767px
-@media screen and (max-width: 47.99em) {
+@include sm-range {
     
     .swd-header {
         margin-top: 0;
