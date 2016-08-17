@@ -187,7 +187,7 @@ swdModule.init = (function () {
 
             [].forEach.call(allLinks, function(val) {
 
-                if (val.hostname === 'localhost') {
+                if (val.hostname === '/* @echo HOSTNAME */') {
 
                     val.addEventListener('click', function(e) {
 

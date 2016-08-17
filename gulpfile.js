@@ -1,4 +1,5 @@
-var gulp            = require('gulp'),
+var ENV             = process.env.NODE_ENV || 'DEV',
+    gulp            = require('gulp'),
     connect         = require('gulp-connect'),
     sass            = require('gulp-sass'),
     watch           = require('gulp-watch'),
@@ -10,6 +11,8 @@ var gulp            = require('gulp'),
     htmlmin         = require('gulp-html-minifier'),
     es              = require('event-stream'),
     nunjucksRender  = require('gulp-nunjucks-render'),
+    shell           = require('gulp-shell'),
+    preprocess      = require('gulp-preprocess'),
     
     filesToMove = [
         './src/img/**/*.*',
@@ -21,14 +24,21 @@ var gulp            = require('gulp'),
         './src/swd.png'
     ];
 
+if (ENV === 'DEV') {
+    require('dotenv').load();
+}
+
 gulp.task('nunjucks', function () {
     return gulp.src('./src/templates/*.html')
         .pipe(nunjucksRender({
             data: {
-                base_url: 'http://localhost:8080/'
+                base_url: process.env['URL_' + ENV]
             },
             path: ['./src/templates/'] // String or Array
         }))
+        .pipe(shell([
+            './node_modules/nunjucks/bin/precompile ./src/templates/main > ./app/js/index.js'
+        ]))
         .pipe(gulp.dest('./app'));
 });
 
@@ -36,7 +46,8 @@ gulp.task('move', function(){
   // the base option sets the relative root for the set of files,
   // preserving the folder structure
   gulp.src(filesToMove, { base: './src/' })
-  .pipe(gulp.dest('./app/'));
+      .pipe(preprocess({context: { HOSTNAME: process.env['HOSTNAME_' + ENV]}}))
+      .pipe(gulp.dest('./app/'));
 });
 
 gulp.task('moveFonts', function(){
