@@ -19,7 +19,6 @@ var ENV             = process.env.NODE_ENV || 'DEV',
         './src/.htaccess',
         './src/humans.txt',
         './src/process.php',
-        './src/js/**/*.js',
         './src/svg/**/*.svg',
         './src/swd.png'
     ];
@@ -70,14 +69,21 @@ gulp.task('sass', function () {
     .pipe(sass({
         precision: 10
     }))
-    .pipe(gulp.dest('app/css'));
+    .pipe(gulp.dest('./app/css'));
 });
  
 gulp.task('watch', function () {
     gulp.watch('src/scss/**/*.scss', ['sass']);
-    gulp.watch('src/js/**/*.js', ['move']);
+    gulp.watch('src/js/**/*.js', ['javascript']);
     gulp.watch('src/img/**/*.*', ['move']);
     gulp.watch('src/templates/**/*.*', ['nunjucks']);
+});
+
+gulp.task('javascript', function() {
+    return gulp.src('src/js/**/*.js')
+        .pipe(shell([
+            'webpack --progress --colors --debug -p'
+        ]))
 });
 
 gulp.task('connect', function() {
@@ -104,7 +110,7 @@ gulp.task('iconfa', function() {
             fontName: fontName,
             appendCodepoints: true // recommended option
         }))
-        .pipe(gulp.dest('app/fonts/'));
+        .pipe(gulp.dest('./app/fonts/'));
 });
 
 //Prod Build

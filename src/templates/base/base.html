@@ -215,7 +215,7 @@
             var swdModule = swdModule || {};
 
             swdModule.allScriptsLoaded = function () {
-                swdModule.init.allLoaded();
+                //swdModule.init.allLoaded();
             };
 
             swdModule.lazyLoad = function (source, done) {
@@ -244,7 +244,7 @@
             swdModule.lazyLoad('{{ base_url }}components/wow/dist/wow.min.js');
             swdModule.lazyLoad('{{ base_url }}components/owl.carousel/dist/owl.carousel.min.js');
             swdModule.lazyLoad('{{ base_url }}js/index.js');
-            swdModule.lazyLoad('{{ base_url }}js/swdJavascript.js', swdModule.allScriptsLoaded);
+            swdModule.lazyLoad('{{ base_url }}js/swd.general.min.js', swdModule.allScriptsLoaded);
 
         </script>
 
