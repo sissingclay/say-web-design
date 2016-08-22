@@ -9,7 +9,7 @@
     "owl2": "https://github.com/OwlFonk/OwlCarousel",
     "wow": "https://github.com/matthieua/WOW.git",
     "jquery": "~2.1.3",
-    "owl.carousel": "~2.1.6"
+    "owl.carousel": "^2.1.6"
   },
   "resolutions": {
     "jquery": "~2.1.3"

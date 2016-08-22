@@ -1,13 +1,13 @@
 html {
-    font-size:16px;
-    @extend .open-sans-light;
-    -ms-overflow-style: scrollbar;
-    -ms-text-size-adjust: 100%; /* 2 */
-    -webkit-text-size-adjust: 100%; /* 2 */
+  font-size:16px;
+  @extend .open-sans-light;
+  -ms-overflow-style: scrollbar;
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
 @-ms-viewport {
@@ -15,132 +15,136 @@ html, body {
 }
 
 body {
-    font-size: 16px;
-    color: #ffffff;
-    @extend .open-sans-light;
-    -webkit-font-smoothing: antialiased;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    padding-top: $body-padding-top;
+  font-size: 16px;
+  color: #ffffff;
+  @extend .open-sans-light;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  padding-top: $body-padding-top;
 }
 
 .pure-g [class*="pure-u"] {
-    @extend .open-sans-light;
+  @extend .open-sans-light;
 }
 
 a {
-    text-decoration: none;
-    color: $color-text-white;
+  text-decoration: none;
+  color: $color-text-white;
 }
 
 h1 {
-    @include font-size(3.438);
-    @extend .open-sans-bold;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin: 0 0 70px;
+  @include font-size(3.438);
+  @extend .open-sans-bold;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin: 0 0 70px;
 
-    @include sm-range {
-        font-size: 145%;
-    }
+  @include sm-range {
+    font-size: 145%;
+  }
 }
 
 .h1-section {
-    text-transform: none;
-    @include font-size(2);
-    text-align: center;
+  text-transform: none;
+  @include font-size(2);
+  text-align: center;
 
-    @include sm-range {
-        height: 164px;
-        padding: 100px 50px 0;
-    }
+  @include sm-range {
+    height: 164px;
+    padding: 100px 50px 0;
+  }
 
-    @include md-endless-range {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 95%;
-        margin-bottom: 0;
-        @include font-size(2.1);
-    }
+  @include md-endless-range {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    margin-bottom: 0;
+    @include font-size(2.1);
+  }
 
-    @include desktop-range {
-        @include font-size(2.3);
-    }
+  @include desktop-range {
+    @include font-size(2.3);
+  }
 
-    @include l-desktop {
-        @include font-size(2.6);
-    }
+  @include l-desktop {
+    @include font-size(2.6);
+  }
 }
 
 .no-bold {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 h2 {
-    @include font-size(2.5);
-    @extend .open-sans-light;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin: 0 0 36px;
+  @include font-size(2.5);
+  @extend .open-sans-light;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin: 0 0 36px;
 
-    @include sm-range {
-        font-size: 135%;
-        margin-bottom: 15px;
-    }
+  @include sm-range {
+    font-size: 135%;
+    margin-bottom: 15px;
+  }
 }
 
 h3 {
-    @include font-size(1.25);
-    @extend .open-sans-semi-bold;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin: 0 0 25px;
+  @include font-size(1.25);
+  @extend .open-sans-semi-bold;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin: 0 0 25px;
 }
 
 p {
-    @include font-size(1.25);
-    @extend .open-sans-light;
-    margin: 0 0 45px;
-    line-height: 35px;
+  @include font-size(1.25);
+  @extend .open-sans-light;
+  margin: 0 0 45px;
+  line-height: 35px;
 }
 
 p:last-child {
-    margin: 0 0 0;
+  margin: 0 0 0;
 }
 
 ul {
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    list-style-type: none;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  list-style-type: none;
 }
 
 input, textarea {
-    width: 100%;
-    padding: 10px;
-    @include box-sizing;
-    margin-bottom: 20px;
-    @extend .open-sans-light;
-    @include font-size(1.25);
-    
-    &:focus {
-        outline: none;
-    }
+  width: 100%;
+  padding: 10px;
+  @include box-sizing;
+  margin-bottom: 20px;
+  @extend .open-sans-light;
+  @include font-size(1.25);
+
+  &:focus {
+    outline: none;
+  }
 }
 
 button {
-    border: none;
-    background-color: $color-teal-background;
+  border: none;
+  background-color: $color-teal-background;
 }
 
 //pixels 767px
 @include sm-range {
-    
-    body {
-        padding-top: 0;
-    }
+
+  body {
+    padding-top: 0;
+  }
 }
 
 .black {
-    color: $color-text-black;
+  color: $color-text-black;
 }
+// Media queries
+$ipad:                "(max-width: 1024px)";
+$ipad-all :      "(max-width: 768px)";  
+$phone:               "(max-width: 767px)";
