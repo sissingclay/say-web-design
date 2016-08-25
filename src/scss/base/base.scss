@@ -145,6 +145,7 @@ button {
   color: $color-text-black;
 }
 // Media queries
+$large:                "(min-width: 1500px)";
 $ipad:                "(max-width: 1024px)";
 $ipad-all :      "(max-width: 768px)";  
 $phone:               "(max-width: 767px)";

@@ -8,7 +8,10 @@
   }
 
 }
-
+.path_pole , .path_pole2 ,.path_pole3 , .path_pole4{
+  top: 0;
+  transform: translateX(-50%) translateY(0%);
+}
 .section_back_img{
   background: url("../img/alien.png")center bottom no-repeat;
   height: 100%;
@@ -20,6 +23,9 @@
 .step_1{
   padding-top: 120px;
   padding-bottom: 25px;
+  @media #{$ipad-all}{
+        margin-top: 6px;
+  }
   .img_prop{
     max-width: 180px;
   }
@@ -28,10 +34,21 @@
     @media #{$phone}{
       margin: 10px 0;
     }
+   
   }
   @media #{$phone}{
     padding-top: 80px;
   }
+   .pure-c-pr .c_leaf{
+    &:nth-of-type(1){
+       @media #{$ipad-all}{
+         margin-bottom: 100px;
+    }
+      @media #{$phone}{
+         margin-bottom: 20px;
+    }
+    }
+}
 }
 .pure-c-pl{
   padding-left: 100px;
@@ -214,6 +231,7 @@
   margin-bottom: 3%;
   margin-top: 1.5%;
   font-size: 4.5rem;
+      margin-right: -6px;
   @media #{$ipad-all}{
     font-size: 3.5rem;
   }
@@ -247,11 +265,14 @@
     margin-top: -4%;
     margin-bottom: 0%;
     font-size: 4.5rem;
+        margin-left: -5px;
     @media #{$ipad-all}{
       font-size: 3.5rem;
+          text-align: right;
     }
     @media #{$phone}{
       font-size: 2.5rem;
+       text-align: left;
     }
   }
   .img_prop{
@@ -269,8 +290,34 @@
       order: 2;
     }
   }*/
+.pure-c-pl .c_leaf {
+    margin-bottom: 35px;
+     @media #{$ipad-all}{
+        margin-bottom: 25px;
+  }
 }
-
+.stage_t{
+      margin-top: 130px;
+       @media #{$ipad-all}{
+          margin-top: 30px;
+  }
+     @media #{$phone}{
+          margin-top: 0px;
+  }
+}
+}
+body .pure-g .img_prop{
+  @media #{$large}{
+    max-width:175px;
+  }
+   @media #{$ipad}{
+        max-width: 140px;
+  }
+  @media #{$ipad-all}{
+        max-width: 110px;
+  }
+ 
+}
 
 
 
@@ -297,12 +344,19 @@
   h1 {
     margin-bottom: 3%;
     font-size: 4.5rem;
+        margin-right: -3px;
     @media #{$ipad-all}{
       font-size: 3.5rem;
     }
     @media #{$phone}{
       font-size: 2.5rem;
       text-align:left;
+    }
+  }
+  .c_leaf.stage_t{
+     margin-top: 110px;
+@media #{$phone}{
+  margin-top: 15px;
     }
   }
 }
@@ -318,9 +372,14 @@
   }
 }
 .step_4{
+  @media #{$ipad-all}{
+    padding-bottom: 90px;
+
+  }
   h1 {
     margin-top: -4%;
     margin-bottom: 0;
+        margin-left: -2px;
     @media #{$ipad-all}{
       font-size: 3.5rem;
     }
@@ -369,13 +428,25 @@ div.pure-g img.img_prop {
     width: 61px;
   }
 }
-div.c-show-sm{
+div .c-show-sm{
   display: none;
   @media #{$phone}{
     display: inline-block;
   }
 }
-div.c-hide-sm{
+div .c-hide-sm{
+display: inline-block;
+  @media #{$phone}{
+    display: none;
+  }
+}
+div h1.c-show-sm{
+  display: none;
+  @media #{$phone}{
+    display: block;
+  }
+}
+div h1.c-hide-sm{
 display: inline-block;
   @media #{$phone}{
     display: none;
