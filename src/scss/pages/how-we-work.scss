@@ -24,7 +24,7 @@
   padding-top: 120px;
   padding-bottom: 25px;
   @media #{$ipad-all}{
-        margin-top: 6px;
+    margin-top: 6px;
   }
   .img_prop{
     max-width: 180px;
@@ -34,21 +34,21 @@
     @media #{$phone}{
       margin: 10px 0;
     }
-   
+
   }
   @media #{$phone}{
     padding-top: 80px;
   }
-   .pure-c-pr .c_leaf{
+  .pure-c-pr .c_leaf{
     &:nth-of-type(1){
-       @media #{$ipad-all}{
-         margin-bottom: 100px;
-    }
+      @media #{$ipad-all}{
+        margin-bottom: 100px;
+      }
       @media #{$phone}{
-         margin-bottom: 20px;
+        margin-bottom: 20px;
+      }
     }
-    }
-}
+  }
 }
 .pure-c-pl{
   padding-left: 100px;
@@ -231,7 +231,7 @@
   margin-bottom: 3%;
   margin-top: 1.5%;
   font-size: 4.5rem;
-      margin-right: -6px;
+  margin-right: -6px;
   @media #{$ipad-all}{
     font-size: 3.5rem;
   }
@@ -250,7 +250,7 @@
 
 /* section2 */
 .path_pole2{
-  background: url("../img/step-2.png")center top no-repeat;
+  background: url("../img/step-2.png")center top -1px no-repeat;
   height: 100%;
   width: 26px;
   background-size: 100%;
@@ -265,14 +265,14 @@
     margin-top: -4%;
     margin-bottom: 0%;
     font-size: 4.5rem;
-        margin-left: -5px;
+    margin-left: -5px;
     @media #{$ipad-all}{
       font-size: 3.5rem;
-          text-align: right;
+      text-align: right;
     }
     @media #{$phone}{
       font-size: 2.5rem;
-       text-align: left;
+      text-align: left;
     }
   }
   .img_prop{
@@ -285,38 +285,45 @@
     right: 0;
     background-size: contain;
   }
-/*  .pure-c-pr{
-    @media #{$phone}{
-      order: 2;
-    }
-  }*/
-.pure-c-pl .c_leaf {
+  /*  .pure-c-pr{
+      @media #{$phone}{
+        order: 2;
+      }
+    }*/
+  .pure-c-pl .c_leaf {
     margin-bottom: 35px;
-     @media #{$ipad-all}{
-        margin-bottom: 25px;
+    @media #{$ipad-all}{
+      margin-bottom: 25px;
+    
+    }
+      &.more_space{
+        @media #{$large}{
+          margin-top: 10px;
+        }
+
+      }
   }
-}
-.stage_t{
-      margin-top: 130px;
-       @media #{$ipad-all}{
-          margin-top: 30px;
+  .stage_t{
+    margin-top: 130px;
+    @media #{$ipad-all}{
+      margin-top: 30px;
+    }
+    @media #{$phone}{
+      margin-top: 0px;
+    }
   }
-     @media #{$phone}{
-          margin-top: 0px;
-  }
-}
 }
 body .pure-g .img_prop{
   @media #{$large}{
     max-width:175px;
   }
-   @media #{$ipad}{
-        max-width: 140px;
+  @media #{$ipad}{
+    max-width: 140px;
   }
   @media #{$ipad-all}{
-        max-width: 110px;
+    max-width: 110px;
   }
- 
+
 }
 
 
@@ -344,7 +351,7 @@ body .pure-g .img_prop{
   h1 {
     margin-bottom: 3%;
     font-size: 4.5rem;
-        margin-right: -3px;
+    margin-right: -3px;
     @media #{$ipad-all}{
       font-size: 3.5rem;
     }
@@ -354,9 +361,9 @@ body .pure-g .img_prop{
     }
   }
   .c_leaf.stage_t{
-     margin-top: 110px;
-@media #{$phone}{
-  margin-top: 15px;
+    margin-top: 110px;
+    @media #{$phone}{
+      margin-top: 15px;
     }
   }
 }
@@ -379,7 +386,7 @@ body .pure-g .img_prop{
   h1 {
     margin-top: -4%;
     margin-bottom: 0;
-        margin-left: -2px;
+    margin-left: -2px;
     @media #{$ipad-all}{
       font-size: 3.5rem;
     }
@@ -420,7 +427,7 @@ div.pure-g img.img_prop {
 }
 .path_pole , .path_pole4{
   @media #{$phone}{
-       padding: 0;
+    padding: 0;
     position: absolute;
     top: 50%;
     left: 9px;
@@ -435,7 +442,7 @@ div .c-show-sm{
   }
 }
 div .c-hide-sm{
-display: inline-block;
+  display: inline-block;
   @media #{$phone}{
     display: none;
   }
@@ -447,8 +454,19 @@ div h1.c-show-sm{
   }
 }
 div h1.c-hide-sm{
-display: inline-block;
+  display: inline-block;
   @media #{$phone}{
     display: none;
+  }
+}
+div .c-nav.c-hide-sm{
+  @media #{$ipad-all}{
+    display:block;
+  }
+}
+div .c-nav__mobile.c-show-sm{
+  display: none;
+  @media #{$ipad-all}{
+    display:block;
   }
 }
