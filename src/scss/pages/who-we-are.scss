@@ -1,0 +1,144 @@
+.who_we_wre{
+  z-index:0;
+  h1{
+    margin-bottom: 36px;
+    margin-top: -20px;
+  }
+  p{
+    font-size: 1.8rem;
+    line-height: 1.4;
+    @media #{$large}{
+      font-size: 2.2rem;
+    }
+    @media #{$phone}{
+      font-size: 1.25rem;
+    }
+
+  }
+  .section_back_img{
+    bottom: -2px;
+    right: 50px;
+    left: auto;
+    z-index: -1;
+    opacity: .5;
+  }
+}
+.digital_expert{
+  h1{
+    line-height: 1;
+    padding: 0 60px;
+    margin-bottom: 50px;
+    @media #{$ipad-all}{
+      padding: 0px;
+    }
+  }
+  p{
+    @media #{$phone}{
+      line-height: 1.4;
+    }
+  }
+  .swdSection-extra {
+    padding: 130px 60px;
+    padding-bottom: 80px;
+    @media #{$ipad-all}{
+      padding: 125px 10px;
+    }
+    @media #{$phone}{
+      padding: 50px 10px;
+    }
+  }
+  .swd-digital_expert { 
+    background: url(../img/digital_background.jpg) no-repeat center center;
+  }
+}
+.swd-web_tools{
+  &.swdSection-extra{
+    padding: 40px 40px;
+  }
+  .owl-carousel{
+    .owl-item{
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      float: none;
+      .owl_inner {
+        padding: 0 10px;
+        img{
+        }
+      }
+    }
+  }
+
+}
+
+.swd_pro_web{
+  h1{
+    margin: 0 0 50px;
+  }
+  p{
+    font-size: 1.5rem;
+    line-height: 1.6;
+    @media#{$phone}{
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  }
+  .swd_tree{
+    width: 100%;
+    max-width: 637px;
+    margin-bottom: 70px;
+
+  }
+}
+
+.hard_working{
+  .swdSection-extra{
+    padding: 130px 4.5%;
+    @media #{$ipad-all}{
+      padding: 125px 20px;
+    }
+    @media #{$phone}{
+      padding: 50px 20px;
+    }
+  }
+  h1{
+    line-height: 1;
+    margin-bottom: 50px;
+    //font-size: 2.5rem;
+    @media #{$large}{
+      // font-size: 3.438rem;
+    }
+    p{
+      line-height: 1.6;
+    }
+  }
+}
+
+.swd_clients_outer{
+  padding: 80px 0 20px;
+}
+
+.trusted_web{
+  h1{
+    margin-bottom: 50px;
+  }
+  .section_back_img{
+    background: url(../img/alien3.png) center bottom no-repeat;
+    bottom: -2px;
+    background-size: contain;
+  }
+}
+.c_wha{
+  h1{
+    font-size: 2.5rem;
+    @media #{$large}{
+      font-size: 3rem;
+    }
+    @media #{$phone}{
+      font-size: 2rem;
+    }
+  }
+}
+.owl-dots {
+  text-align: center;
+}

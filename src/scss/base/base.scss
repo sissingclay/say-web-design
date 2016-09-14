@@ -22,7 +22,9 @@ body {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   padding-top: $body-padding-top;
 }
-
+.c-nav__link.c-nav__link--active , a.c-nav__link.c-nav__active{
+  color: $color-text-purple;
+}
 .pure-g [class*="pure-u"] {
   @extend .open-sans-light;
 }
