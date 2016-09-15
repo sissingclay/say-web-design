@@ -25,6 +25,14 @@ body {
 .c-nav__link.c-nav__link--active , a.c-nav__link.c-nav__active{
   color: $color-text-purple;
 }
+
+  @media all and (max-width:1100px){ 
+    a.c-nav__link{
+      font-size: 0.9rem;
+    }
+    
+  }
+
 .pure-g [class*="pure-u"] {
   @extend .open-sans-light;
 }

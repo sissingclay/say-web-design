@@ -24,9 +24,9 @@ var gulp            = require('gulp'),
 gulp.task('nunjucks', function () {
     return gulp.src('./src/templates/*.html')
         .pipe(nunjucksRender({
-            data: {
+            data: { 
                 base_url: 'http://localhost:8080/'
-            },
+            }, 
             path: ['./src/templates/'] // String or Array
         }))
         .pipe(gulp.dest('./app'));
