@@ -1,0 +1,159 @@
+.swd_c_study{
+  .h1-section{
+    width: 85%;
+    @media #{$ipad-all}{
+      position:static;
+      transform: none;
+      -webkit-transform: none;
+      -ms-transform: none;
+      -moz-transform: none;
+      margin: 0 auto;
+      padding: 40px 0;
+      height: auto;
+    }
+  }
+  .study_logo{
+    width: 20%;
+    display: block;
+    margin: 0 auto;
+    &.sp{
+      width: 30%;
+    }
+    &.sm{
+      width: 50%;
+    }
+  }
+  h1{
+    text-transform: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-top: 4%;
+    @media #{$ipad}{
+      font-size: 1.2rem;
+    }
+
+  }
+  .left_info{
+
+  }
+  .swdSection-yellow{
+    .study_link{
+      color:$color-black-background;
+    }
+  }
+  .study_link{
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  &.s_content{
+    h1{
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 5%;
+    }
+    p{
+      font-size: 1rem;
+      line-height: 1.5;
+      @media #{$ipad}{
+        font-size: 0.9rem;
+      }
+    }
+  }
+  .pure-u-md-1-2 , .pure-u-md-2-3 , .pure-u-1-1{
+    @media #{$ipad-all}{
+      width:100%;
+    }
+  }
+  .pure-u-1-2.c-img__container{
+    @media #{$ipad-all}{
+      width:50%;
+    }
+  }
+}
+.c_back_image{
+  &.c_llc{
+    background: url("../img/casestudy/llc_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_llc2{
+    background: url("../img/casestudy/llc_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_sp{
+    background: url("../img/casestudy/sp_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_sp2{
+    background: url("../img/casestudy/sp_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_sp3{
+    background: url("../img/casestudy/sp_image8.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_sm{
+    background: url("../img/casestudy/sm_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_sm2{
+    background: url("../img/casestudy/sm_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_sm3{
+    background: url("../img/casestudy/sm_image8.jpg")center no-repeat;
+    background-size: contain;
+  }
+   &.c_cs{
+    background: url("../img/casestudy/cs_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_cs2{
+    background: url("../img/casestudy/cs_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_cs3{
+    background: url("../img/casestudy/cs_image9.jpg")center no-repeat;
+    background-size: contain;
+  }
+    &.c_ab{
+    background: url("../img/casestudy/ab_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_ab2{
+    background: url("../img/casestudy/ab_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_ab3{
+    background: url("../img/casestudy/ab_image9.jpg")center no-repeat;
+    background-size: contain;
+  }
+
+}
+.case_ppl_say{
+  p{
+    @media #{$ipad-all}{
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+  h1{
+    margin-bottom: 40px;
+    @media #{$ipad-all}{
+      margin-bottom: 20px;
+    }
+  }
+}
+.sp_theme_color{
+  background-color: #004b94; 
+}
+.sm_theme_color{
+  background-color: #89b11a;
+}
+.cs_theme_color{
+  background-color: #644e3f;
+}
+.ab_theme_color{
+  background-color: #62a2e0;
+}
