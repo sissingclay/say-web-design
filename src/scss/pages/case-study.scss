@@ -22,6 +22,18 @@
     &.sm{
       width: 50%;
     }
+    &.po{
+      width: 22%;
+    }
+    &.md{
+      width: 40%;
+    }
+     &.bm{
+      width: 43%;
+    }
+     &.ks{
+      width: 45%;
+    }
   }
   h1{
     text-transform: none;
@@ -37,7 +49,7 @@
   .left_info{
 
   }
-  .swdSection-yellow{
+  .swdSection-yellow {
     .study_link{
       color:$color-black-background;
     }
@@ -72,6 +84,11 @@
     }
   }
 }
+.swdSection-lightGrey{
+    .study_link{
+      color:$color-black-background;
+    }
+  }
 .c_back_image{
   &.c_llc{
     background: url("../img/casestudy/llc_image4.jpg")center no-repeat;
@@ -105,7 +122,7 @@
     background: url("../img/casestudy/sm_image8.jpg")center no-repeat;
     background-size: contain;
   }
-   &.c_cs{
+  &.c_cs{
     background: url("../img/casestudy/cs_image4.jpg")center no-repeat;
     background-size: contain;
   }
@@ -117,7 +134,7 @@
     background: url("../img/casestudy/cs_image9.jpg")center no-repeat;
     background-size: contain;
   }
-    &.c_ab{
+  &.c_ab{
     background: url("../img/casestudy/ab_image4.jpg")center no-repeat;
     background-size: contain;
   }
@@ -127,6 +144,54 @@
   }
   &.c_ab3{
     background: url("../img/casestudy/ab_image9.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_po{
+    background: url("../img/casestudy/po_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_po2{
+    background: url("../img/casestudy/po_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_po3{
+    background: url("../img/casestudy/po_image9.jpg")center no-repeat;
+    background-size: contain;
+  }
+   &.c_md{
+    background: url("../img/casestudy/md_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_md2{
+    background: url("../img/casestudy/md_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_md3{
+    background: url("../img/casestudy/md_image8.jpg")center no-repeat;
+    background-size: contain;
+  }
+   &.c_bm{
+    background: url("../img/casestudy/bm_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_bm2{
+    background: url("../img/casestudy/bm_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_bm3{
+    background: url("../img/casestudy/bm_image8.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_ks{
+    background: url("../img/casestudy/ks_image4.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_ks2{
+    background: url("../img/casestudy/ks_image5.jpg")center no-repeat;
+    background-size: contain;
+  }
+  &.c_ks3{
+    background: url("../img/casestudy/ks_image8.jpg")center no-repeat;
     background-size: contain;
   }
 
@@ -156,4 +221,18 @@
 }
 .ab_theme_color{
   background-color: #62a2e0;
+}
+.po_theme_color{
+  background-color: #00b44e;
+}
+.md_theme_color{
+  background-color: #e31836;
+}
+.bm_theme_color{
+  background-color: #2fa9df;
+  color: #fff;
+}
+.ks_theme_color{
+  background-color: #5fb35f;
+  color: #fff;
 }
