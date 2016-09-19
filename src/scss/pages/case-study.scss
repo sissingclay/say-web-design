@@ -90,61 +90,62 @@
     }
   }
 .c_back_image{
+      display: inline-block;
   &.c_llc{
     background: url("../img/casestudy/llc_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_llc2{
     background: url("../img/casestudy/llc_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_sp{
     background: url("../img/casestudy/sp_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_sp2{
     background: url("../img/casestudy/sp_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_sp3{
     background: url("../img/casestudy/sp_image8.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_sm{
     background: url("../img/casestudy/sm_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_sm2{
     background: url("../img/casestudy/sm_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_sm3{
     background: url("../img/casestudy/sm_image8.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_cs{
     background: url("../img/casestudy/cs_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_cs2{
     background: url("../img/casestudy/cs_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_cs3{
     background: url("../img/casestudy/cs_image9.jpg")center no-repeat;
-    background-size: contain;
+       background-size: cover;
   }
   &.c_ab{
     background: url("../img/casestudy/ab_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_ab2{
     background: url("../img/casestudy/ab_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_ab3{
-    background: url("../img/casestudy/ab_image9.jpg")center no-repeat;
-    background-size: contain;
+    background: url("../img/casestudy/ab_image8.jpg")center no-repeat;
+       background-size: cover;
   }
   &.c_po{
     background: url("../img/casestudy/po_image4.jpg")center no-repeat;
@@ -152,49 +153,53 @@
   }
   &.c_po2{
     background: url("../img/casestudy/po_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_po3{
-    background: url("../img/casestudy/po_image9.jpg")center no-repeat;
-    background-size: contain;
+    background: url("../img/casestudy/po_image8.jpg")center no-repeat;
+        background-size: cover;
   }
    &.c_md{
     background: url("../img/casestudy/md_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_md2{
     background: url("../img/casestudy/md_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_md3{
     background: url("../img/casestudy/md_image8.jpg")center no-repeat;
-    background-size: contain;
+      background-size: cover;
   }
    &.c_bm{
     background: url("../img/casestudy/bm_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_bm2{
     background: url("../img/casestudy/bm_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_bm3{
     background: url("../img/casestudy/bm_image8.jpg")center no-repeat;
-    background-size: contain;
+      background-size: cover;
   }
   &.c_ks{
     background: url("../img/casestudy/ks_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_ks2{
     background: url("../img/casestudy/ks_image5.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_ks3{
     background: url("../img/casestudy/ks_image8.jpg")center no-repeat;
-    background-size: contain;
+        background-size: cover;
   }
 
+}
+.mdd_contain{
+      background: url(/img/casestudy/md_image0.jpg) no-repeat center center;
+    background-size: contain;
 }
 .case_ppl_say{
   p{
@@ -205,10 +210,15 @@
   }
   h1{
     margin-bottom: 40px;
+       font-size: 1.7rem;
     @media #{$ipad-all}{
       margin-bottom: 20px;
     }
   }
+  h2{
+       font-size: 1.7rem;
+  }
+ 
 }
 .sp_theme_color{
   background-color: #004b94; 

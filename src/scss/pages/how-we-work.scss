@@ -463,13 +463,16 @@ div h1.c-hide-sm{
   }
 }
 div .c-nav.c-hide-sm{
+  display: block;
   @media #{$ipad-all}{
-    display:block;
+    display:none;
   }
 }
+
 div .c-nav__mobile.c-show-sm{
+  /*display: none;*/
   display: none;
-  @media #{$ipad-all}{
+  @media #{$ipad}{
     display:block;
   }
 }

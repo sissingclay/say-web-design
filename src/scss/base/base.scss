@@ -33,6 +33,12 @@ body {
     }
     
   }
+   @media all and (max-width:1300px){ 
+    a.c-nav__link{
+      font-size: 0.9rem;
+    }
+    
+  }
 
 .pure-g [class*="pure-u"] {
   @extend .open-sans-light;
@@ -70,6 +76,9 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
     width: 95%;
     margin-bottom: 0;
     @include font-size(2.1);
@@ -160,3 +169,4 @@ $large:                "(min-width: 1500px)";
 $ipad:                "(max-width: 1024px)";
 $ipad-all :      "(max-width: 768px)";  
 $phone:               "(max-width: 767px)";
+$sm-desktop:               "(max-width: 1300px)";
