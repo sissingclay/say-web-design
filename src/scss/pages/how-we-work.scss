@@ -297,14 +297,22 @@
     margin-bottom: 35px;
     @media #{$ipad-all}{
       margin-bottom: 25px;
-    
-    }
-      &.more_space{
-        @media #{$large}{
-          margin-top: 10px;
-        }
 
+    }
+    &.more_space{
+      @media #{$large}{
+        margin-top: 50px;
       }
+
+    }
+  }
+  .pure-c-pl .c_image_t{
+    @media #{$ipad-all}{
+          margin-bottom: 50px;
+    }
+    @media #{$phone}{
+          margin-bottom: 25px;
+    }
   }
   .stage_t{
     margin-top: 130px;
@@ -313,6 +321,9 @@
     }
     @media #{$phone}{
       margin-top: 0px;
+    }
+    @media #{$large}{
+      margin-top: 150px;
     }
   }
 }
@@ -432,9 +443,9 @@ div.pure-g img.img_prop {
   @media #{$phone}{
     padding: 0;
     position: absolute;
-    top: 50%;
+    top: 0%;
     left: 9px;
-    transform: translateX(0%) translateY(-50%);
+    transform: translateX(0%) translateY(0%);
     width: 61px;
   }
 }
@@ -450,6 +461,7 @@ div .c-hide-sm{
     display: none;
   }
 }
+
 div h1.c-show-sm{
   display: none;
   @media #{$phone}{
@@ -468,11 +480,33 @@ div .c-nav.c-hide-sm{
     display:none;
   }
 }
-
+div .c-show-ipad{
+  display: none;
+  @media #{$ipad}{
+    display: inline-block;
+  }
+  @media #{$phone}{
+    display: none;
+  }
+}
+div .c-hide-ipad{
+  display: inline-block;
+  @media #{$ipad}{
+    display: none;
+  }
+  @media #{$phone}{
+    display: inline-block;
+  }
+  &.c-hide-sm{
+    @media #{$phone}{
+      display: none;
+    }
+  }
+}
 div .c-nav__mobile.c-show-sm{
   /*display: none;*/
   display: none;
-  @media #{$ipad}{
+  @media #{$ipad-all}{
     display:block;
   }
 }

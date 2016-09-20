@@ -17,27 +17,30 @@
 }
 
 .slider > .after, .slider > .before {
-    height: 51%;
-    width: 100%;
+    height: 100%;
+    width: 200%;
     position: fixed;
     left: 0;
     background-color: $color-purple-background;
     z-index: 9999;
     content: '';
-    @include transition(transform, 600ms, ease);
+    @include transition(transform, 800ms, ease);
 }
 
 .slider > .before {
     top: 0;
-    @include transform(translateY(-100%));
+    @include transform(scaleX(0) skewX(20deg));
+        transform-origin: left
 }
 
 .slider > .after {
     bottom: 0;
     @include transform(translateY(100%));
+    display:none;
 }
 
 .slider-overlay > .before, .slider-overlay > .after {
-    @include transform(translateY(0));
+    @include transform(scaleX(1) skewX(20deg));
     @include transition-duration(250ms);
+        transform-origin: right;
 }

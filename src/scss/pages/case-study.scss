@@ -11,6 +11,9 @@
       padding: 40px 0;
       height: auto;
     }
+    .swdButton {
+    margin-top: 15px;
+}
   }
   .study_logo{
     width: 20%;
@@ -44,6 +47,12 @@
     @media #{$ipad}{
       font-size: 1.2rem;
     }
+    @media #{$ipad-all}{
+      font-size: 1.8rem;
+    }
+    @media #{$phone}{
+      font-size: 1.2rem;
+    }
 
   }
   .left_info{
@@ -70,6 +79,12 @@
       line-height: 1.5;
       @media #{$ipad}{
         font-size: 0.9rem;
+      }
+      @media #{$ipad-all}{
+        font-size: 1.5rem;
+      }
+       @media #{$phone}{
+        font-size: 1rem;
       }
     }
   }
@@ -149,7 +164,7 @@
   }
   &.c_po{
     background: url("../img/casestudy/po_image4.jpg")center no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   &.c_po2{
     background: url("../img/casestudy/po_image5.jpg")center no-repeat;
@@ -166,6 +181,8 @@
   &.c_md2{
     background: url("../img/casestudy/md_image5.jpg")center no-repeat;
     background-size: cover;
+   
+    
   }
   &.c_md3{
     background: url("../img/casestudy/md_image8.jpg")center no-repeat;
@@ -197,6 +214,12 @@
   }
 
 }
+/*.c_back_image.c_md2 , .c_back_image.c_ks2 ,.c_back_image.c_bm2 , .c_back_image.c_po2 , .c_back_image.c_ab2 , 
+.c_back_image.c_cs2 , .c_back_image.c_sm2 , .c_back_image.c_sp2 , .c_back_image.c_llc2{
+   @media #{$ipad-all}{
+      width:100%;
+    }
+}*/
 .mdd_contain{
       background: url(/img/casestudy/md_image0.jpg) no-repeat center center;
     background-size: contain;
@@ -204,8 +227,11 @@
 .case_ppl_say{
   p{
     @media #{$ipad-all}{
-      font-size: 1rem;
+      font-size: 1.4rem;
       line-height: 1.5;
+    }
+    @media #{$phone}{
+      font-size: 1.1rem;
     }
   }
   h1{

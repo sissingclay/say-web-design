@@ -319,6 +319,7 @@ swdModule.init = (function () {
       clickedId: init,
       clickedClass: loopClasses,
       scroll: scroll,
+      toggle : toggle,
       hasClass: hasClass,
       addClass: addClass,
       removeClass: removeClass,
@@ -328,7 +329,6 @@ swdModule.init = (function () {
 })();
 
 $(document).ready(function () {
-
 
 
 
