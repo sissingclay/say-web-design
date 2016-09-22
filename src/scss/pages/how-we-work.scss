@@ -506,7 +506,8 @@ div .c-hide-ipad{
 div .c-nav__mobile.c-show-sm{
   /*display: none;*/
   display: none;
-  @media #{$ipad-all}{
-    display:block;
-  }
+  @include ms-md-range {
+         display:block;
+    }
+  
 }

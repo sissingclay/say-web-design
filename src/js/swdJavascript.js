@@ -204,7 +204,8 @@ swdModule.init = (function () {
 
       [].forEach.call(allLinks, function (val) {
 
-        if (val.hostname === 'localhost') {
+        //if (val.hostname === 'saytest.saydev.co.uk') {
+          if (val.hostname === 'localhost') {
 
           val.addEventListener('click', function (e) {
 
@@ -215,9 +216,12 @@ swdModule.init = (function () {
                 getTemplate('index.html');
               }
 
-              if (this.pathname !== '/') {
+              if ((this.pathname !== '/')&&(this.pathname !== '/blog')) {
                 template = this.pathname.replace('/', '');
                 getTemplate(template);
+              }
+              if (this.pathname === '/blog') {
+              window.location= 'blog'; 
               }
 
               window.history.pushState({}, '', this.href);
@@ -226,7 +230,6 @@ swdModule.init = (function () {
                 ga('set', 'page', this.pathname);
                 ga('send', 'pageview');
               }
-
               menu = document.querySelectorAll('.c-nav a');
 
               [].forEach.call(menu, function (val) {
@@ -235,6 +238,17 @@ swdModule.init = (function () {
                   val.classList.add('c-nav__link--active');
                 }
               });
+              if (this.pathname === '/') {
+                $("body").addClass("home_page");
+                $("#swd-logo-js").removeClass("swdBoxSlider-active");
+                $("#swd-header-social-js").removeClass("_show");
+              }
+              else {
+                $("body").removeClass("home_page");
+                $("#swd-logo-js").addClass("swdBoxSlider-active");
+                $("#swd-header-social-js").addClass("_show");
+              }
+              
             }
           });
         }
@@ -319,7 +333,7 @@ swdModule.init = (function () {
       clickedId: init,
       clickedClass: loopClasses,
       scroll: scroll,
-      toggle : toggle,
+      toggle: toggle,
       hasClass: hasClass,
       addClass: addClass,
       removeClass: removeClass,
@@ -329,7 +343,58 @@ swdModule.init = (function () {
 })();
 
 $(document).ready(function () {
+$(".c-show-sm .c-nav__link").on("click",function(){
+  $(".c-show-sm .c-nav__link").removeClass("c-nav__active");
+  $(this).addClass("c-nav__link--active");
+});
 
+// Hide Header on on scroll down
+  var didScroll;
+  var lastScrollTop = 0;
+  var delta = 5;
+  if ($("body").hasClass("home_page")) {
+    var navbarHeight = jQuery('header').outerHeight() + 200;
+  }
+  else {
+    var navbarHeight = jQuery('header').outerHeight() + 100;
+  }
+
+
+  jQuery(window).scroll(function (event) {
+    didScroll = true;
+  });
+
+  setInterval(function () {
+    if (didScroll) {
+      // if(!$("body").hasClass("home_page")){
+      hasScrolled();
+      didScroll = false;
+      // }
+
+    }
+  }, 250);
+
+  function hasScrolled() {
+    var st = jQuery(this).scrollTop();
+
+    // Make sure they scroll more than delta
+    if (Math.abs(lastScrollTop - st) <= delta)
+      return;
+
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight) {
+      // Scroll Down
+      jQuery('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+      // Scroll Up
+      if (st + jQuery(window).height() < jQuery(document).height()) {
+        jQuery('header').removeClass('nav-up').addClass('nav-down');
+      }
+    }
+
+    lastScrollTop = st;
+  }
 
 
   if ($(".swd-header").size() > 0) {
@@ -462,21 +527,34 @@ $(document).ready(function () {
   window.onscroll = function () {
     // called when the window is scrolled.
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-
-    if (scrollTop > 150) {
-      // object is offset more
-      // than 10 pixels from its parent
-      if (!swdModule.init.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
-        swdModule.init.addClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active');
-        swdModule.init.addClass(document.querySelector('#swd-header-social-js'), '_show');
+    if ($('body').hasClass("home_page")) {
+      if (scrollTop > 150) {
+        if (!swdModule.init.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
+          swdModule.init.addClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active');
+          swdModule.init.addClass(document.querySelector('#swd-header-social-js'), '_show');
+        }
       }
-    } else {
-      if (swdModule.init.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
-        swdModule.init.removeClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active');
-        swdModule.init.removeClass(document.querySelector('#swd-header-social-js'), '_show');
+      else {
+        if (swdModule.init.hasClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active')) {
+          swdModule.init.removeClass(document.querySelector('#swd-logo-js'), 'swdBoxSlider-active');
+          swdModule.init.removeClass(document.querySelector('#swd-header-social-js'), '_show');
+        }
       }
     }
+    else {
+      if (scrollTop > 150) {
+        $('body').addClass("scrolled");
+      }
+      else {
+        $('body').removeClass("scrolled");
+      }
+    }
+
   };
+  if (!$('body').hasClass("home_page")) {
+    $("#swd-header-social-js").addClass(' _show');
+    $("#swd-logo-js").addClass('swdBoxSlider-active');
+  }
 
   document.querySelector('.c-nav__mobile').addEventListener('click', function (e) {
 

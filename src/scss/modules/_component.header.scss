@@ -1,60 +1,92 @@
+.home_page{
+  header.swd-header {
+
+    /*margin-top: -$body-padding-top;*/
+    /*top:175px;*/
+  }
+}
 .swd-header {
-    padding: 15px 0 10px 25px;
-    position: fixed;
-    @include box-sizing();
-    width: 100%;
-    background-color: $color-white-background;
-    margin-top: -$body-padding-top;
-    z-index: 100;
-    
-    .social-container {
-        visibility:hidden;
-        opacity:0;
-        height: 0;
-        @include transition(all, 250ms, ease-in-out);
-        
-        &._show {
-            visibility: visible;
-            opacity: 1;
-            height: auto;
-        }
+  padding: 15px 0 10px 25px;
+  position: fixed;
+  top: 128px;
+  @include box-sizing();
+  width: 100%;
+  background-color: $color-white-background;
+  margin-top: -$body-inner-padding;
+  z-index: 100;
+  @include transition(all, 250ms, ease-in-out);
+  @media #{$phone}{
+    top: 0;
+  }
+  .social-container {
+    visibility:hidden;
+    opacity:0;
+    height: 0;
+    @include transition(all, 250ms, ease-in-out);
+
+    &._show {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
     }
-    
-    .swdSocial {
-        display: inline-block;
-        background-color: $color-dark-teal-background;
-        padding: 7px 18px 0;
-        
-        a {
-            padding: 0 3px;
-            @include font-size(1.4);
-        }
+  }
+
+  .swdSocial {
+    display: inline-block;
+    background-color: $color-dark-teal-background;
+    padding: 7px 18px 0;
+
+    a {
+      padding: 0 3px;
+      @include font-size(1.4);
     }
+  }
+  &.nav-up{
+
+    top: 0px;
+    @media #{$ipad}{
+      top: 128px;
+    }
+    @media #{$phone}{
+      top: 0;
+    }
+
+  }
+  &.nav-down{
+
+    top: 128px;
+    @media #{$phone}{
+      top: 0;
+    }
+
+
+  }
 }
 
 //pixels 767px
 @include sm-range {
-    
-    .swd-header {
-        margin-top: 0;
-        position: relative;
-        padding: 20px 0 20px 20px;
-        
-        .swdSocial {
-            a {
-                @include font-size(1.2);
-                padding: 0 5px;
-            }
-        }
-        
-        .social-container {
-            visibility:visible;
-            opacity:1;
-        }
+
+  .swd-header {
+    margin-top: 0;
+    position: relative;
+    padding: 20px 0 20px 20px;
+
+    .swdSocial {
+      a {
+        @include font-size(1.2);
+        padding: 0 5px;
+      }
     }
-    
-    .swdButton {
-        @include font-size(0.85);
-        padding: 12px 15px;
+
+    .social-container {
+      visibility:visible;
+      opacity:1;
+      height: auto;
     }
+  }
+
+  .swdButton {
+    @include font-size(0.85);
+    padding: 12px 15px;
+  }
 }

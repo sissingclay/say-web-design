@@ -6,6 +6,9 @@
   }
   img{
         margin-bottom: 20px;
+        @media #{$ipad}{
+          max-width: 100%;
+        }
   }
   
 }

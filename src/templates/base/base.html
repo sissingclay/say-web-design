@@ -1,261 +1,268 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>{% block meta_title %}{% endblock %}</title>
+    <title>{% block meta_title %}{% endblock %}</title>
 
-        <meta name="description" content="Say Web design is a passionate London based web design and web development agency who can help meet your digital goals.">
-        <meta name="author" content="Say Web Design Limited">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Say Web design is a passionate London based web design and web development agency who can help meet your digital goals.">
+    <meta name="author" content="Say Web Design Limited">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/pure-min.css">
-        <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-        <!--[if lte IE 8]>
-        <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
-        <![endif]-->
+    <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
 
-        <link rel="stylesheet" href="{{ base_url }}css/main.v2.css">
-        <link rel="stylesheet" href="{{ base_url }}components/owl.carousel/dist/assets/owl.carousel.min.css">
-        <link rel="icon" type="image/png" href="{{ base_url }}img/icon.png">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700">
+    <link rel="stylesheet" href="{{ base_url }}css/main.v2.css">
+    <link rel="stylesheet" href="{{ base_url }}components/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="icon" type="image/png" href="{{ base_url }}img/icon.png">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700">
 
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-56975041-1', 'auto');
-            ga('send', 'pageview');
+      ga('create', 'UA-56975041-1', 'auto');
+      ga('send', 'pageview');
 
-        </script>
+    </script>
 
-    </head>
+  </head>
 
-    <body>   
- 
-        <header class="swd-header base_html">
+  <body class="{%if activePage == 'home' %}home_page{% endif %}">   
 
-            <div class="pure-g">
+    <header class="swd-header base_html">
 
-                <section class="pure-u-1-2 pure-u-lg-1-5">
+      <div class="pure-g">
 
-                    <div class="swdBoxSlider" id="swd-logo-js">
+        <section class="pure-u-1-2 pure-u-lg-1-5">
 
-                        <a href="{{ base_url }}" class="swdBoxSlider_main">
-                            <img src="svg/icon_logo.svg" class="pure-img swdBoxSlider_img" alt="Say Web Design">
-                        </a>
+          <div class="swdBoxSlider" id="swd-logo-js">
 
-                    </div>
+            <a href="{{ base_url }}" class="swdBoxSlider_main">
+              <img src="svg/icon_logo.svg" class="pure-img swdBoxSlider_img" alt="Say Web Design">
+            </a>
 
-                </section>
+          </div>
 
-                <section id="swd-header-social-js" class="pure-u-1-2 pure-u-lg-4-5 swdAlignRight social-container">
+        </section>
 
-                    <a class="c-nav__mobile js-nav-toggle c-show-sm" href="#">
-                        &#9776; Menu
-                    </a>
+        <section id="swd-header-social-js" class="pure-u-1-2 pure-u-lg-4-5 swdAlignRight social-container">
 
-                    <section style="float: right;">
+          <a class="c-nav__mobile js-nav-toggle c-show-sm" href="#">
+            &#9776; Menu
+          </a>
 
-                        <div>
-                            <div class="swdSocial">
-                                <a href="https://www.facebook.com/pages/Say-Web-Design/1434758156769472" target="_blank">
-                                    <i class="cc-fa cc-fa-08-facebook cc-fa-1"></i>
-                                </a>
-                                <a href="https://twitter.com/say_web" target="_blank">
-                                    <i class="cc-fa cc-fa-07-twitter cc-fa-1"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/company/say-web-design" target="_blank">
-                                    <i class="cc-fa cc-fa-03-linkedin cc-fa-1"></i>
-                                </a>
-                            </div>
-                        </div>
+          <section style="float: right;">
 
-                        <div>
-                            <a href="#swd-footer-js" data-swd-speed="1500" data-swd-element="#swd-contactForm-js" class="swdButton swdButton--sm swd-scroll">Get in Touch</a>
-                        </div>
+            <div>
+              <div class="swdSocial">
+                <a href="https://www.facebook.com/pages/Say-Web-Design/1434758156769472" target="_blank">
+                  <i class="cc-fa cc-fa-08-facebook cc-fa-1"></i>
+                </a>
+                <a href="https://twitter.com/say_web" target="_blank">
+                  <i class="cc-fa cc-fa-07-twitter cc-fa-1"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/say-web-design" target="_blank">
+                  <i class="cc-fa cc-fa-03-linkedin cc-fa-1"></i>
+                </a>
+              </div>
+            </div>
 
-                    </section>
+            <div>
+              <a href="#swd-footer-js" data-swd-speed="1500" data-swd-element="#swd-contactForm-js" class="swdButton swdButton--sm swd-scroll">Get in Touch</a>
+            </div>
 
-                    <nav class="c-nav c-hide-sm">
-                        <a class="c-nav__link {%if activePage == 'home' %}c-nav__link--active{% endif %}" href="{{ base_url }}">Home</a>
-                        <a class="c-nav__link {%if activePage == 'who-we-are' %}c-nav__link--active{% endif %}" href="{{ base_url }}who-we-are.html">Who we are</a>
-                        <a class="c-nav__link {%if activePage == 'how-we-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}how-we-work.html">How we work</a>
-                        <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}our-work.html">Our work</a>
-                         <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__link--active{% endif %}" href="{{ base_url }}what-people-say.html">What people say</a>
-                         <a class="c-nav__link" href="http://saytest.saydev.co.uk/blog">Blog</a>
-                    </nav>
+          </section>
 
-                </section>
+          <nav class="c-nav c-hide-sm">
+            <a class="c-nav__link {%if activePage == 'home' %}c-nav__link--active{% endif %}" href="{{ base_url }}">Home</a>
+            <a class="c-nav__link {%if activePage == 'who-we-are' %}c-nav__link--active{% endif %}" href="{{ base_url }}who-we-are.html">Who we are</a>
+            <a class="c-nav__link {%if activePage == 'how-we-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}how-we-work.html">How we work</a>
+            <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}our-work.html">Our work</a>
+            <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__link--active{% endif %}" href="{{ base_url }}what-people-say.html">What people say</a>
+            <a class="c-nav__link" href="http://www.saytest.saydev.co.uk/blog">Blog</a>
+          </nav>
+
+        </section>
+
+      </div>
+
+      <nav class="c-nav c-show-sm js-nav-toBeToggled">
+        <a class="c-nav__link {%if activePage == 'home' %}c-nav__active{% endif %}" href="{{ base_url }}">Home</a>
+        <a class="c-nav__link {%if activePage == 'who-we-are' %}c-nav__active{% endif %}" href="{{ base_url }}who-we-are.html">Who we are</a>
+        <a class="c-nav__link {%if activePage == 'how-we-work' %}c-nav__active{% endif %}" href="{{ base_url }}how-we-work.html">How we work</a>
+        <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__active{% endif %}" href="{{ base_url }}our-work.html">Our work</a>
+        <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__active{% endif %}" href="{{ base_url }}what-people-say.html">What people say</a>
+        <a class="c-nav__link" href="http://www.saytest.saydev.co.uk/blog">Blog</a>
+      </nav>
+
+    </header>
+
+    <div class="slider"> 
+      <div class="before"></div>
+      <div class="after"></div>
+    </div>
+
+    <main>
+
+      {% block main %}
+
+      {% endblock %}
+
+    </main>
+
+    <footer class="pure-g swdSection swdSection-black swd-footer" id="swd-footer-js">
+
+      <div class="pure-u-1-1">
+
+        <div class="swdContainer">
+
+          <div class="swd-hidden swd-contactForm" id="swd-contactForm-js">
+
+            <section class="pure-g swd-footer-title-section">
+
+              <div class="pure-u-1-1 pure-u-md-2-5">
+                <h1>Talk To Us</h1>
+              </div>
+
+              <div class="pure-u-1-1 pure-u-md-3-5">
+
+                <p>We’d love to hear more about you and your project. Just drop us a line below with a little more info and we’ll get back to you asap.</p>
+
+              </div>
+
+            </section>
+
+            <div class="swd-footer-icon-section">
+              <i class="cc-icon cc-icon-icon_talk_to_us cc-icon-4"></i>
+            </div>
+
+            <form id="contantForm" class="pure-g" autocomplete="off" data-parsley-validate>
+
+              <div class="pure-u-1-1 pure-u-md-2-5 swd-form swd-footer-spacing">
+
+                <input type="text" name="firstName" placeholder="First Name" data-parsley-trigger="change" required="required">
+                <input type="text" name="lastName" placeholder="Last Name" data-parsley-trigger="change" required="required">
+                <input type="email" name="email" placeholder="Email Address" data-parsley-trigger="email" required="required">
+                <input type="text" name="phone" placeholder="Phone Number" data-parsley-trigger="change" required="required">
+
+              </div>
+
+              <div class="pure-u-1-1 pure-u-md-2-5 swd-footer-spacing">
+
+                <textarea placeholder="Project Description" name="project" required="required" data-parsley-trigger="change"></textarea>
+
+              </div>
+
+              <div class="pure-u-1-1 pure-u-md-1-5">
+                <button type="submit" class="swdButton swd-footer-form-button" id="swd-contactBtn_js" value="submit">Send</button>
+                <a href="#" id="swd-cancelForm-js" class="swd-footer-form-cancel">Cancel</a>
+                <p class="swd-footer-form-required">All fields required.</p>
+              </div>
+
+            </form>
+
+          </div>
+
+          <section class="pure-g swd-footer-copyright">
+
+            <div class="pure-u-1-1 pure-u-lg-2-5">
+
+              <p>&copy; Say Web Design Limited 2015 <br />
+                Registered in England and Wales,<br />
+                Number 8950803
+              </p>
+
+              <p class="swd-less-margin">
+                <span class="swd-footer-icons swdAlignCenter">e</span>
+                <a href="mailto:hello@saywebdesign.co.uk">hello@saywebdesign.co.uk</a>
+              </p>
+
+              <p  class="swd-less-margin">
+                <span class="swd-footer-icons swdAlignCenter">t</span>
+                0203 637 3320
+              </p>
+
+              <p>
+                <span class="swd-footer-icons swdAlignCenter">a</span>
+                207 Regent Street, 3rd Floor, <br>
+                <span class="swd-footer-icons_extraSpaceLeft">London, W1B 3HH</span>
+              </p>
 
             </div>
 
-            <nav class="c-nav c-show-sm js-nav-toBeToggled">
-                <a class="c-nav__link {%if activePage == 'home' %}c-nav__active{% endif %}" href="{{ base_url }}">Home</a>
-                <a class="c-nav__link {%if activePage == 'who-we-are' %}c-nav__active{% endif %}" href="{{ base_url }}who-we-are.html">Who we are</a>
-                <a class="c-nav__link {%if activePage == 'how-we-work' %}c-nav__active{% endif %}" href="{{ base_url }}how-we-work.html">How we work</a>
-                <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__active{% endif %}" href="{{ base_url }}our-work.html">Our work</a>
-                <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__active{% endif %}" href="{{ base_url }}what-people-say">What people say</a>
-                <a class="c-nav__link" href="http://saytest.saydev.co.uk/blog">Blog</a>
-            </nav>
+            <div id="swd-talkToUs-js" class="pure-u-1-1 pure-u-lg-3-5">
 
-        </header>
+              <p>Need help? Or just want to chat about realising the full potential of your vision? We love to listen. We can talk you through all your ideas in detail.</p>
 
-        <div class="slider"> 
-            <div class="before"></div>
-            <div class="after"></div>
+              <a href="#swd-footer-js" data-swd-speed="150" data-swd-element="#swd-contactForm-js" class="swdButton swd-scroll">Talk To Us</a>
+
+            </div>
+
+          </section>
+
         </div>
 
-        <main>
+      </div>
 
-            {% block main %}
+    </footer>
 
-            {% endblock %}
+    <script>
 
-        </main>
+      var swdModule = swdModule || {};
 
-        <footer class="pure-g swdSection swdSection-black swd-footer" id="swd-footer-js">
+      swdModule.allScriptsLoaded = function () {
+        swdModule.init.allLoaded();
+      };
 
-            <div class="pure-u-1-1">
+      swdModule.lazyLoad = function (source, done) {
 
-                <div class="swdContainer">
+        var addScript = document.createElement('script');
+        addScript.src = source;
+        addScript.async = false;
+        document.head.appendChild(addScript);
 
-                    <div class="swd-hidden swd-contactForm" id="swd-contactForm-js">
-
-                        <section class="pure-g swd-footer-title-section">
-
-                            <div class="pure-u-1-1 pure-u-md-2-5">
-                                <h1>Talk To Us</h1>
-                            </div>
-
-                            <div class="pure-u-1-1 pure-u-md-3-5">
-
-                                <p>We’d love to hear more about you and your project. Just drop us a line below with a little more info and we’ll get back to you asap.</p>
-
-                            </div>
-
-                        </section>
-
-                        <div class="swd-footer-icon-section">
-                            <i class="cc-icon cc-icon-icon_talk_to_us cc-icon-4"></i>
-                        </div>
-
-                        <form id="contantForm" class="pure-g" autocomplete="off" data-parsley-validate>
-
-                            <div class="pure-u-1-1 pure-u-md-2-5 swd-form swd-footer-spacing">
-
-                                <input type="text" name="firstName" placeholder="First Name" data-parsley-trigger="change" required="required">
-                                <input type="text" name="lastName" placeholder="Last Name" data-parsley-trigger="change" required="required">
-                                <input type="email" name="email" placeholder="Email Address" data-parsley-trigger="email" required="required">
-                                <input type="text" name="phone" placeholder="Phone Number" data-parsley-trigger="change" required="required">
-
-                            </div>
-
-                            <div class="pure-u-1-1 pure-u-md-2-5 swd-footer-spacing">
-
-                                <textarea placeholder="Project Description" name="project" required="required" data-parsley-trigger="change"></textarea>
-
-                            </div>
-
-                            <div class="pure-u-1-1 pure-u-md-1-5">
-                                <button type="submit" class="swdButton swd-footer-form-button" id="swd-contactBtn_js" value="submit">Send</button>
-                                <a href="#" id="swd-cancelForm-js" class="swd-footer-form-cancel">Cancel</a>
-                                <p class="swd-footer-form-required">All fields required.</p>
-                            </div>
-
-                        </form>
-
-                    </div>
-
-                    <section class="pure-g swd-footer-copyright">
-
-                        <div class="pure-u-1-1 pure-u-lg-2-5">
-
-                            <p>&copy; Say Web Design Limited 2015 <br />
-                                Registered in England and Wales,<br />
-                                Number 8950803
-                            </p>
-
-                            <p class="swd-less-margin">
-                                <span class="swd-footer-icons swdAlignCenter">e</span>
-                                <a href="mailto:hello@saywebdesign.co.uk">hello@saywebdesign.co.uk</a>
-                            </p>
-
-                            <p  class="swd-less-margin">
-                                <span class="swd-footer-icons swdAlignCenter">t</span>
-                                0203 637 3320
-                            </p>
-
-                            <p>
-                                <span class="swd-footer-icons swdAlignCenter">a</span>
-                                207 Regent Street, 3rd Floor, <br>
-                                <span class="swd-footer-icons_extraSpaceLeft">London, W1B 3HH</span>
-                            </p>
-
-                        </div>
-
-                        <div id="swd-talkToUs-js" class="pure-u-1-1 pure-u-lg-3-5">
-
-                            <p>Need help? Or just want to chat about realising the full potential of your vision? We love to listen. We can talk you through all your ideas in detail.</p>
-
-                            <a href="#swd-footer-js" data-swd-speed="150" data-swd-element="#swd-contactForm-js" class="swdButton swd-scroll">Talk To Us</a>
-
-                        </div>
-
-                    </section>
-
-                </div>
-
-            </div>
-
-        </footer>
-
-        <script>
-
-            var swdModule = swdModule || {};
-
-            swdModule.allScriptsLoaded = function () {
-                swdModule.init.allLoaded();
-            };
-
-            swdModule.lazyLoad = function (source, done) {
-
-                var addScript   = document.createElement('script');
-                addScript.src   = source;
-                addScript.async = false;
-                document.head.appendChild(addScript);
-
-                if (done) {
-                    addScript.onload                = done;
-                    addScript.onreadystatechange    = function () {
-                        if (addScript.readyState === 'loaded' || addScript.readyState === 'complete') {
-                            done();
-                        }
-                    };
-                }
-            };
-        </script>
+        if (done) {
+          addScript.onload = done;
+          addScript.onreadystatechange = function () {
+            if (addScript.readyState === 'loaded' || addScript.readyState === 'complete') {
+              done();
+            }
+          };
+        }
+      };
+    </script>
 
 
-        <script>
+    <script>
 
-            swdModule.lazyLoad('https://mozilla.github.io/nunjucks/files/nunjucks-slim.js');
-            swdModule.lazyLoad('{{ base_url }}components/jquery/dist/jquery.min.js');
-            swdModule.lazyLoad('{{ base_url }}components/wow/dist/wow.min.js');
-            swdModule.lazyLoad('{{ base_url }}components/owl.carousel/dist/owl.carousel.min.js');
-            swdModule.lazyLoad('{{ base_url }}js/index.js');
-            swdModule.lazyLoad('{{ base_url }}js/swdJavascript.js', swdModule.allScriptsLoaded);
+      swdModule.lazyLoad('https://mozilla.github.io/nunjucks/files/nunjucks-slim.js');
+      swdModule.lazyLoad('{{ base_url }}components/jquery/dist/jquery.min.js');
+      swdModule.lazyLoad('{{ base_url }}components/wow/dist/wow.min.js');
+      swdModule.lazyLoad('{{ base_url }}components/owl.carousel/dist/owl.carousel.min.js');
+      swdModule.lazyLoad('{{ base_url }}js/index.js');
+      swdModule.lazyLoad('{{ base_url }}js/swdJavascript.js', swdModule.allScriptsLoaded);
 
-        </script>
+    </script>
 
-        <!--[if lte IE 9]>
-        <p class="browsehappy" style="background-color: #000000; position: fixed; z-index: 9999; bottom: -10px; padding: 20px;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" style="color: #672b86; font-weight: bold;">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <!--[if lte IE 9]>
+    <p class="browsehappy" style="background-color: #000000; position: fixed; z-index: 9999; bottom: -10px; padding: 20px;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" style="color: #672b86; font-weight: bold;">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-    </body>
+  </body>
 
 </html>

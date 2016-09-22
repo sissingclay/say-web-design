@@ -1,3 +1,9 @@
+// Media queries
+$large:                "(min-width: 1500px)";
+$ipad:                "(max-width: 1024px)";
+$ipad-all :      "(max-width: 768px)";  
+$phone:               "(max-width: 767px)";
+$sm-desktop:               "(max-width: 1300px)";
 html {
   font-size:16px;
   @extend .open-sans-light;
@@ -20,7 +26,17 @@ body {
   @extend .open-sans-light;
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-  padding-top: $body-padding-top;
+   padding-top:$body-inner-padding;
+  &.home_page{
+    padding-top: $body-padding-top;
+    @media #{$ipad}{
+         padding-top: 145px;
+    }
+    @media #{$phone}{
+         padding-top: 0;
+    }
+     
+  }
 }
 .c-nav__link.c-nav__link--active , a.c-nav__link.c-nav__active{
   color: $color-text-purple; 
@@ -164,9 +180,3 @@ button {
 .black {
   color: $color-text-black;
 }
-// Media queries
-$large:                "(min-width: 1500px)";
-$ipad:                "(max-width: 1024px)";
-$ipad-all :      "(max-width: 768px)";  
-$phone:               "(max-width: 767px)";
-$sm-desktop:               "(max-width: 1300px)";
