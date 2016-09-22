@@ -257,8 +257,9 @@ swdModule.init = (function () {
       function getTemplate(templateName) {
 
         nunjucks.render(templateName, function (err, res) {
+          
 
-          $('html, body').animate({scrollTop: 0}, 250,
+          $('html, body').animate({scrollTop: 0}, 0,
                   function () {
                     document.querySelector('.slider').classList.add('slider-overlay');
                   });
