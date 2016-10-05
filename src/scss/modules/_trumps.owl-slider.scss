@@ -24,5 +24,14 @@
         &.active {
             background-color: #fdf7ef;
         }
+        @include sm-range {
+              margin-right: 10px;
+    margin-left: 10px;
+        }
     }
+}
+.owl-stage-outer{
+   @include sm-range {
+        margin-bottom: 20px;
+        }
 }

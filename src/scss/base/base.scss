@@ -11,11 +11,21 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
-
+.pre_h {
+    font-size: inherit !important;
+    font-weight: initial;
+    text-transform: inherit;
+    display: inline;
+}
+.pre_p{
+      margin: 0 0 45px;
+}
 html, body {
   height: 100%;
 }
-
+a:hover, a:focus , a:active , a:visited{
+  outline: none !important;
+}
 @-ms-viewport {
   width: device-width;
 }
@@ -26,35 +36,38 @@ body {
   @extend .open-sans-light;
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-   padding-top:$body-inner-padding;
+  padding-top:$body-inner-padding;
   &.home_page{
     padding-top: $body-padding-top;
     @media #{$ipad}{
-         padding-top: 145px;
+      padding-top: 145px;
     }
     @media #{$phone}{
-         padding-top: 0;
+      padding-top: 0;
     }
-     
+
   }
+  @media #{$ipad}{
+      padding-top: 145px;
+    }
 }
 .c-nav__link.c-nav__link--active , a.c-nav__link.c-nav__active{
   color: $color-text-purple; 
 }
 
-  @media all and (max-width:1100px){ 
-    a.c-nav__link{
-      font-size: 0.9rem;
-      padding-right: 10px;
-    }
-    
+@media all and (max-width:1100px){ 
+  a.c-nav__link{
+    font-size: 0.9rem;
+    padding-right: 10px;
   }
-   @media all and (max-width:1300px){ 
-    a.c-nav__link{
-      font-size: 0.9rem;
-    }
-    
+
+}
+@media all and (max-width:1300px){ 
+  a.c-nav__link{
+    font-size: 0.9rem;
   }
+
+}
 
 .pure-g [class*="pure-u"] {
   @extend .open-sans-light;
@@ -65,7 +78,7 @@ a {
   color: $color-text-white;
 }
 
-h1 {
+h1 , .h1 {
   @include font-size(3.438);
   @extend .open-sans-bold;
   text-transform: uppercase;

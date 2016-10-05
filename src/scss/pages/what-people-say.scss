@@ -1,9 +1,11 @@
 .swd_testimonial{
   padding: 100px 0;
-  p{
+  p , .pre_p{
     font-size: 1.4rem;
-    
+        line-height: 35px;
+
   }
+  
   img{
         margin-bottom: 20px;
         @media #{$ipad}{

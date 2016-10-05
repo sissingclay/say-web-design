@@ -20,11 +20,12 @@
   pointer-events: none;
   background-size: contain;
 }
+
 .step_1{
-  padding-top: 120px;
+  padding-top: 30px;
   padding-bottom: 25px;
   @media #{$ipad-all}{
-    margin-top: 6px;
+    margin-top: 0;
   }
   .img_prop{
     max-width: 180px;
@@ -33,11 +34,33 @@
     margin: 20px 0;
     @media #{$phone}{
       margin: 10px 0;
+
+    }
+    &.top_c{
+      color: $color-text-purple;
+      font-size: 1.1rem;
+      @media #{$ipad}{
+        max-width: 350px;
+        margin-right: 40px;
+      }
+      @media #{$phone}{
+        margin-right: 0;
+      }
+      &:nth-of-type(1){
+        @media #{$ipad-all}{
+          max-width: 270px;
+          margin-bottom: 20px !important;
+        }
+        @media #{$phone}{
+         font-size: 0.9rem;
+          margin-bottom: 0px !important;
+        }
+      }
     }
 
   }
   @media #{$phone}{
-    padding-top: 80px;
+     padding-top: 130px;
   }
   .pure-c-pr .c_leaf{
     &:nth-of-type(1){
@@ -50,7 +73,13 @@
     }
   }
   .path_pole{
-    top:10px; 
+    top:30px; 
+  }
+  .pure-c-pl{
+    padding-top: 170px;
+    @media #{$phone}{
+      padding-top: 0;
+    }
   }
 }
 .pure-c-pl{
@@ -230,7 +259,15 @@
     }
   }
 }
-.step_1 h1{
+.top_c_outer{
+  display: inline-block;
+  width: 100%;
+  @media #{$phone}{
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+}
+.step_1 h1 , .step_1 .h1{
   margin-bottom: 3%;
   margin-top: 1.5%;
   font-size: 4.5rem;
@@ -264,7 +301,7 @@
 }
 .step_2{
   padding-bottom: 80px;
-  h1{
+  h1 , .h1{
     margin-top: -4%;
     margin-bottom: 0%;
     font-size: 4.5rem;
@@ -308,10 +345,10 @@
   }
   .pure-c-pl .c_image_t{
     @media #{$ipad-all}{
-          margin-bottom: 50px;
+      margin-bottom: 50px;
     }
     @media #{$phone}{
-          margin-bottom: 25px;
+      margin-bottom: 25px;
     }
   }
   .stage_t{
@@ -362,7 +399,7 @@ body .pure-g .img_prop{
   .img_prop{
     max-width: 190px;
   }
-  h1 {
+  h1 , .h1 {
     margin-bottom: 3%;
     font-size: 4.5rem;
     margin-right: -3px;
@@ -384,7 +421,7 @@ body .pure-g .img_prop{
 
 /*** SECTION 4*/
 .path_pole4{
-  background: url("../img/step-4.png")center BOTTOM no-repeat;
+  background: url("../img/step-4.png")center bottom no-repeat;
   height: 100%;
   width: 110px;
   background-size: 100%;
@@ -397,7 +434,7 @@ body .pure-g .img_prop{
     padding-bottom: 90px;
 
   }
-  h1 {
+  h1  , .h1{
     margin-top: -4%;
     margin-bottom: 0;
     margin-left: -2px;
@@ -462,13 +499,13 @@ div .c-hide-sm{
   }
 }
 
-div h1.c-show-sm{
+div h1.c-show-sm , div .h1.c-show-sm{
   display: none;
   @media #{$phone}{
     display: block;
   }
 }
-div h1.c-hide-sm{
+div h1.c-hide-sm , div .h1.c-hide-sm{
   display: inline-block;
   @media #{$phone}{
     display: none;
@@ -507,7 +544,21 @@ div .c-nav__mobile.c-show-sm{
   /*display: none;*/
   display: none;
   @include ms-md-range {
-         display:block;
-    }
-  
+    display:block;
+  }
+
+}
+.hww_section{
+  padding: 0;
+}
+@media all and (min-width:1500px){
+  .step_1 .pure-c-pl {
+    padding-top: 170px;
+  }
+}
+
+@media all and (min-width:1800px){
+  .step_1 .pure-c-pl {
+    padding-top: 180px;
+  }
 }

@@ -9,7 +9,9 @@
 .swd-hidden {
     display: none;
 }
-
+.swd-link:hover{
+  color: $color-border-bottom-teal;
+}
 .h-icon-position-center {
 
     @include sm-range {

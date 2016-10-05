@@ -1,49 +1,102 @@
 .swd-opacity {
-    @include transition(transform, 300ms, ease);
+  @include transition(transform, 300ms, ease);
 }
 
 .swd-opacity:hover {
-    opacity: .75;
+  opacity: .75;
 }
 
 .swd-zoom {
-    @include transition(transform, 300ms, ease);
-    @include transform(scale(1.01, 1.01));
-    -webkit-backface-visibility: hidden;
+  @include transition(transform, 300ms, ease);
+  @include transform(scale(1.01, 1.01));
+  -webkit-backface-visibility: hidden;
 }
 
 .swd-zoom:hover {
-    @include transform(scale(1.1, 1.1));
+  @include transform(scale(1.1, 1.1));
 }
 
 .slider > .after, .slider > .before {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    background-color: $color-purple-background;
-    z-index: 9999;
-    content: '';
-    @include transition(all, 1000ms, ease);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  background-color: $color-purple-background;
+  z-index: -9999;
+  content: '';
+  @include transition(all, 1200ms, ease);
+  opacity: 0;
+  //pointer-events:none;
+
+}
+@-webkit-keyframes mymove {
+  0%   {
     opacity: 0;
-      pointer-events:none;
+    z-index:99999;
+  }
+  40%  { 
+    opacity: 1 ;
+    z-index:99999;
+  }
+  60% {
+    opacity: 0;
+    z-index:99999;
+  }
+  95%{
+    opacity: 0;
+    z-index:99999;
+  }
+  100%{
+    opacity: 0;
+    z-index:-99999;
+  }
 }
 
+/* Standard syntax */
+@keyframes mymove {
+  0%   {
+    opacity: 0;
+    z-index:99999;
+  }
+  40%  { 
+    opacity: 1 ;
+    z-index:99999;
+  }
+  60% {
+    opacity: 0;
+    z-index:99999;
+  }
+  95%{
+    opacity: 0;
+    z-index:99999;
+  }
+  100%{
+    opacity: 0;
+    z-index:-99999;
+  }
+}
 .slider > .before {
-    top: 0;
-   /* @include transform(scaleX(0) skewX(20deg));*/
-        transform-origin: left
+  top: 0;
+  /* @include transform(scaleX(0) skewX(20deg));*/
+  transform-origin: left;
+  -webkit-transform-origin: left;
+  -moz-transform-origin: left;
+  -ms-transform-origin: left;
 }
 
 .slider > .after {
-    bottom: 0;
-    @include transform(translateY(100%));
-    display:none;
+  /*    bottom: 0;
+      @include transform(translateY(100%));
+      display:none;*/
 }
 
 .slider-overlay > .before, .slider-overlay > .after {
-   /* @include transform(scaleX(1) skewX(20deg));*/
-    @include transition-duration(250ms);
-       /* transform-origin: right;*/
-       opacity: 1;
+  /* @include transform(scaleX(1) skewX(20deg));*/
+  @include transition-duration(800ms);
+  @include transition(all, 800ms, ease);
+  // transform-origin: right;
+  opacity: 1;
+  z-index: 999;
+  //      -webkit-animation: mymove 1800ms; /* Chrome, Safari, Opera */
+  // animation: mymove 1800ms;
 }

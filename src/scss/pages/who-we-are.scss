@@ -24,7 +24,7 @@
   }
 }
 .digital_expert{
-  h1{
+  h1 , .h1{
     line-height: 1;
     padding: 0 60px;
     margin-bottom: 50px;
@@ -129,7 +129,7 @@
   }
 }
 .c_wha{
-  h1{
+  h1 , .h1{
     font-size: 2.5rem;
     @media #{$large}{
       font-size: 3rem;

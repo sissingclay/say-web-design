@@ -2,11 +2,13 @@
     background: #672b86 url('../img/background-img.gif') no-repeat center 300px;
     background-attachment: fixed;
     
-    h1 {
+    h1 , .h1 {
         @extend .open-sans-light;
         @include font-size(3.125);
         margin-bottom: 60px;
         text-transform: none;
+        margin: 0 0 70px;
+            letter-spacing: -.5px;
     }
 
     @include sm-range {
@@ -234,7 +236,7 @@
 }
 
 .swd-contactForm {
-    max-height: 1500px;
+   // max-height: 1500px;
     @include transition(all, 1.25s, ease-in-out);
     opacity: 1;
     

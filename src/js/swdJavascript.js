@@ -146,7 +146,7 @@ swdModule.init = (function () {
         navText: ['', ''],
         loop: true,
         autoplay: true,
-        autoplayTimeout: 3300,
+        autoplayTimeout: 8000,
         autoplayHoverPause: true
       });
     };
@@ -197,14 +197,60 @@ swdModule.init = (function () {
       });
     };
 
+
+
+
     var allLoaded = function () {
+      
+      if (window.history && window.history.pushState) {
+        jQuery(window).on('popstate', function () {
+            if (!window.userInteractionInHTMLArea) {                          
+              //console.log(window.location.href+"---"+window.location.pathname);
+            //console.log(window.location.href + ":pathnam");
+
+            jQuery('.c-nav').find('a').each(function ()
+                    {
+              var currentPath = window.location.href;
+              var href = jQuery(this).attr('href');
+              console.log(href);
+              if(window.location.pathname == "" ||  window.location.pathname == "/")
+                        {
+                  //console.log("entered");
+                          getTemplate("index.html");    
+                jQuery('.c-nav a').removeClass("c-nav__link--active");
+                jQuery('.c-nav a:first').addClass("c-nav__link--active");                
+                        }
+              else if (href == currentPath)
+                        {
+                  //console.log("entered1");
+                var pieces = href.split("/");
+                var lastStr = pieces[pieces.length - 1];
+                //console.log(lastStr + "----");
+                getTemplate(lastStr+".html");
+                      
+
+                jQuery(this).addClass("c-nav__link--active");
+                //console.log(this);
+                    }
+              else {
+                jQuery(this).removeClass("c-nav__link--active");
+                        window.location=currentPath;
+                    }
+                    
+                });    
+                 }
+        });
+      }
 
       var allLinks = document.getElementsByTagName('A'),
               template, menu;
 
       [].forEach.call(allLinks, function (val) {
 
-        //if (val.hostname === 'saytest.saydev.co.uk') {
+
+        //if (val.hostname === 'www.saywebdesign.co.uk') {
+
+
           if (val.hostname === 'localhost') {
 
           val.addEventListener('click', function (e) {
@@ -216,12 +262,19 @@ swdModule.init = (function () {
                 getTemplate('index.html');
               }
 
-              if ((this.pathname !== '/')&&(this.pathname !== '/blog')) {
-                template = this.pathname.replace('/', '');
+              if ((this.pathname !== '/')&&(this.pathname !== '/blog/')) {
+                  var thispathname=this.pathname;
+                  template = thispathname.replace(new RegExp("/", 'g'), "")+".html";
+                //template = this.pathname.replace('/', '')+".html";        
                 getTemplate(template);
               }
-              if (this.pathname === '/blog') {
-              window.location= 'blog'; 
+              if (this.pathname === '/blog/' || this.pathname === 'blog') {
+                window.location= this.href; 
+              }
+              
+              var pathname=this.pathname;
+              if ((pathname.indexOf("our-work-") != '-1' )) {
+                window.location= this.href; 
               }
 
               window.history.pushState({}, '', this.href);
@@ -237,7 +290,7 @@ swdModule.init = (function () {
                 if (val.href === window.location.href) {
                   val.classList.add('c-nav__link--active');
                 }
-              });
+              });              
               if (this.pathname === '/') {
                 $("body").addClass("home_page");
                 $("#swd-logo-js").removeClass("swdBoxSlider-active");
@@ -248,7 +301,7 @@ swdModule.init = (function () {
                 $("#swd-logo-js").addClass("swdBoxSlider-active");
                 $("#swd-header-social-js").addClass("_show");
               }
-              
+
             }
           });
         }
@@ -257,7 +310,7 @@ swdModule.init = (function () {
       function getTemplate(templateName) {
 
         nunjucks.render(templateName, function (err, res) {
-          
+
 
           $('html, body').animate({scrollTop: 0}, 0,
                   function () {
@@ -345,16 +398,16 @@ swdModule.init = (function () {
 
 $(document).ready(function () {
 $(".c-show-sm .c-nav__link").on("click",function(){
-  $(".c-show-sm .c-nav__link").removeClass("c-nav__active");
-  $(this).addClass("c-nav__link--active");
-});
+    $(".c-show-sm .c-nav__link").removeClass("c-nav__active");
+    $(this).addClass("c-nav__link--active");
+  });
 
 // Hide Header on on scroll down
   var didScroll;
   var lastScrollTop = 0;
   var delta = 5;
   if ($("body").hasClass("home_page")) {
-    var navbarHeight = jQuery('header').outerHeight() + 200;
+    var navbarHeight = jQuery('header').outerHeight() + 1000;
   }
   else {
     var navbarHeight = jQuery('header').outerHeight() + 100;
@@ -401,10 +454,10 @@ $(".c-show-sm .c-nav__link").on("click",function(){
   if ($(".swd-header").size() > 0) {
     if (document.createStyleSheet) {
       document.createStyleSheet('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css');
-      document.createStyleSheet('css/defer.min.v2.css');
+      document.createStyleSheet('/css/defer.min.v2.css');
     } else {
       $("head").append($("<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css'>"));
-      $("head").append($("<link rel='stylesheet' href='css/defer.min.v2.css'>"));
+      $("head").append($("<link rel='stylesheet' href='/css/defer.min.v2.css'>"));
     }
   }
 
@@ -471,6 +524,8 @@ $(".c-show-sm .c-nav__link").on("click",function(){
     secondToToggle: '#swd-talkToUs-js'
   });
 
+
+
   swdModule.init.scroll({
     toggleClass: 'swd-hidden',
     toToggle: '#swd-contactForm-js'
@@ -514,7 +569,7 @@ $(".c-show-sm .c-nav__link").on("click",function(){
     var isValid = swdModule.validateForm('#contantForm');
 
     if (isValid) {
-      swdModule.ajax.post('http://www.saywebdesign.co.uk/process.php', data).success(function (data) {
+      swdModule.ajax.post('https://www.saywebdesign.co.uk/process.php', data).success(function (data) {
         $('#contantForm').fadeOut(function () {
           var element = document.getElementById('contantForm');
           element.innerHTML = "<div class='pure-u-1-1 swd-footer-title-section'><p>Thanks you for getting in touch. We will get back to you ASAP!</p></div>";

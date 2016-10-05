@@ -1,17 +1,32 @@
-.swdBoxSlider {
+.home_page .swdBoxSlider {
     @include transform(translate3d(50vw, 0, 0) translateX(-50%) scale(1));
-    @include transition(transform, 400ms, ease);
+    @include transition(transform, 250ms, linear);
     display: inline-block;
+    &.swdBoxSlider-active {
+    @include transform(translate3d(0vw, 0, 0) translateX(0) scale(1));
+    
+    .swdBoxSlider_img {
+        width: 160px;
+    }
+    
 }
-
+}
+.swdBoxSlider {
+    @include transform(translate3d(0vw, 0, 0) translateX(0) scale(1));
+    @include transition(transform, 250ms, linear);
+    display: inline-block;
+    
+}
 .swdBoxSlider_main {
     display: inline-block;
 }
 
-.swdBoxSlider_img {
+.home_page .swdBoxSlider_img {
     width: 240px;
 }
-
+.pure-img{
+   @include transition(all, 250ms, linear);
+}
 .swdBoxSlider-active {
     @include transform(translate3d(0vw, 0, 0) translateX(0) scale(1));
     
