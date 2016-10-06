@@ -2,7 +2,7 @@
     background: #672b86 url('../img/background-img.gif') no-repeat center 300px;
     background-attachment: fixed;
     
-    h1 , .h1 {
+    h1 , .h_tag1 {
         @extend .open-sans-light;
         @include font-size(3.125);
         margin-bottom: 60px;

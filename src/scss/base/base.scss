@@ -78,7 +78,7 @@ a {
   color: $color-text-white;
 }
 
-h1 , .h1 {
+h1 , .h_tag1{
   @include font-size(3.438);
   @extend .open-sans-bold;
   text-transform: uppercase;

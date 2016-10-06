@@ -3,7 +3,7 @@
     
     .swd-footer-title-section {
         
-        h1 {
+        h1 , .h_tag1 {
             line-height: 50px;
         }
         
@@ -11,7 +11,7 @@
             @include font-size(1.563);
         }
         
-        h1, p {
+        h1, p , .h_tag1 {
             margin-bottom: 0px;
         }
     }
