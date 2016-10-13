@@ -38,12 +38,12 @@
 //pixels 767px
 @media screen and (max-width: 47.99em) {
     
-    .swdBoxSlider {
-        margin-top: 30px;
+    .pure-g div.swdBoxSlider {
+        margin-top: 40px;
         @include transform(translate3d(0vw, 0, 0) translateX(0) scale(1));
     }
     
-    .swdBoxSlider_img, .swdBoxSlider-active .swdBoxSlider_img {
+    .swdBoxSlider_img, .swdBoxSlider-active .swdBoxSlider_img , .home_page .swdBoxSlider_img , .home_page .swdBoxSlider.swdBoxSlider-active .swdBoxSlider_img {
         width: 130px;
     }
 }
