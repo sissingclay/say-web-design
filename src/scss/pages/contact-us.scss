@@ -1,0 +1,225 @@
+.swdSection.contact_us_sec{
+  padding: 100px 0;
+  .heading_style1{
+    margin: 0 0 45px;
+  }
+
+
+}
+.co_location{
+  .co_left{
+    background: #343338;
+     @media #{$ipad-all}{
+     text-align: center;
+      }
+  }
+  .co_right{
+    background: #000;
+      @media #{$ipad-all}{
+     text-align: center;
+      }
+  }
+  .heading_style1{
+    font-size: 49px;
+    font-size: 3.08rem;
+    line-height: 1.2;
+    text-transform: none;
+    margin-bottom: 30px;
+    @include desktop-range {
+      font-size: 49px;
+      font-size: 2.5rem;
+    }
+    @include xsm-range {
+        font-size: 2rem;
+      }
+  }
+  .contact_bottom {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    p {
+      margin-bottom: 5px;
+      font-size: 1.263rem;
+      text-align: left;
+      @include xsm-range {
+        @include font-size(1);
+      }
+    }
+    .swd-footer-icons {
+      background-color: #672b86;
+      display: inline-block;
+      width: 30px;
+      &.sw_icon{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        background: url(../img/sw_lcoation_icon.png)center no-repeat;
+        &.sw_mail{
+          background: url(../img/sw_mail_icon.png)center no-repeat;
+        }
+        &.sw_call{
+          background: url(../img/sw_call_icon.png)center no-repeat;
+        }
+      }
+    }
+    a.swdButton {
+      margin-top: 50px;
+    }
+  }
+
+  &.our_location{
+    .contact_bottom{
+      max-width: 100%;
+      p{
+        text-align: right;
+      }
+      &.sw_location p{
+        padding-right: 50px;
+        margin-bottom: 25px;
+        position: relative;
+
+      }
+    }
+    .heading_style1{
+      text-align: right;
+    }
+    .swd-position-centered {
+      padding-right: 15%;
+      padding-left: 15px;
+max-width: 100%;
+      width: 100%;
+      @include box-sizing();
+      &.swd_map{
+        max-width: 100%;
+        height: 0;
+        padding: 0;
+        padding-bottom: 47.5%;
+        .contact_bottom{
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          top: 0;
+        }
+        iframe{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    
+    }
+  }
+  .swd-position-centered{
+        width: 100%;
+    max-width: 320px;
+        box-sizing: border-box;
+         @media #{$ipad-all}{
+            display: inline-block;
+                max-width: 390px;
+      }
+  }
+}
+.contact_us_sec{
+  .swd-footer-spacing{
+    padding-right: 20px;
+    padding-left: 20px;
+    @include box-sizing();
+    @media #{$ipad-all}{
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+  }
+  input, textarea {
+    border: 3px solid $color-border-bottom-white;
+    @include transition(all, 0.5s, ease-in-out);
+
+    &:focus {
+      color: $color-text-grey;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border: 3px solid $color-border-bottom-teal;
+    }
+
+    &.parsley-error {
+      border: 3px solid $color-border-bottom-red;
+    }
+  }
+  textarea{
+    height: 160px;
+    resize: vertical;
+  }
+  .quote_submit{
+    margin-top: 20px;
+  }
+}
+.swd_budget {
+  text-align: left;
+  p {
+    font-weight: 600;
+    font-size: 1.45rem;
+    margin-bottom: 10px;
+  }
+  input {
+    margin: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+
+    cursor: pointer;
+  }
+  label{
+    font-size: 20px;
+    font-size: 1.25rem;
+    position: relative;
+    padding-left: 30px;
+
+
+    cursor: pointer;
+
+  }
+  input+span {
+    width: 0;
+    height: 0;
+    background: #672b86;
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+  input:checked+span {
+    border: 4px solid #fff;
+    width: 8px;
+    height: 8px;
+  }
+
+}
+.g-recaptcha iframe , .g-recaptcha>div {
+  @include xsm-range {
+        //width: 100% !important;
+      }
+  
+}
+  .contact_us_sec #quoteForm input , .contact_us_sec #quoteForm textarea{
+        font-size: 1rem;
+  }
+  .g-recaptcha {
+    @include xsm-range {
+          transform: scale(.8);
+    -webkit-transform: scale(.8);
+    -moz-transform: scale(.8);
+    -o-transform: scale(.8);
+    -ms-transform: scale(.8);
+    }
+
+}
+

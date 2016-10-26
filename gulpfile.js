@@ -26,6 +26,7 @@ gulp.task('nunjucks', function () {
         .pipe(nunjucksRender({
             data: { 
                // base_url: 'https://www.saywebdesign.co.uk/'
+       //  base_url: 'http://saytest.saydev.co.uk/'
         base_url: 'http://localhost:8080/'
             }, 
             path: ['./src/templates/'] // String or Array

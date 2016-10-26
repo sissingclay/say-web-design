@@ -96,7 +96,7 @@
   @include transition(all, 800ms, ease);
   // transform-origin: right;
   opacity: 1;
-  z-index: 999;
+  z-index: 999999;
   //      -webkit-animation: mymove 1800ms; /* Chrome, Safari, Opera */
   // animation: mymove 1800ms;
 }

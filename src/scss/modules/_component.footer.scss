@@ -3,7 +3,7 @@
     
     .swd-footer-title-section {
         
-        h1 , .h_tag1 {
+        h1 , .heading_style1 {
             line-height: 50px;
         }
         
@@ -11,7 +11,7 @@
             @include font-size(1.563);
         }
         
-        h1, p , .h_tag1 {
+        h1, p , .heading_style1 {
             margin-bottom: 0px;
         }
     }
@@ -102,6 +102,11 @@
             display: inline-block;
             width: 30px;
             @extend .open-sans-bold;
+            &.swd_mapicon{
+              background: #672b86 url('../img/swd_map_white.png')center no-repeat;
+              height: 35px;
+    vertical-align: middle;
+            }
         }
         
         .swd-footer-icons_extraSpaceLeft {

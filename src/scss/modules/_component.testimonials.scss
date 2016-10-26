@@ -1,11 +1,12 @@
 .testimonials {
     position: relative;
     
-    h1, h2 {
+    h1, h2 , .heading_style1 {
         @extend .open-sans-light;
         @include font-size(1.7);
         text-transform: none;
         margin: 0 0 36px;
+            line-height: 1.38;
     }
     
     p {
@@ -21,7 +22,7 @@
     
     .testimonials {
     
-        h1, h2 {
+        h1, h2 , .heading_style1 {
             @include font-size(1.5);
             line-height: 30px;
             text-transform: none;

@@ -78,7 +78,7 @@ a {
   color: $color-text-white;
 }
 
-h1 , .h_tag1{
+h1 , div .heading_style1{
   @include font-size(3.438);
   @extend .open-sans-bold;
   text-transform: uppercase;
@@ -126,7 +126,7 @@ h1 , .h_tag1{
   font-weight: normal;
 }
 
-h2 {
+h2 , .heading_style1 , .heading_style3 {
   @include font-size(2.5);
   @extend .open-sans-light;
   text-transform: uppercase;
@@ -192,4 +192,8 @@ button {
 
 .black {
   color: $color-text-black;
+}
+.swd_new_loc{
+      display: block;
+    margin-bottom: 5px;
 }

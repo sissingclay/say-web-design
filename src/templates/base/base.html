@@ -39,6 +39,7 @@
       ga('send', 'pageview');
 
     </script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
   </head>
 
@@ -95,6 +96,7 @@
             <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}our-work.html">Our work</a>
             <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__link--active{% endif %}" href="{{ base_url }}what-people-say.html">What people say</a>
             <a class="c-nav__link" href="http://www.saytest.saydev.co.uk/blog">Blog</a>
+             <a class="c-nav__link {%if activePage == 'contact-us' %}c-nav__link--active{% endif %}" href="{{ base_url }}contact-us.html">Contact us</a>
           </nav>
 
         </section>
@@ -108,6 +110,7 @@
         <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__active{% endif %}" href="{{ base_url }}our-work.html">Our work</a>
         <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__active{% endif %}" href="{{ base_url }}what-people-say.html">What people say</a>
         <a class="c-nav__link" href="http://www.saytest.saydev.co.uk/blog">Blog</a>
+        <a class="c-nav__link {%if activePage == 'contact-us' %}c-nav__active{% endif %}" href="{{ base_url }}contact-us.html">Contact us</a>
       </nav>
 
     </header>
@@ -136,7 +139,7 @@
             <section class="pure-g swd-footer-title-section">
 
               <div class="pure-u-1-1 pure-u-md-2-5">
-                <h1>Talk To Us</h1>
+               <h2 class="heading_style1">Talk To Us</h2>
               </div>
 
               <div class="pure-u-1-1 pure-u-md-3-5">
@@ -198,9 +201,11 @@
               </p>
 
               <p>
-                <span class="swd-footer-icons swdAlignCenter">a</span>
-                207 Regent Street, 3rd Floor, <br>
-                <span class="swd-footer-icons_extraSpaceLeft">London, W1B 3HH</span>
+                <a class="swd_new_loc" href="/our-location-london/"> <span class="swd-footer-icons swdAlignCenter swd_mapicon"></span>
+                  London</a>
+                 <a class="swd_new_loc" href="/our-location-bristol/"> <span class="swd-footer-icons swdAlignCenter swd_mapicon"></span>
+                  Bristol</a>
+<!--                <span class="swd-footer-icons_extraSpaceLeft swd_mapicon">London, W1B 3HH</span>-->
               </p>
 
             </div>
@@ -210,6 +215,9 @@
               <p>Need help? Or just want to chat about realising the full potential of your vision? We love to listen. We can talk you through all your ideas in detail.</p>
 
               <a href="#swd-footer-js" data-swd-speed="150" data-swd-element="#swd-contactForm-js" class="swdButton swd-scroll">Talk To Us</a>
+              <div class="terms_link">
+<a href="/terms-and-privacy-policy/">Terms and Privacy Policy</a>
+</div>
 
             </div>
 

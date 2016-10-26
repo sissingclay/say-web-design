@@ -249,9 +249,9 @@ swdModule.init = (function () {
 
 
         //if (val.hostname === 'www.saywebdesign.co.uk') {
+       // if (val.hostname === 'www.saytest.saydev.co.uk') {
 
-
-          if (val.hostname === 'localhost') {
+         if (val.hostname === 'localhost') {
 
           val.addEventListener('click', function (e) {
 
@@ -572,7 +572,30 @@ $(".c-show-sm .c-nav__link").on("click",function(){
       swdModule.ajax.post('https://www.saywebdesign.co.uk/process.php', data).success(function (data) {
         $('#contantForm').fadeOut(function () {
           var element = document.getElementById('contantForm');
-          element.innerHTML = "<div class='pure-u-1-1 swd-footer-title-section'><p>Thanks you for getting in touch. We will get back to you ASAP!</p></div>";
+          element.innerHTML = "<div class='pure-u-1-1 swd-footer-title-section'><p><b>Thanks you for getting in touch. We will get back to you ASAP!</b></p></div>";
+          $(this).fadeIn();
+        });
+
+      });
+    }
+  });
+var url=window.location.pathname;
+	if(url=='/contact-us.html') {
+
+document.getElementById('swd-quoteBtn_js').addEventListener('click', function (e) {
+
+    e.preventDefault();
+    var data = $('#quoteForm').serialize();
+ 
+    var isValid = swdModule.validateForm('#quoteForm');
+
+    if (isValid) {
+		
+      swdModule.ajax.post('http://saytest.saydev.co.uk/process_quote.php', data).success(function (data) {
+		  
+        $('#quoteForm').fadeOut(function () {
+          var element = document.getElementById('quoteForm');
+          element.innerHTML = "<div class='pure-u-1-1 swd-footer-title-section'><p><b>Thanks you for getting in touch. We will get back to you ASAP!</b></p></div>";
           $(this).fadeIn();
         });
 
@@ -580,6 +603,7 @@ $(".c-show-sm .c-nav__link").on("click",function(){
     }
   });
 
+	}
   window.onscroll = function () {
     // called when the window is scrolled.
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
