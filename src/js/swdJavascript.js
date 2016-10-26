@@ -4,7 +4,7 @@ swdModule.init = (function () {
 
   'use strict';
 
-  // Feature Test
+  /* Feature Test*/
   if ('querySelector' in document && 'addEventListener' in window && Array.prototype.forEach) {
 
     var ce = function (selector) {
@@ -71,16 +71,16 @@ swdModule.init = (function () {
               toToggle = ce(data.toToggle),
               toggleClass = data.toggleClass;
 
-      // For each smooth scroll link
+      /* For each smooth scroll link*/
       [].forEach.call(scrollToggle, function (toggle) {
 
-        // When the smooth scroll link is clicked
+        /* When the smooth scroll link is clicked*/
         toggle.addEventListener('click', function (e) {
 
-          // Prevent the default link behavior
+          /* Prevent the default link behavior*/
           e.preventDefault();
 
-          // Get anchor link and calculate distance from the top
+         /* Get anchor link and calculate distance from the top*/
           var dataID = toggle.getAttribute('href');
           var dataSpeed = toggle.getAttribute('data-swd-speed');
           var dataElement = toggle.getAttribute('data-swd-element');
@@ -88,19 +88,19 @@ swdModule.init = (function () {
 
           console.log('dataID', dataID);
 
-          // If the anchor exists
+         /*If the anchor exists*/
           if (dataID) {
-            // Scroll to the anchor
+           /* Scroll to the anchor*/
             $("html, body").animate({scrollTop: $(dataID).offset().top}, 700);
 
             addClass(toggleContent, 'swd-hidden');
 
-            // Check if element has class
+           /*Check if element has class*/
             removeClass(toToggle, toggleClass);
           } else {
             addClass(toggleContent, 'swd-hidden');
 
-            // Check if element has class
+            /* Check if element has class*/
             removeClass(toToggle, toggleClass);
           }
 
@@ -117,20 +117,20 @@ swdModule.init = (function () {
       }
     };
 
-    // This checks if element has class
+    /* This checks if element has class*/
     var hasClass = function (toToggle, toggleClass) {
       return toToggle.className.match(new RegExp('(\\s|^)' + toggleClass + '(\\s|$)'));
     };
 
 
-    // This adds class to element
+    /* This adds class to element*/
     var addClass = function (toToggle, toggleClass) {
       if (!hasClass(toToggle, toggleClass))
         toToggle.className += " " + toggleClass;
     };
 
 
-    // This removes class from element
+   /*This removes class from element*/
     var removeClass = function (toToggle, toggleClass) {
       if (hasClass(toToggle, toggleClass)) {
         var reg = new RegExp('(\\s|^)' + toggleClass + '(\\s|$)');
@@ -144,7 +144,7 @@ swdModule.init = (function () {
         nav: true,
         center: true,
         navText: ['', ''],
-        loop: true,
+        loop: false,
         autoplay: true,
         autoplayTimeout: 8000,
         autoplayHoverPause: true
@@ -205,8 +205,8 @@ swdModule.init = (function () {
       if (window.history && window.history.pushState) {
         jQuery(window).on('popstate', function () {
             if (!window.userInteractionInHTMLArea) {                          
-              //console.log(window.location.href+"---"+window.location.pathname);
-            //console.log(window.location.href + ":pathnam");
+              /*console.log(window.location.href+"---"+window.location.pathname);*/
+            /*console.log(window.location.href + ":pathnam");*/
 
             jQuery('.c-nav').find('a').each(function ()
                     {
@@ -215,22 +215,22 @@ swdModule.init = (function () {
               console.log(href);
               if(window.location.pathname == "" ||  window.location.pathname == "/")
                         {
-                  //console.log("entered");
+                 /*console.log("entered");*/
                           getTemplate("index.html");    
                 jQuery('.c-nav a').removeClass("c-nav__link--active");
                 jQuery('.c-nav a:first').addClass("c-nav__link--active");                
                         }
               else if (href == currentPath)
                         {
-                  //console.log("entered1");
+                 /*console.log("entered1");*/
                 var pieces = href.split("/");
                 var lastStr = pieces[pieces.length - 1];
-                //console.log(lastStr + "----");
+                /*console.log(lastStr + "----");*/
                 getTemplate(lastStr+".html");
                       
 
                 jQuery(this).addClass("c-nav__link--active");
-                //console.log(this);
+               /*console.log(this);*/
                     }
               else {
                 jQuery(this).removeClass("c-nav__link--active");
@@ -248,10 +248,11 @@ swdModule.init = (function () {
       [].forEach.call(allLinks, function (val) {
 
 
-        //if (val.hostname === 'www.saywebdesign.co.uk') {
-       // if (val.hostname === 'www.saytest.saydev.co.uk') {
+        if (val.hostname === 'www.saywebdesign.co.uk') {
+       /* if (val.hostname === 'www.saytest.saydev.co.uk') {*/
 
-         if (val.hostname === 'localhost') {
+
+        /* if (val.hostname === 'localhost') {*/
 
           val.addEventListener('click', function (e) {
 
@@ -265,7 +266,7 @@ swdModule.init = (function () {
               if ((this.pathname !== '/')&&(this.pathname !== '/blog/')) {
                   var thispathname=this.pathname;
                   template = thispathname.replace(new RegExp("/", 'g'), "")+".html";
-                //template = this.pathname.replace('/', '')+".html";        
+                /*template = this.pathname.replace('/', '')+".html";     */   
                 getTemplate(template);
               }
               if (this.pathname === '/blog/' || this.pathname === 'blog') {
@@ -402,7 +403,7 @@ $(".c-show-sm .c-nav__link").on("click",function(){
     $(this).addClass("c-nav__link--active");
   });
 
-// Hide Header on on scroll down
+/* Hide Header on on scroll down*/
   var didScroll;
   var lastScrollTop = 0;
   var delta = 5;
@@ -420,10 +421,10 @@ $(".c-show-sm .c-nav__link").on("click",function(){
 
   setInterval(function () {
     if (didScroll) {
-      // if(!$("body").hasClass("home_page")){
+      /* if(!$("body").hasClass("home_page")){*/
       hasScrolled();
       didScroll = false;
-      // }
+      /* }*/
 
     }
   }, 250);
@@ -431,17 +432,17 @@ $(".c-show-sm .c-nav__link").on("click",function(){
   function hasScrolled() {
     var st = jQuery(this).scrollTop();
 
-    // Make sure they scroll more than delta
+    /* Make sure they scroll more than delta*/
     if (Math.abs(lastScrollTop - st) <= delta)
       return;
 
-    // If they scrolled down and are past the navbar, add class .nav-up.
-    // This is necessary so you never see what is "behind" the navbar.
+    /* If they scrolled down and are past the navbar, add class .nav-up.
+     This is necessary so you never see what is "behind" the navbar.*/
     if (st > lastScrollTop && st > navbarHeight) {
-      // Scroll Down
+      /* Scroll Down*/
       jQuery('header').removeClass('nav-down').addClass('nav-up');
     } else {
-      // Scroll Up
+      /* Scroll Up*/
       if (st + jQuery(window).height() < jQuery(document).height()) {
         jQuery('header').removeClass('nav-up').addClass('nav-down');
       }
@@ -454,10 +455,10 @@ $(".c-show-sm .c-nav__link").on("click",function(){
   if ($(".swd-header").size() > 0) {
     if (document.createStyleSheet) {
       document.createStyleSheet('//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css');
-      document.createStyleSheet('/css/defer.min.v2.css');
+      document.createStyleSheet('../css/defer.min.v2.css');
     } else {
       $("head").append($("<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css'>"));
-      $("head").append($("<link rel='stylesheet' href='/css/defer.min.v2.css'>"));
+      $("head").append($("<link rel='stylesheet' href='../css/defer.min.v2.css'>"));
     }
   }
 
@@ -507,7 +508,7 @@ $(".c-show-sm .c-nav__link").on("click",function(){
 
   [].forEach.call(touchElements, function (toggle) {
 
-    // When the smooth scroll link is clicked
+    /* When the smooth scroll link is clicked*/
     toggle.addEventListener('touchstart touchend', function (element) {
       if (swdModule.init.hasClass(element, 'swdTouchHover')) {
         swdModule.init.removeClass(element, 'swdTouchHover');
@@ -523,7 +524,6 @@ $(".c-show-sm .c-nav__link").on("click",function(){
     secondToggleClass: 'swd-hidden',
     secondToToggle: '#swd-talkToUs-js'
   });
-
 
 
   swdModule.init.scroll({
@@ -579,6 +579,7 @@ $(".c-show-sm .c-nav__link").on("click",function(){
       });
     }
   });
+
 var url=window.location.pathname;
 	if(url=='/contact-us.html') {
 
@@ -591,7 +592,7 @@ document.getElementById('swd-quoteBtn_js').addEventListener('click', function (e
 
     if (isValid) {
 		
-      swdModule.ajax.post('http://saytest.saydev.co.uk/process_quote.php', data).success(function (data) {
+      swdModule.ajax.post('https://www.saywebdesign.co.uk/process_quote.php', data).success(function (data) {
 		  
         $('#quoteForm').fadeOut(function () {
           var element = document.getElementById('quoteForm');
@@ -605,7 +606,7 @@ document.getElementById('swd-quoteBtn_js').addEventListener('click', function (e
 
 	}
   window.onscroll = function () {
-    // called when the window is scrolled.
+    /* called when the window is scrolled.*/
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     if ($('body').hasClass("home_page")) {
       if (scrollTop > 150) {
@@ -665,7 +666,7 @@ document.getElementById('swd-quoteBtn_js').addEventListener('click', function (e
 swdModule.validateForm = (function () {
 
   validateForm = function (element) {
-    //Validates that form elements are not empty
+    /*Validates that form elements are not empty*/
     var ele = document.querySelector(element),
             eleElements = ele.elements,
             eleLength = ele.elements.length,

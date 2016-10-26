@@ -25,9 +25,9 @@ gulp.task('nunjucks', function () {
     return gulp.src('./src/templates/*.html')
         .pipe(nunjucksRender({
             data: { 
-               // base_url: 'https://www.saywebdesign.co.uk/'
-       //  base_url: 'http://saytest.saydev.co.uk/'
-        base_url: 'http://localhost:8080/'
+           base_url: 'https://www.saywebdesign.co.uk/'
+        // base_url: 'http://saytest.saydev.co.uk/'
+       // base_url: 'http://localhost:8080/'
             }, 
             path: ['./src/templates/'] // String or Array
         }))
