@@ -1,0 +1,45 @@
+.refer_friend{
+  .swd-position-centered{
+    width: 80%;
+  }
+  .heading_style1{
+        margin: 0 0 30px;
+  }
+  p{
+        margin: 0 0 25px;
+            line-height: 1.3;
+  }
+  .swdButton{
+        margin-bottom: 15px;
+            margin-top: 15px;
+  }
+  a.tel:hover {
+    color: #1aa6ae;
+}
+
+}
+@media all and(max-width:1280px){
+  .refer_friend .heading_style1 {
+    margin: 0 0 20px;
+    font-size: 2rem;
+}
+.refer_friend p {
+    margin: 0 0 15px;
+    line-height: 1.4;
+    font-size: 1rem;
+}
+}
+.refer_friend_bottom {
+    padding-top: 90px;
+    padding-bottom: 80px;
+    ul{ 
+      list-style-type: decimal;
+    list-style-position: inside;
+    }
+    p {
+    margin-bottom: 25px;
+}
+li {
+    margin: 3px 0;
+}
+}

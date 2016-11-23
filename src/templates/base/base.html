@@ -91,12 +91,12 @@
 
           <nav class="c-nav c-hide-sm">
             <a class="c-nav__link {%if activePage == 'home' %}c-nav__link--active{% endif %}" href="{{ base_url }}">Home</a>
-            <a class="c-nav__link {%if activePage == 'who-we-are' %}c-nav__link--active{% endif %}" href="{{ base_url }}who-we-are/">Who we are</a>
-            <a class="c-nav__link {%if activePage == 'how-we-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}how-we-work/">How we work</a>
-            <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}our-work/">Our work</a>
-            <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__link--active{% endif %}" href="{{ base_url }}what-people-say/">What people say</a>
+            <a class="c-nav__link {%if activePage == 'who-we-are' %}c-nav__link--active{% endif %}" href="{{ base_url }}who-we-are.html">Who we are</a>
+            <a class="c-nav__link {%if activePage == 'how-we-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}how-we-work.html">How we work</a>
+            <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__link--active{% endif %}" href="{{ base_url }}our-work.html">Our work</a>
+            <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__link--active{% endif %}" href="{{ base_url }}what-people-say.html">What people say</a>
             <a class="c-nav__link" href="{{ base_url }}blog/">Blog</a>
-             <a class="c-nav__link {%if activePage == 'contact-us' %}c-nav__link--active{% endif %}" href="{{ base_url }}contact-us/">Contact us</a>
+             <a class="c-nav__link {%if activePage == 'contact-us' %}c-nav__link--active{% endif %}" href="{{ base_url }}contact-us.html">Contact us</a>
           </nav>
 
         </section>
@@ -105,12 +105,12 @@
 
       <nav class="c-nav c-show-sm js-nav-toBeToggled">
         <a class="c-nav__link {%if activePage == 'home' %}c-nav__active{% endif %}" href="{{ base_url }}">Home</a>
-        <a class="c-nav__link {%if activePage == 'who-we-are' %}c-nav__active{% endif %}" href="{{ base_url }}who-we-are/">Who we are</a>
-        <a class="c-nav__link {%if activePage == 'how-we-work' %}c-nav__active{% endif %}" href="{{ base_url }}how-we-work/">How we work</a>
-        <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__active{% endif %}" href="{{ base_url }}our-work/">Our work</a>
-        <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__active{% endif %}" href="{{ base_url }}what-people-say/">What people say</a>
+        <a class="c-nav__link {%if activePage == 'who-we-are' %}c-nav__active{% endif %}" href="{{ base_url }}who-we-are.html">Who we are</a>
+        <a class="c-nav__link {%if activePage == 'how-we-work' %}c-nav__active{% endif %}" href="{{ base_url }}how-we-work.html">How we work</a>
+        <a class="c-nav__link {%if activePage == 'our-work' %}c-nav__active{% endif %}" href="{{ base_url }}our-work.html">Our work</a>
+        <a class="c-nav__link {%if activePage == 'what-people-say' %}c-nav__active{% endif %}" href="{{ base_url }}what-people-say.html">What people say</a>
         <a class="c-nav__link" href="{{ base_url }}blog/">Blog</a>
-        <a class="c-nav__link {%if activePage == 'contact-us' %}c-nav__active{% endif %}" href="{{ base_url }}contact-us/">Contact us</a>
+        <a class="c-nav__link {%if activePage == 'contact-us' %}c-nav__active{% endif %}" href="{{ base_url }}contact-us.html">Contact us</a>
       </nav>
 
     </header>
@@ -160,7 +160,7 @@
 
                 <input type="text" name="firstName" placeholder="First Name" data-parsley-trigger="change" required="required">
                 <input type="text" name="lastName" placeholder="Last Name" data-parsley-trigger="change" required="required">
-                <input type="email" name="email" placeholder="Email Address" data-parsley-trigger="email" required="required">
+                <input type="email" name="email" class="emailBlurEvent" placeholder="Email Address" data-parsley-trigger="email" required="required">
                 <input type="text" name="phone" placeholder="Phone Number" data-parsley-trigger="change" required="required">
 
               </div>

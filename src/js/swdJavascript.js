@@ -1,3 +1,17 @@
+function checkEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{1,4})$/;
+
+        if (reg.test(emailField) == false) 
+        {
+          console.log('Invalid Email Address');
+    return false;
+  } else {
+          console.log('valid Email Address');
+    return true;
+  }
+
+
+}
 var swdModule = swdModule || {};
 
 swdModule.init = (function () {
@@ -80,7 +94,7 @@ swdModule.init = (function () {
           /* Prevent the default link behavior*/
           e.preventDefault();
 
-         /* Get anchor link and calculate distance from the top*/
+          /* Get anchor link and calculate distance from the top*/
           var dataID = toggle.getAttribute('href');
           var dataSpeed = toggle.getAttribute('data-swd-speed');
           var dataElement = toggle.getAttribute('data-swd-element');
@@ -88,14 +102,14 @@ swdModule.init = (function () {
 
           console.log('dataID', dataID);
 
-         /*If the anchor exists*/
+          /*If the anchor exists*/
           if (dataID) {
-           /* Scroll to the anchor*/
+            /* Scroll to the anchor*/
             $("html, body").animate({scrollTop: $(dataID).offset().top}, 700);
 
             addClass(toggleContent, 'swd-hidden');
 
-           /*Check if element has class*/
+            /*Check if element has class*/
             removeClass(toToggle, toggleClass);
           } else {
             addClass(toggleContent, 'swd-hidden');
@@ -130,7 +144,7 @@ swdModule.init = (function () {
     };
 
 
-   /*This removes class from element*/
+    /*This removes class from element*/
     var removeClass = function (toToggle, toggleClass) {
       if (hasClass(toToggle, toggleClass)) {
         var reg = new RegExp('(\\s|^)' + toggleClass + '(\\s|$)');
@@ -201,44 +215,44 @@ swdModule.init = (function () {
 
 
     var allLoaded = function () {
-      
+
       if (window.history && window.history.pushState) {
         jQuery(window).on('popstate', function () {
-            if (!window.userInteractionInHTMLArea) {                          
-              /*console.log(window.location.href+"---"+window.location.pathname);*/
+          if (!window.userInteractionInHTMLArea) {
+            /*console.log(window.location.href+"---"+window.location.pathname);*/
             /*console.log(window.location.href + ":pathnam");*/
 
             jQuery('.c-nav').find('a').each(function ()
-                    {
+            {
               var currentPath = window.location.href;
               var href = jQuery(this).attr('href');
               console.log(href);
-              if(window.location.pathname == "" ||  window.location.pathname == "/")
-                        {
-                 /*console.log("entered");*/
-                          getTemplate("index.html");    
+              if (window.location.pathname == "" || window.location.pathname == "/")
+              {
+                /*console.log("entered");*/
+                getTemplate("index.html");
                 jQuery('.c-nav a').removeClass("c-nav__link--active");
-                jQuery('.c-nav a:first').addClass("c-nav__link--active");                
-                        }
+                jQuery('.c-nav a:first').addClass("c-nav__link--active");
+              }
               else if (href == currentPath)
-                        {
-                 /*console.log("entered1");*/
+              {
+                /*console.log("entered1");*/
                 var pieces = href.split("/");
                 var lastStr = pieces[pieces.length - 1];
                 /*console.log(lastStr + "----");*/
-                getTemplate(lastStr+".html");
-                      
+                getTemplate(lastStr + ".html");
+
 
                 jQuery(this).addClass("c-nav__link--active");
-               /*console.log(this);*/
-                    }
+                /*console.log(this);*/
+              }
               else {
                 jQuery(this).removeClass("c-nav__link--active");
-                        window.location=currentPath;
-                    }
-                    
-                });    
-                 }
+                window.location = currentPath;
+              }
+
+            });
+          }
         });
       }
 
@@ -248,11 +262,11 @@ swdModule.init = (function () {
       [].forEach.call(allLinks, function (val) {
 
 
-        if (val.hostname === 'www.saywebdesign.co.uk') {
-       /* if (val.hostname === 'www.saytest.saydev.co.uk') {*/
+        // if (val.hostname === 'www.saywebdesign.co.uk') {
+        /* if (val.hostname === 'www.saytest.saydev.co.uk') {*/
 
 
-        /* if (val.hostname === 'localhost') {*/
+        if (val.hostname === 'localhost') {
 
           val.addEventListener('click', function (e) {
 
@@ -263,19 +277,19 @@ swdModule.init = (function () {
                 getTemplate('index.html');
               }
 
-              if ((this.pathname !== '/')&&(this.pathname !== '/blog/')) {
-                  var thispathname=this.pathname;
-                  template = thispathname.replace(new RegExp("/", 'g'), "")+".html";
-                /*template = this.pathname.replace('/', '')+".html";     */   
+              if ((this.pathname !== '/') && (this.pathname !== '/blog/')) {
+                var thispathname = this.pathname;
+                template = thispathname.replace(new RegExp("/", 'g'), "") + ".html";
+                /*template = this.pathname.replace('/', '')+".html";     */
                 getTemplate(template);
               }
               if (this.pathname === '/blog/' || this.pathname === 'blog') {
-                window.location= this.href; 
+                window.location = this.href;
               }
-              
-              var pathname=this.pathname;
-              if ((pathname.indexOf("our-work-") != '-1' )) {
-                window.location= this.href; 
+
+              var pathname = this.pathname;
+              if ((pathname.indexOf("our-work-") != '-1')) {
+                window.location = this.href;
               }
 
               window.history.pushState({}, '', this.href);
@@ -291,7 +305,7 @@ swdModule.init = (function () {
                 if (val.href === window.location.href) {
                   val.classList.add('c-nav__link--active');
                 }
-              });              
+              });
               if (this.pathname === '/') {
                 $("body").addClass("home_page");
                 $("#swd-logo-js").removeClass("swdBoxSlider-active");
@@ -398,12 +412,16 @@ swdModule.init = (function () {
 })();
 
 $(document).ready(function () {
-$(".c-show-sm .c-nav__link").on("click",function(){
+  $(".c-show-sm .c-nav__link").on("click", function () {
     $(".c-show-sm .c-nav__link").removeClass("c-nav__active");
     $(this).addClass("c-nav__link--active");
   });
-
-/* Hide Header on on scroll down*/
+  jQuery(".emailBlurEvent").blur(function(){
+	  if(checkEmail(jQuery(this).val())==true){
+		  jQuery(this).removeClass('parsley-error');
+	  }
+  });
+  /* Hide Header on on scroll down*/
   var didScroll;
   var lastScrollTop = 0;
   var delta = 5;
@@ -550,15 +568,17 @@ $(".c-show-sm .c-nav__link").on("click",function(){
         if (validation === 'email') {
 
           isEmailValid = swdModule.validation.validateEmail(this.value);
-
+          isEmailValid = checkEmail(this.value);
           if (!isEmailValid) {
             $(this).addClass('parsley-error');
           } else {
             $(this).removeClass('parsley-error');
           }
+          return true;
         }
+       
       }
-    });
+    }); 
   });
 
   document.getElementById('swd-contactBtn_js').addEventListener('click', function (e) {
@@ -569,10 +589,10 @@ $(".c-show-sm .c-nav__link").on("click",function(){
     var isValid = swdModule.validateForm('#contantForm');
 
     if (isValid) {
-      swdModule.ajax.post('https://www.saywebdesign.co.uk/process.php', data).success(function (data) {
+      swdModule.ajax.post(window.location.host+'/process.php', data).success(function (data) {
         $('#contantForm').fadeOut(function () {
           var element = document.getElementById('contantForm');
-          element.innerHTML = "<div class='pure-u-1-1 swd-footer-title-section'><p><b>Thanks you for getting in touch. We will get back to you ASAP!</b></p></div>";
+          element.innerHTML = "<div class='pure-u-1-1 swd-footer-title-section'><p><b>Thank you for getting in touch. We will get back to you ASAP!</b></p></div>";
           $(this).fadeIn();
         });
 
@@ -580,31 +600,31 @@ $(".c-show-sm .c-nav__link").on("click",function(){
     }
   });
 
-var url=window.location.pathname;
-	if(url=='/contact-us.html') {
+  var url = window.location.pathname;
+  if (url == '/contact-us.html') {
 
-document.getElementById('swd-quoteBtn_js').addEventListener('click', function (e) {
+    document.getElementById('swd-quoteBtn_js').addEventListener('click', function (e) {
 
-    e.preventDefault();
-    var data = $('#quoteForm').serialize();
- 
-    var isValid = swdModule.validateForm('#quoteForm');
+      e.preventDefault();
+      var data = $('#quoteForm').serialize();
 
-    if (isValid) {
-		
-      swdModule.ajax.post('https://www.saywebdesign.co.uk/process_quote.php', data).success(function (data) {
-		  
-        $('#quoteForm').fadeOut(function () {
-          var element = document.getElementById('quoteForm');
-          element.innerHTML = "<div class='pure-u-1-1 swd-footer-title-section'><p><b>Thanks you for getting in touch. We will get back to you ASAP!</b></p></div>";
-          $(this).fadeIn();
+      var isValid = swdModule.validateForm('#quoteForm');
+
+      if (isValid) {
+
+        swdModule.ajax.post(window.location.host+'/process_quote.php', data).success(function (data) {
+
+          $('#quoteForm').fadeOut(function () {
+            var element = document.getElementById('quoteForm');
+            element.innerHTML = "<div class='pure-u-1-1 swd-footer-title-section'><p><b>Thank you for getting in touch. We will get back to you ASAP!</b></p></div>";
+            $(this).fadeIn();
+          });
+
         });
+      }
+    });
 
-      });
-    }
-  });
-
-	}
+  }
   window.onscroll = function () {
     /* called when the window is scrolled.*/
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
